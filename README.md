@@ -5,6 +5,7 @@
 - Compiles Stylus
 - Browsersync
 - Autoprefixer
+- Includes helpful mixins
 
 Demo: http://ilko.me/gulp/
 

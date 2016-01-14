@@ -1,3 +1,3 @@
 "use strict";
 
-document.getElementById("js-app").innerHTML = "This text came from app.js";
+document.getElementById("js-app").innerHTML = "This text come from app.js";

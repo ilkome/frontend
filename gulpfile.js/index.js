@@ -67,9 +67,6 @@ gulp.task('default', function(callback) {
 });
 
 
-
-
-
 // Watch tasks
 // ===============================================
 gulp.task('watch', function() {
