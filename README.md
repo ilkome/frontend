@@ -5,7 +5,7 @@
 - Compiles Stylus
 - Browsersync
 - Autoprefixer
-- Includes helpful mixins
+- Includes helpful Stylus mixins
 
 Demo: http://ilko.me/gulp/
 
@@ -16,9 +16,9 @@ Demo: http://ilko.me/gulp/
 - `favicon`: Copy favicon to `src` folder
 - `fonts`: Copy fonts to `src` folder
 - `images`: Copy images to `src` folder
-- `jade`: Compiles JADE files to HTML files and put it to `src` folder
+- `jade`: Compiles Jade files to HTML files and put it to `src` folder
 - `javascripts`: Copy JavaScripts files to `src` folder
-- `stylus`: Compiles STYLUS files using Autoprefixer to `styles.css` and put it to `src/css` folder
+- `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `src/css` folder
 
 
 # Installation
