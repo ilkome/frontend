@@ -1,0 +1,143 @@
+// Inputs
+// ===============================================
+label, input, button, select, textarea
+	//
+
+
+// Select
+// ===============================================
+select
+	width auto
+	margin-bottom 10px
+	padding 4px 10px
+
+	option
+		padding 5px 10px
+
+
+// Text
+// ===============================================
+input[type="text"]
+input[type="password"]
+input[type="email"]
+input[type="phone"]
+	width 300px
+	margin-bottom 10px
+	padding 15px 15px
+
+	&:hover
+		//
+	&:focus
+		//
+
+	&.is-error
+		//
+
+	&.is-valid
+		//
+
+
+// Submit
+// ===============================================
+input[type="submit"]
+	width auto
+	padding 15px 30px
+	border none
+
+	&:hover
+		//
+
+	&:active
+		//
+
+
+// Textarea
+// ===============================================
+textarea
+	width 238px
+	max-width 100%
+	margin-bottom 10px
+	padding 10px 10px
+
+	&:hover
+		//
+
+	&:focus
+		//
+
+
+// Radio
+// ===============================================
+input[type="radio"] + label
+	cursor:pointer
+	margin:0px 20px 0px 0
+
+input[type="radio"] + label::before
+	content " "
+	display inline-block
+	height 18px
+	width 18px
+	margin 0 10px -3px 0px
+	background url("../img/radio.png") no-repeat;
+
+input[type="radio"]
+	display:none
+
+input[type="radio"]:disabled + label
+	cursor:default
+
+input[type="radio"] + label:hover::before
+	background-position 0px 0px
+
+input[type="radio"]:checked + label::before
+	background-position 0 -18px
+
+input[type="radio"]:disabled + label::before
+	background-position:0px 0px
+	opacity .8
+
+input[type="radio"]:checked:disabled + label::before
+	background-position 0px -18px
+	opacity .8
+
+
+// Checkbox
+// ===============================================
+input[type="checkbox"]
+	width 21px
+	height 21px
+	margin 0 3px 0 0
+	vertical-align top
+
+input[type="checkbox"]
+	& + label
+		cursor pointer
+
+	&:not(checked)
+		position absolute
+		opacity 0
+
+		& + label
+			position relative
+			display inline-block
+			padding 0 0 0 35px
+			font-size 14px
+
+		& + label:after
+			content ''
+			position absolute
+			top -3px
+			left 0px
+			width 21px
+			height 21px
+			background url("../img/checkbox.png") no-repeat
+
+	&:checked
+
+		//	checked
+		& + label:after
+			background-position 0 -21px
+
+		//	focus
+		& + label:before
+			position relative

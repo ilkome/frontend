@@ -1,0 +1,256 @@
+/*
+	Ilya Komichev
+	ilko.me
+*/
+code {
+	display: block;
+	margin: 10px 0;
+	margin-bottom: 15px;
+	padding: 10px;
+	color: #fff;
+	background: #222;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Roboto', sans-serif;
+	margin-bottom: 20px;
+}
+
+h1.is-nopadding,
+h2.is-nopadding,
+h3.is-nopadding,
+h4.is-nopadding,
+h5.is-nopadding,
+h6.is-nopadding {
+	margin-bottom: 0;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 26px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+select {
+	width: auto;
+	margin-bottom: 10px;
+	padding: 4px 10px;
+}
+
+select option {
+	padding: 5px 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="phone"] {
+	width: 300px;
+	margin-bottom: 10px;
+	padding: 15px 15px;
+}
+
+input[type="submit"] {
+	width: auto;
+	padding: 15px 30px;
+	border: none;
+}
+
+textarea {
+	width: 238px;
+	max-width: 100%;
+	margin-bottom: 10px;
+	padding: 10px 10px;
+}
+
+input[type="radio"] + label {
+	cursor: pointer;
+	margin: 0px 20px 0px 0;
+}
+
+input[type="radio"] + label::before {
+	content: " ";
+	display: inline-block;
+	height: 18px;
+	width: 18px;
+	margin: 0 10px -3px 0px;
+	background: url("../img/radio.png") no-repeat;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"]:disabled + label {
+	cursor: default;
+}
+
+input[type="radio"] + label:hover::before {
+	background-position: 0px 0px;
+}
+
+input[type="radio"]:checked + label::before {
+	background-position: 0 -18px;
+}
+
+input[type="radio"]:disabled + label::before {
+	background-position: 0px 0px;
+	opacity: 0.8;
+}
+
+input[type="radio"]:checked:disabled + label::before {
+	background-position: 0px -18px;
+	opacity: 0.8;
+}
+
+input[type="checkbox"] {
+	width: 21px;
+	height: 21px;
+	margin: 0 3px 0 0;
+	vertical-align: top;
+}
+
+input[type="checkbox"] + label {
+	cursor: pointer;
+}
+
+input[type="checkbox"]:not(checked) {
+	position: absolute;
+	opacity: 0;
+}
+
+input[type="checkbox"]:not(checked) + label {
+	position: relative;
+	display: inline-block;
+	padding: 0 0 0 35px;
+	font-size: 14px;
+}
+
+input[type="checkbox"]:not(checked) + label:after {
+	content: '';
+	position: absolute;
+	top: -3px;
+	left: 0px;
+	width: 21px;
+	height: 21px;
+	background: url("../img/checkbox.png") no-repeat;
+}
+
+input[type="checkbox"]:checked + label:after {
+	background-position: 0 -21px;
+}
+
+input[type="checkbox"]:checked + label:before {
+	position: relative;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+.ilkome {
+	position: relative;
+	height: 100%;
+	min-width: 320px;
+}
+
+a {
+	display: inline-block;
+	color: #ffa500;
+	text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px solid #ffa500;
+}
+
+ul {
+	margin: 0 0 30px 5px;
+}
+
+ul li {
+	margin: 0 0 10px 15px;
+	list-style: disc outside;
+}
+
+ul li ul,
+ul li ol {
+	margin: 15px 0 10px 0;
+}
+
+ol {
+	margin: 0 0 30px 0;
+}
+
+ol li {
+	margin: 0 0 10px 20px;
+	list-style: decimal outside;
+}
+
+ol li ul,
+ol li ol {
+	margin: 15px 0 10px 0;
+}
+
+table {
+	width: 100%;
+}
+
+table td {
+	vertical-align: top;
+}
+
+.l-body {
+	font: 16px 'Roboto', sans-serif;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+.l-body {
+	background: #000;
+	padding: 30px;
+}
+
+.l-demo {
+	padding: 30px;
+	color: #fff;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 5px;
+}
+
+.l-logo {
+	display: block;
+	width: 102px;
+	height: 36px;
+	margin-bottom: 30px;
+	background: url("../img/logo@2x.png") no-repeat;
+	background-size: 100% 100%;
+}
