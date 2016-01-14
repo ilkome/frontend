@@ -2,7 +2,7 @@
 	"name": "gulp-boilerplate",
 	"version": "3.1.0",
 	"description": "A front-end boilerplate to create projects with Jade, Stylus, Browsersync",
-	"main": "./dist",
+	"main": "./src",
 
 	"author": {
 		"name": "Ilya Komichev",
