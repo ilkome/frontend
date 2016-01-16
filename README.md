@@ -5,7 +5,7 @@
 - Compiles Stylus
 - Browsersync
 - Autoprefixer
-- Includes helpful Stylus mixins
+- Includes helpful stylus mixins
 
 Demo: http://ilko.me/gulp/
 
@@ -23,10 +23,16 @@ Demo: http://ilko.me/gulp/
 
 # Installation
 1. Install node.js
-2. In bash/terminal/command line, cd into your project directory
-3. Run `npm install` to install required files
+2. Open project directory
+3. In bash/terminal/command line run `npm install` to install required files
 4. Install gulp: `npm install gulp -g`
-5. When it's done installing, run gulp:	`gulp`. You will see something like [this](#console-preview)
+
+
+# Usage
+- Run gulp in project directory: `gulp`
+- You will see `Access URLs` 
+- Open `External` URL in all your devices to sync it toghether. Browsersync sync scroll.
+- Now you can change everything in `app` folder. Changes automatically reload page in all yours opened browsers.
 
 
 # File structure
@@ -49,17 +55,7 @@ gulp-boilerplate/
 |    |    └── *.js
 │    ├── stylus/
 |    |    └── blocks/
-│    |    |    ├── code.styl
-│    |    |    ├── colors.styl
-│    |    |    ├── fonts.styl
-│    |    |    ├── headers.styl
-│    |    |    ├── inputs.styl
-│    |    |    ├── layout.styl
-│    |    |    ├── links.styl
-│    |    |    ├── lists.styl
-│    |    |    ├── media.styl
-│    |    |    ├── tables.styl
-|    |    |    └── typography.styl
+|    |    |    └── *.styl
 |    |    └── common/
 |    |    |    └── *.styl
 |    |    └── tools/
@@ -92,40 +88,4 @@ gulp-boilerplate/
     ├── js
     |    └── *.js
     └── *.html
-```
-
-
-# Console Preview
-
-```
-D:\Dropbox\Working\HTML\ilkome-gulp>gulp
-[13:15:24] Using gulpfile D:\Dropbox\Working\HTML\ilkome-gulp\gulpfile.js
-[13:15:24] Starting 'default'...
-[13:15:24] Starting 'clean'...
-[13:15:24] Finished 'clean' after 6.49 ms
-[13:15:24] Starting 'jade'...
-[13:15:24] Starting 'stylus'...
-[13:15:24] Starting 'images'...
-[13:15:24] Starting 'css'...
-[13:15:24] Starting 'favicon'...
-[13:15:24] Finished 'css' after 15 ms
-[13:15:25] Finished 'favicon' after
-[13:15:25] Finished 'jade' after
-[13:15:25] Finished 'stylus' after
-[13:15:25] Finished 'images' after
-[13:15:25] Starting 'watch'...
-[13:15:25] Finished 'watch' after 22 ms
-[13:15:25] Starting 'browsersync'...
-[13:15:25] Finished 'browsersync' after 27 ms
-[13:15:25] Finished 'default' after
-[BS] Access URLs:
- --------------------------------------
-         Local: http://localhost:3000
-     	External: http://192.168.1.180:3000
- --------------------------------------
-          UI: http://localhost:3001
- UI External: http://192.168.1.180:3001
- --------------------------------------
-[BS] Serving files from: src
-[BS] Watching files...
 ```
