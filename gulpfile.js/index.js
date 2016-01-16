@@ -1,6 +1,6 @@
 /*
 	ilkome-gulp
-	Version 3.1.0
+	Version 3.1.1
 
 	Ilya Komichev
 	ilko.me
@@ -91,7 +91,7 @@ gulp.task('watch', function() {
 	});
 
 	// Copy images
-	watch(path.images.src + '/**/*.+(jpg|png|gif)', function(event, cb) {
+	watch(path.images.src + '/**/*.+(jpg|png|gif|svg)', function(event, cb) {
 		gulp.start('images');
 	});
 

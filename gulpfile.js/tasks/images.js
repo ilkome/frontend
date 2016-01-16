@@ -7,7 +7,7 @@ var gulp = require("gulp");
 // Just copy images to site folder
 // ===============================================
 gulp.task("images", function() {
-	return gulp.src([path.images.src + "/**/*.+(jpg|png|gif)"])
+	return gulp.src([path.images.src + "/**/*.+(jpg|png|gif|svg)"])
 
 	// Save files
 	.pipe(gulp.dest(path.images.build))

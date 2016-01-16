@@ -12,7 +12,7 @@ gulp.task("browsersync", function() {
 			path.build + "/*.html",
 			path.css.build + "/*.css",
 			path.javascripts.build + "/**/*.js",
-			path.images.build + "/**/*.+(jpg|png|gif)"
+			path.images.build + "/**/*.+(jpg|png|gif|svg)"
 		],
 		server: {baseDir: "src"},
 		open: false, //local
