@@ -241,6 +241,7 @@ p {
 
 .l-demo {
 	padding: 30px;
+	max-width: 700px;
 	color: #fff;
 	background-color: rgba(255,255,255,0.1);
 	border-radius: 5px;
