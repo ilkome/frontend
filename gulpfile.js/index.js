@@ -85,7 +85,7 @@ gulp.task('watch', function() {
 	watch([path.components + "/*.styl", path.stylus.src + "/**/*.styl"], function(event, cb) {
 		gulp.start('stylus');
 	});
-
+	
 	// Copy CSS
 	watch(path.css.src + '/**/*.css', function(event, cb) {
 		gulp.start('css');

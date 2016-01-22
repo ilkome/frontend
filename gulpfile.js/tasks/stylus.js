@@ -11,7 +11,6 @@ var gulp        = require("gulp"),
 gulp.task("stylus", function() {
 	return gulp.src([path.components + "/*.styl", path.stylus.src + "/**/*.styl"])
 
-	// Process jade templates
 	.pipe(stylus({
 		"include css": true
 	}))

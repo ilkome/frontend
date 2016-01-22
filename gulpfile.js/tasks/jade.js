@@ -1,9 +1,9 @@
 // Modules
 // ===============================================
-var gulp        = require("gulp"),
-	changed     = require("gulp-changed"),
-	jade        = require("gulp-jade"),
-	notify      = require("gulp-notify");
+var gulp    = require("gulp"),
+	changed = require("gulp-changed"),
+	jade    = require("gulp-jade"),
+	notify  = require("gulp-notify");
 
 
 // Task
