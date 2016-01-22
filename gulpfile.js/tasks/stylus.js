@@ -9,7 +9,7 @@ var gulp        = require("gulp"),
 // Task
 // ===============================================
 gulp.task("stylus", function() {
-	return gulp.src([path.components + "/*.styl", path.stylus.src + "/**/*.styl"])
+	return gulp.src([path.stylus.src + "/styles.styl"])
 
 	.pipe(stylus({
 		"include css": true
