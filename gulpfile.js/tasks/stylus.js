@@ -24,12 +24,6 @@ gulp.task("stylus", function() {
 	// Autoprefixer
 	.pipe(prefix())
 
-	// CSS Beautify
-	.pipe(cssbeautify({
-		indent: "	",
-		openbrace: "end-of-line"
-	}))
-
 	// Save files
 	.pipe(gulp.dest(path.css.build))
 });
