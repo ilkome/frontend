@@ -1,23 +1,24 @@
 # ilkome gulp boilerplate
 > A front-end boilerplate to create projects with Jade, Stylus, Browsersync
 
-- Compiles Jade
-- Compiles Stylus
+- Compiles Jade (preprocessor HTML)
+- Compiles Stylus (preprocessor CSS)
 - Browsersync
 - Autoprefixer
 - Includes helpful stylus mixins
+- Error notifications
 
 Demo: http://ilko.me/gulp/
 
 
 # Tasks
-- `gulp`: Initialize default watch for changes, build site from `app` folder and run sever.
+- `gulp`: build site from `app` folder, run sever and initialize watch for changes
 - `clean`: Delete `src` folder
 - `favicon`: Copy favicon to `src` folder
-- `fonts`: Copy fonts to `src` folder
-- `images`: Copy images to `src` folder
+- `fonts`: Copy fonts to `src/fonts` folder
+- `images`: Copy images to `src/img` folder
 - `jade`: Compiles Jade files to HTML files and put it to `src` folder
-- `javascripts`: Copy JavaScripts files to `src` folder
+- `javascripts`: Copy JavaScripts files to `src/js` folder
 - `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `src/css` folder
 
 
@@ -29,63 +30,18 @@ Demo: http://ilko.me/gulp/
 
 
 # Usage
-- Run gulp in project directory: `gulp`
-- You will see `Access URLs` 
-- Open `External` URL in all your devices to sync it toghether. Browsersync sync scroll.
-- Now you can change everything in `app` folder. Changes automatically reload page in all yours opened browsers.
-
-
-# File structure
+Open project directory and run: `gulp`. It's runs defult gulp task:
+```JavaScript
+gulp.task('default', function(callback) {
+	runSequence(
+		'clean',
+		['css', 'favicon', 'fonts', 'images', 'jade', 'javascripts', 'stylus'],
+		['watch', 'browsersync'],
+		callback);
+});
 ```
-gulp-boilerplate/
-├── app/
-│    ├── css/
-|    |    └── *.css
-│    ├── favicons/
-|    |    └── *.png
-│    ├── fonts/
-|    |    └── *.(eot|svg|ttf|woff|woff2)
-│    ├── images/
-|    |    └── *.(png, jpg, gif)
-│    ├── jade/
-│    |    ├── inc/
-|    |    |    └── *.jade
-|    |    └── *.jade
-│    ├── javascripts/
-|    |    └── *.js
-│    ├── stylus/
-|    |    └── blocks/
-|    |    |    └── *.styl
-|    |    └── common/
-|    |    |    └── *.styl
-|    |    └── tools/
-│    |    |    ├── animations.styl
-│    |    |    ├── bgds.styl
-│    |    |    ├── clearfix.styl
-│    |    |    ├── columns.styl
-│    |    |    ├── display.styl
-│    |    |    ├── index.styl
-│    |    |    ├── lists.styl
-│    |    |    ├── reset.styl
-|    |    |    └── texts.styl
-|    |    └── styles.styl
-├── gulpfile.js/
-│    ├── tasks/
-│    |    ├── clean.js
-│    |    ├── css.js
-│    |    ├── favicon.js
-│    |    ├── fonts.js
-│    |    ├── images.js
-│    |    ├── jade.js
-│    |    ├── javascripts.js
-|    |    └── stylus.js
-│    └── index.js
-└── src/
-    ├── css/
-    |    ├── *.css
-    ├── img/
-    |    ├── *.(png, jpg, gif)
-    ├── js
-    |    └── *.js
-    └── *.html
-```
+`clean` task remove `src` folder (if it exists). 
+2. Runs tasks `css`, `favicon`, `fonts`, `images`, `jade`, `javascripts`, `stylus`
+3. `watch` task starts to watch for changes in `app` folder. 
+When you change any file gulp will do some magic with it and put it in `src` folder.
+4. `browsersync` task start a mini-server and provide a URL to view your site. Use `External` URL to sync scroll, clicks on all your devices.

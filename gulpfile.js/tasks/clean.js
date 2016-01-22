@@ -20,8 +20,8 @@ gulp.task("clean", function (cb) {
 // ===============================================
 gulp.task("clean:app", function (cb) {
 	del([
-		path.images.src + "/**", "!" + path.images.src,
-		path.jade.src + "/blocks/*.*",
+		path.favicons.src + "/*.*",
+		path.images.src + "/**",
 		path.stylus.src + "/blocks/*.*"
 	],
 	cb);
