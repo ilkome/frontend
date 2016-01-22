@@ -20,3 +20,10 @@ anim-op()
 
 anim-none()
 	transition none
+
+anim-hover-op(num = .8)
+	transition opacity 0.3s ease-out
+	opacity 1
+	
+	&:hover
+		opacity num
