@@ -16,9 +16,7 @@ gulp.task("jade", function() {
 	.pipe(changed(path.build, {extension: ".html"}))
 
 	// Process jade templates
-	.pipe(jade({
-		pretty: "\t"
-	}))
+	.pipe(jade())
 
 	// Error notify
 	.on("error", notify.onError({
@@ -38,9 +36,7 @@ gulp.task("jade:nocache", function() {
 	return gulp.src([path.jade.src + "/*.jade", path.jade.ignore])
 
 	// Process jade templates
-	.pipe(jade({
-		pretty: "\t"
-	}))
+	.pipe(jade())
 
 	// Error notify
 	.on("error", notify.onError({

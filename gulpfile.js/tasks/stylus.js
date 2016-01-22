@@ -12,7 +12,8 @@ gulp.task("stylus", function() {
 	return gulp.src([path.stylus.src + "/styles.styl"])
 
 	.pipe(stylus({
-		"include css": true
+		"include css": true,
+		compress: true
 	}))
 
 	// Error notify
