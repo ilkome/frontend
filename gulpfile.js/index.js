@@ -1,6 +1,6 @@
 /*
 	ilkome-gulp
-	Version 3.1.1
+	Version 3.2.0
 
 	Ilya Komichev
 	ilko.me
@@ -20,6 +20,7 @@ var gulp        = require('gulp'),
 path = {
 	tasks: './tasks',
 	build: 'src',
+	components: 'app/components/**',
 	css: {
 		src: 'app/css',
 		build: 'src/css',
@@ -76,12 +77,12 @@ gulp.task('watch', function() {
 	});
 
 	// Process all jade when file form 'inc' folder was change
-	watch(path.jade.inc + '/*.jade', function(event, cb) {
+	watch([path.components + '/*.jade', path.jade.inc + '/*.jade'], function(event, cb) {
 		gulp.start('jade:nocache');
 	});
 
 	// Process stylus
-	watch(path.stylus.src + '/**/*.styl', function(event, cb) {
+	watch([path.components + "/*.styl", path.stylus.src + "/**/*.styl"], function(event, cb) {
 		gulp.start('stylus');
 	});
 
@@ -91,7 +92,7 @@ gulp.task('watch', function() {
 	});
 
 	// Copy images
-	watch(path.images.src + '/**/*.+(jpg|png|gif|svg)', function(event, cb) {
+	watch([path.components + '/**/*.+(jpg|png|gif|svg)', path.images.src + '/**/*.+(jpg|png|gif|svg)'], function(event, cb) {
 		gulp.start('images');
 	});
 

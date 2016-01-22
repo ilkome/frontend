@@ -3,14 +3,13 @@
 var gulp        = require("gulp"),
 	stylus      = require("gulp-stylus"),
 	prefix      = require("gulp-autoprefixer"),
-	cssbeautify = require("gulp-cssbeautify"),
 	notify      = require("gulp-notify");
 
 
 // Task
 // ===============================================
 gulp.task("stylus", function() {
-	return gulp.src([path.stylus.src + "/styles.styl"])
+	return gulp.src([path.components + "/*.styl", path.stylus.src + "/**/*.styl"])
 
 	// Process jade templates
 	.pipe(stylus({
