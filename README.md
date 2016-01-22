@@ -1,5 +1,5 @@
 # ilkome gulp boilerplate
-> A front-end boilerplate to create projects with Jade, Stylus, Browsersync
+> A front-end boilerplate to create projects with Jade, Stylus, Autoprefixer, Browsersync
 
 - Compiles Jade (preprocessor HTML)
 - Compiles Stylus (preprocessor CSS)
