@@ -1,8 +1,8 @@
 # ilkome gulp boilerplate
 > A front-end boilerplate to create projects with Jade, Stylus, Autoprefixer, Browsersync
 
-- Compiles Jade (preprocessor HTML)
-- Compiles Stylus (preprocessor CSS)
+- Compiles Jade. Preprocessor HTML
+- Compiles Stylus. Preprocessor CSS
 - Browsersync
 - Autoprefixer
 - Includes helpful stylus mixins
@@ -40,8 +40,8 @@ gulp.task('default', function(callback) {
 		callback);
 });
 ```
-`clean` task remove `src` folder (if it exists). 
-2. Runs tasks `css`, `favicon`, `fonts`, `images`, `jade`, `javascripts`, `stylus`
-3. `watch` task starts to watch for changes in `app` folder. 
-When you change any file gulp will do some magic with it and put it in `src` folder.
-4. `browsersync` task start a mini-server and provide a URL to view your site. Use `External` URL to sync scroll, clicks on all your devices.
+
+- `clean` task remove everything inside `src` folder.
+- `css`, `favicon`, `fonts`, `images`, `jade`, `javascripts`, `stylus` tasks do compiles or just copies files in to `src`.
+- `watch` task starts to watch for changes in `app` folder. When you change any file gulp will do some magic with it and put it in `src` folder.
+- `browsersync` task start a mini-server and provide a URL to view your site. Use `External` URL to sync scroll, clicks on all your devices.
