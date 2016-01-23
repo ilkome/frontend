@@ -9,7 +9,7 @@ var gulp = require("gulp"),
 // ===============================================
 gulp.task("clean", function (cb) {
 	del([
-		path.build
+		path.build + "/**/*"
 	],
 	cb);
 });
