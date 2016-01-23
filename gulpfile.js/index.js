@@ -1,9 +1,10 @@
 /*
-	ilkome-gulp
+	ilkome gulp boilerplate
 	Version 3.2.1
 
 	Ilya Komichev
-	ilko.me
+	https://ilko.me
+	https://github.com/ilkome/gulp-boilerplate
 */
 
 
