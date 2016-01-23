@@ -1,12 +1,12 @@
 # ilkome gulp boilerplate
 > A front-end boilerplate to create projects with Jade, Stylus, Autoprefixer, Browsersync
 
-- Compiles Jade. Preprocessor HTML
-- Compiles Stylus. Preprocessor CSS
-- Browsersync
-- Autoprefixer
-- Includes helpful stylus mixins
-- Error notifications
+- Compiles Jade. Preprocessor HTML.
+- Compiles Stylus. Preprocessor CSS.
+- Browsersync. Server with sync scroll, click, forms between devices.
+- Autoprefixer. Parse CSS and add vendor prefixes to rules.
+- Includes helpful stylus mixins.
+- Error notifications when you make mistakes in Jade, Stylus files.
 
 Demo: http://ilko.me/gulp/
 
