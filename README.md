@@ -22,11 +22,16 @@ Demo: http://ilko.me/gulp/
 - `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `src/css` folder
 
 
-# Installation
-1. Install node.js
+# What is Gulp?
+Gulp is a task runner. It automates tasks that you have to do repeatedly when developing.
+
+# Installation Gulp
+Gulp is very easy to get. First of, i. If you have them, type this :
+
+1. Install nodejs and npm
 2. Open project directory
-3. In bash/terminal/command line run `npm install` to install required files
-4. Install gulp: `npm install gulp -g`
+3. In in your terminal type `npm install` to install required files
+4. Install gulp: `npm install gulp -g`. The `-g` is for global, so that it is available everywhere.
 
 
 # Usage
