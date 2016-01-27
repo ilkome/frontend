@@ -8,7 +8,7 @@
 - Includes helpful stylus mixins.
 - Error notifications when you make mistakes in Jade, Stylus files.
 
-Demo: http://ilko.me/gulp/
+Demo: http://ilko.me/gulp-demo/
 
 
 # Tasks
