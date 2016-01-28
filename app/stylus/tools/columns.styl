@@ -11,12 +11,6 @@ wrap()
 		vertical-align top
 		display inline-block
 
-col(row = false)
-	if (row == auto)
-		width auto
-	else
-		width (100% / row)
-		
 gutter(gutter = false, out = false)
 	if gutter
 		margin 0 (- gutter)
@@ -24,3 +18,9 @@ gutter(gutter = false, out = false)
 			padding 0 gutter
 	if out
 		margin 0
+
+col(row = false)
+	if (row == auto)
+		width auto
+	else
+		width (100% / row)
