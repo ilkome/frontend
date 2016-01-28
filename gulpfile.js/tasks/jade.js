@@ -3,7 +3,8 @@
 var gulp    = require("gulp"),
 	changed = require("gulp-changed"),
 	jade    = require("gulp-jade"),
-	notify  = require("gulp-notify");
+	notify  = require("gulp-notify"),
+	jadephp = require("gulp-jade-php");
 
 
 // Task
@@ -46,4 +47,28 @@ gulp.task("jade:nocache", function() {
 
 	// Save files
 	.pipe(gulp.dest(path.build));
+});
+
+
+
+// Task
+// Process jade php files
+// ===============================================
+gulp.task("jade:php", function() {
+	return gulp.src(["app/php/*.jade"])
+
+	// Pass only unchanged files
+	.pipe(changed(path.build, {extension: ".php"}))
+
+	// Process jade templates
+	.pipe(jadephp())
+
+	// Error notify
+	.on("error", notify.onError({
+		message: "<%= error.message %>",
+		title: "Jade:php error"
+	}))
+
+	// Save files
+	.pipe(gulp.dest(path.build))
 });

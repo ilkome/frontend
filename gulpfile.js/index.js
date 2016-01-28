@@ -63,7 +63,7 @@ requireDir(path.tasks);
 gulp.task('default', function(callback) {
 	runSequence(
 		'clean',
-		['css', 'favicon', 'fonts', 'images', 'jade', 'javascripts', 'stylus'],
+		['css', 'favicon', 'fonts', 'images', 'jade', 'jade:php', 'javascripts', 'stylus'],
 		['watch', 'browsersync'],
 		callback);
 });
