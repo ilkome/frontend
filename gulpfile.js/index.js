@@ -77,6 +77,11 @@ gulp.task('watch', function() {
 		gulp.start('jade');
 	});
 
+	// Process jade.php
+	watch(["app/php/*.jade"], function(event, cb) {
+		gulp.start('jade:php');
+	});
+
 	// Process all jade when file form 'inc' folder was change
 	watch([path.components + '/*.jade', path.jade.inc + '/*.jade'], function(event, cb) {
 		gulp.start('jade:nocache');
@@ -92,8 +97,13 @@ gulp.task('watch', function() {
 		gulp.start('css');
 	});
 
+	// Copy Favicon
+	watch([path.favicons.src + "/**/*.png"], function(event, cb) {
+		gulp.start('favicon');
+	});
+
 	// Copy images
-	watch([path.components + '/**/*.+(jpg|png|gif|svg)', path.images.src + '/**/*.+(jpg|png|gif|svg)'], function(event, cb) {
+	watch([path.components + '/**/img/*.+(jpg|png|gif|svg)', path.images.src + '/**/*.+(jpg|png|gif|svg)'], function(event, cb) {
 		gulp.start('images');
 	});
 
