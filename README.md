@@ -1,6 +1,8 @@
-# ilkome gulp boilerplate
+# Gulp boilerplate
 > A front-end boilerplate to create projects with Jade, Stylus, Autoprefixer, Browsersync
 
+
+# Futures
 - Compiles Jade. Preprocessor HTML.
 - Compiles Stylus. Preprocessor CSS.
 - Browsersync. Server with sync scroll, click, forms between devices.
@@ -11,27 +13,16 @@
 Demo: http://ilko.me/gulp-demo/
 
 
-# Tasks
-- `gulp`: build site from `app` folder, run sever and initialize watch for changes
-- `clean`: Delete `src` folder
-- `favicon`: Copy favicon to `src` folder
-- `fonts`: Copy fonts to `src/fonts` folder
-- `images`: Copy images to `src/img` folder
-- `jade`: Compiles Jade files to HTML files and put it to `src` folder
-- `javascripts`: Copy JavaScripts files to `src/js` folder
-- `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `src/css` folder
-
-
 # What is Gulp?
 Gulp is a task runner. It automates tasks that you have to do repeatedly when developing.
 
-# Installation Gulp
-Gulp is very easy to get. First of, i. If you have them, type this :
 
-1. Install nodejs and npm
+# Installation Gulp
+Gulp is very easy to get.
+1. Install nodejs
 2. Open project directory
-3. In in your terminal type `npm install` to install required files
-4. Install gulp: `npm install gulp -g`. The `-g` is for global, so that it is available everywhere.
+3. Run `npm install` to install required files
+4. Install gulp: `npm install gulp -g`
 
 
 # Usage
@@ -46,7 +37,13 @@ gulp.task('default', function(callback) {
 });
 ```
 
-- `clean` task remove everything inside `src` folder.
-- `css`, `favicon`, `fonts`, `images`, `jade`, `javascripts`, `stylus` tasks do compiles or just copies files in to `src`.
-- `watch` task starts to watch for changes in `app` folder. When you change any file gulp will do some magic with it and put it in `src` folder.
-- `browsersync` task start a mini-server and provide a URL to view your site. Use `External` URL to sync scroll, clicks on all your devices.
+
+# Tasks
+- `gulp`: build site from `app` folder, run sever and initialize watch for changes
+- `clean`: remove everything inside `src` folder.
+- `favicon`: Copy favicon to `src` folder
+- `fonts`: Copy fonts to `src/fonts` folder
+- `images`: Copy images to `src/img` folder
+- `jade`: Compiles Jade files to HTML files and put it to `src` folder
+- `javascripts`: Copy JavaScripts files to `src/js` folder
+- `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `src/css` folder
