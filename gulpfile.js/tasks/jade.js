@@ -1,74 +1,83 @@
+'use strict';
+
 // Modules
 // ===============================================
-var gulp    = require("gulp"),
-	changed = require("gulp-changed"),
-	jade    = require("gulp-jade"),
-	notify  = require("gulp-notify"),
-	jadephp = require("gulp-jade-php");
+var gulp  = require('gulp'),
+	paths = require('../paths'),
+	jade = require('gulp-jade'),
+	jadeInheritance = require('gulp-jade-inheritance'),
+	browserSync = require('browser-sync'),
+	changed = require('gulp-changed'),
+	cached = require('gulp-cached'),
+	gulpFilter = require('gulp-filter'),
+	flatten = require('gulp-flatten'),
+	plumber = require('gulp-plumber'),
+	debug = require('gulp-debug'),
+	gutil = require('gulp-util');
 
 
-// Task
-// Process jade files wit cache
+// Settings
 // ===============================================
-gulp.task("jade", function() {
-	return gulp.src([path.jade.src + "/*.jade", path.jade.ignore])
+var config = {
+	pretty: {
+		pretty: true
+	},
+	minify: {
+		pretty: false
+	}
+};
 
-	// Pass only unchanged files
-	.pipe(changed(path.build, {extension: ".html"}))
 
-	// Process jade templates
-	.pipe(jade())
+// Compile jade
+// ===============================================
+gulp.task('jade', function() {
+	return gulp.src(paths.jade.input)
 
-	// Error notify
-	.on("error", notify.onError({
-		message: "<%= error.message %>",
-		title: "Jade error"
+	// Error in syntax
+	.pipe(plumber(function(error) {
+		gutil.log(
+			gutil.colors.magenta('jade'),
+			gutil.colors.red('error:'),
+			error.message
+		)
+		this.emit('end');
 	}))
 
-	// Save files
-	.pipe(gulp.dest(path.build))
-});
+	// Keeps an in-memory cache of files
+	.pipe(cached('jadecache'))
 
+	// Only pass through changed files
+	.pipe(changed(paths.build, {extension: '.html'}))
 
-// Task
-// Process jade files without cache
-// ===============================================
-gulp.task("jade:nocache", function() {
-	return gulp.src([path.jade.src + "/*.jade", path.jade.ignore])
+	/**
+	 * Rebuild a jade file with other files
+	 * that have extended or included those file
+	 */
+	.pipe(jadeInheritance({basedir: paths.app}))
 
-	// Process jade templates
-	.pipe(jade())
-
-	// Error notify
-	.on("error", notify.onError({
-		message: "<%= error.message %>",
-		title: "Jade inc error"
+	// Filter components
+	.pipe(gulpFilter(function (file) {
+		return !/\/components/.test(file.path);
 	}))
 
-	// Save files
-	.pipe(gulp.dest(path.build));
-});
+	// Jade
+	.pipe(debug({title: 'jade:'}))
+	.pipe(jade(gutil.env.pretty ? config.pretty : config.minify))
 
+	// Remove structure of folders
+	.pipe(flatten())
 
+	.pipe(gulp.dest(paths.build))
 
-// Task
-// Process jade php files
-// ===============================================
-gulp.task("jade:php", function() {
-	return gulp.src(["app/php/*.jade"])
+	.on('end', function() {
+		if(gutil.env.pretty) {
+			gutil.log(gutil.colors.magenta('jade'), ':', gutil.colors.green('pretty'));
+		} else {
+			gutil.log(gutil.colors.magenta('jade'), ':', gutil.colors.green('minify'));
+		}
 
-	// Pass only unchanged files
-	.pipe(changed(path.build, {extension: ".php"}))
-
-	// Process jade templates
-	.pipe(jadephp())
-
-	// Error notify
-	.on("error", notify.onError({
-		message: "<%= error.message %>",
-		title: "Jade:php error"
-	}))
-
-	// Save files
-	.pipe(gulp.dest(path.build))
+		gutil.log(gutil.colors.magenta('jade'), ':', gutil.colors.green('finished'));
+		gutil.log(gutil.colors.magenta('browserSync'), ':', gutil.colors.green('reload'));
+		browserSync.reload();
+	})
 });

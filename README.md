@@ -26,24 +26,17 @@ Gulp is very easy to get.
 
 
 # Usage
-Open project directory and run: `gulp`. It's runs defult gulp task:
-```JavaScript
-gulp.task('default', function(callback) {
-	runSequence(
-		'clean',
-		['css', 'favicon', 'fonts', 'images', 'jade', 'javascripts', 'stylus'],
-		['watch', 'browsersync'],
-		callback);
-});
-```
+Open project directory and run: 
+- `gulp`
+- `gulp --pretty`
 
 
 # Tasks
 - `gulp`: build site from `app` folder, run sever and initialize watch for changes
-- `clean`: remove everything inside `src` folder.
-- `favicon`: Copy favicon to `src` folder
-- `fonts`: Copy fonts to `src/fonts` folder
-- `images`: Copy images to `src/img` folder
-- `jade`: Compiles Jade files to HTML files and put it to `src` folder
-- `javascripts`: Copy JavaScripts files to `src/js` folder
-- `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `src/css` folder
+- `clean`: remove everything inside `build` folder.
+- `favicon`: Copy favicon to `build` folder
+- `fonts`: Copy fonts to `build/fonts` folder
+- `images`: Copy images to `build/img` folder
+- `jade`: Compiles Jade files to HTML files and put it to `build` folder
+- `javascripts`: Copy JavaScripts files to `build/js` folder
+- `stylus`: Compiles Stylus files using Autoprefixer to `styles.css` and put it to `build/css` folder

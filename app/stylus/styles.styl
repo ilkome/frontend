@@ -1,33 +1,31 @@
-/*
-	Ilya Komichev
-	ilko.me
-*/
-
-
-// Fonts. Need to be the first import 
 // ===============================================
+// Mixins and vars
+// ===============================================
+@import "mixins/index"
+@import "common/colors"
+
+
+// ===============================================
+// OUTPUT
+// ===============================================
+
+// Fonts. Need to be the first import
 @import "common/fonts"
 
-
-// ilkome tools
-// ===============================================
-@import "tools/index"
-
-
 // Common
-// ===============================================
+@import "../components/layout/layout"
+@import "../components/logo/logo"
 @import "common/media"
-@import "common/code"
-@import "common/colors"
-@import "common/headers"
-@import "common/inputs"
-@import "common/layout"
-@import "common/links"
-@import "common/lists"
-@import "common/tables"
 @import "common/typography"
+@import "common/headers"
+@import "common/links"
+@import "common/etc"
+// @import "common/inputs"
+// @import "common/lists"
+// @import "common/tables"
 
 
 // Blocks & Components
 // ===============================================
-@import "../components/header/header"
+@import "blocks/demo"
+@import "blocks/demo"

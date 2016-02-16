@@ -1,30 +1,76 @@
+'use strict';
+
 // Modules
 // ===============================================
-var gulp        = require("gulp"),
-	stylus      = require("gulp-stylus"),
-	prefix      = require("gulp-autoprefixer"),
-	notify      = require("gulp-notify");
+var gulp = require('gulp'),
+	paths = require('../paths'),
+	browserSync = require('browser-sync'),
+	stylus = require('gulp-stylus'),
+	prefix = require('gulp-autoprefixer'),
+	plumber = require('gulp-plumber'),
+	debug = require('gulp-debug'),
+	gutil = require('gulp-util');
 
 
-// Task
+// Settings
 // ===============================================
-gulp.task("stylus", function() {
-	return gulp.src([path.stylus.src + "/styles.styl"])
+var config = {
+	pretty: {
+		'compress': false,
+		'include css': false
+	},
+	minify: {
+		'compress': true
+	}
+}
 
-	.pipe(stylus({
-		"include css": true,
-		compress: true
+
+// Compile stylus
+// ===============================================
+gulp.task('stylus', function() {
+	return gulp.src(paths.stylus.entry)
+
+	// Error in syntax
+	.pipe(plumber(function(error) {
+		gutil.log(
+			gutil.colors.magenta('stylus'),
+			gutil.colors.red('error:'),
+			error.message
+		)
+		this.emit('end');
 	}))
 
-	// Error notify
-	.on("error", notify.onError({
-		message: "<%= error.message %>",
-		title: "Stylus error"
+	// Show name of file in pipe
+	.pipe(debug({title: 'stylus:'}))
+
+	// Stylus
+	.pipe(stylus(gutil.env.pretty ? config.pretty : config.minify))
+
+	// Error in css files
+	.pipe(plumber(function(error) {
+		gutil.log(
+			gutil.colors.magenta('stylus'),
+			gutil.colors.red('error:'),
+			'Hey, dude! You\'re made syntax error!'
+		);
+		this.emit('end');
 	}))
 
 	// Autoprefixer
 	.pipe(prefix())
 
 	// Save files
-	.pipe(gulp.dest(path.css.build))
+	.pipe(gulp.dest(paths.stylus.output))
+
+	.on('end', function() {
+		if(gutil.env.pretty) {
+			gutil.log(gutil.colors.magenta('stylus'), ':', gutil.colors.green('pretty'));
+		} else {
+			gutil.log(gutil.colors.magenta('stylus'), ':', gutil.colors.green('minify'));
+		}
+
+		gutil.log(gutil.colors.magenta('stylus'), ':', gutil.colors.green('finished'));
+		gutil.log(gutil.colors.magenta('browserSync'), ':', gutil.colors.green('reload'));
+		browserSync.reload();
+	})
 });
