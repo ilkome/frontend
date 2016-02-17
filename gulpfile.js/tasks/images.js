@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 	paths = require('../paths'),
 	gutil = require('gulp-util'),
 	browserSync = require("browser-sync"),
+	debug = require('gulp-debug'),
 	flatten = require('gulp-flatten');
 
 
@@ -13,6 +14,9 @@ var gulp = require('gulp'),
 // ===============================================
 gulp.task('images', function() {
 	return gulp.src([paths.images.input, paths.components.images])
+
+	// Show name of file in pipe
+	.pipe(debug({title: 'images:'}))
 
 	// Remove structure of folders
 	.pipe(flatten({
