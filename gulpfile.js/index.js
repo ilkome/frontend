@@ -3,7 +3,7 @@
 
 /*
 	ilkome gulp boilerplate
-	Version 3.4.0
+	Version 3.4.1
 
 	Ilya Komichev
 	https://ilko.me
