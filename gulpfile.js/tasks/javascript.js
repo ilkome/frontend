@@ -6,24 +6,22 @@ var gulp = require('gulp'),
 	paths = require('../paths'),
 	gutil = require('gulp-util'),
 	browserSync = require("browser-sync"),
-	flatten = require('gulp-flatten');
+	changed = require('gulp-changed');
 
 
-// Copy images to build folder
+// Сopy javascript to build folder
 // ===============================================
-gulp.task('images', function() {
-	return gulp.src([paths.images.input, paths.components.images])
+gulp.task('js', function() {
+	return gulp.src(paths.js.input)
 
-	// Remove structure of folders
-	.pipe(flatten({
-		//includeParents: -1
-	}))
+	// Pass only unchanged files
+	.pipe(changed(paths.js.output, {extension: '.js'}))
 
 	// Save files
-	.pipe(gulp.dest(paths.images.output))
+	.pipe(gulp.dest(paths.js.output))
 
 	.on('end', function() {
-		gutil.log(gutil.colors.magenta('images'), ':', gutil.colors.green('finished'));
+		gutil.log(gutil.colors.magenta('js'), ':', gutil.colors.green('finished'));
 		gutil.log(gutil.colors.magenta('browserSync'), ':', gutil.colors.green('reload'));
 		browserSync.reload();
 	})

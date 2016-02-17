@@ -1,23 +1,20 @@
+'use strict';
+
 // Modules
 // ===============================================
-var gulp = require("gulp"),
-	browsersync = require("browser-sync");
+var gulp = require('gulp'),
+	paths = require('../paths'),
+	browserSync = require('browser-sync');
 
 
-// Browsersync task
+// BrowserSync
 // ===============================================
-gulp.task("browsersync", function() {
-	return browsersync.init({
-		files: [
-			path.build + "/*.html",
-			path.css.build + "/*.css",
-			path.javascripts.build + "/**/*.js",
-			path.images.build + "/**/*.+(jpg|png|gif|svg)"
-		],
-		server: {baseDir: "src"},
+gulp.task('browserSync', function() {
+	return browserSync.init({
+		server: {baseDir: paths.build},
 		open: false, //local
-		notify: true,
 		logFileChanges: false,
-		notify: false
+		notify: false,
+		online: false
 	});
 });
