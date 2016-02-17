@@ -78,7 +78,7 @@ gulp.task('watch', function() {
 
 	// JS
 	watch(paths.js.input, function() {
-		gulp.start('jade');
+		gulp.start('js');
 	});
 
 	// Stylus

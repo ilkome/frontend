@@ -34,7 +34,7 @@ module.exports = {
 		input: pathApp + '/**/*.jade',
 	},
 	js: {
-		input: pathApp + '/js',
+		input: pathApp + '/js/*.js',
 		output: pathBuild + '/js',
 	},
 	stylus: {
