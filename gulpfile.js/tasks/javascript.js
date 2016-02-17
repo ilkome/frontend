@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 	paths = require('../paths'),
 	gutil = require('gulp-util'),
 	browserSync = require("browser-sync"),
+	debug = require('gulp-debug'),
 	changed = require('gulp-changed');
 
 
@@ -16,6 +17,8 @@ gulp.task('js', function() {
 
 	// Pass only unchanged files
 	.pipe(changed(paths.js.output, {extension: '.js'}))
+
+	.pipe(debug({title: 'js:'}))
 
 	// Save files
 	.pipe(gulp.dest(paths.js.output))
