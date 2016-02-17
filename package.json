@@ -1,7 +1,7 @@
 {
   "name": "gulp-boilerplate",
   "version": "3.4.0",
-  "description": "A front-end boilerplate to create projects with Jade, Stylus, Browsersync",
+  "description": "A front-end boilerplate to create projects with Jade, Stylus, Autoprefixer, Browsersync",
   "main": "./build",
   "author": {
     "name": "Ilya Komichev",
