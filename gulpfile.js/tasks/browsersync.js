@@ -4,17 +4,12 @@
 // ===============================================
 var gulp = require('gulp'),
 	paths = require('../paths'),
+	settings = require('../setting'),
 	browserSync = require('browser-sync');
 
 
 // BrowserSync
 // ===============================================
 gulp.task('browserSync', function() {
-	return browserSync.init({
-		server: {baseDir: paths.build},
-		open: false, //local
-		logFileChanges: false,
-		notify: false,
-		online: false
-	});
+	return browserSync.init(settings.browserSync);
 });
