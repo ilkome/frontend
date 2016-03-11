@@ -1,3 +1,9 @@
+//- Variables
+//-----------------------------------------------
+block vars
+	- var pagetitle = "Inside"
+
+
 //- Include mixins from components
 //-----------------------------------------------
 
@@ -8,10 +14,10 @@
 extends ../components/layout/layout
 
 
-//- Append this to зфпу block in layout
+//- Append this to page block in layout
 //-----------------------------------------------
 block append page
 	.demoBlock
-		h1 Inside page
+		h1 #{pagetitle} page
 		a(href="index.html") Index page
 		p Example text.

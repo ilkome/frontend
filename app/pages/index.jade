@@ -1,6 +1,11 @@
+//- Variables
+//-----------------------------------------------
+block vars
+	- pagetitle = "Index"
+
+
 //- Include mixins from components
 //-----------------------------------------------
-
 
 
 //- Extend layout
@@ -8,11 +13,12 @@
 extends ../components/layout/layout
 
 
-//- Append this to зфпу block in layout
+//- Append this to page block in layout
 //-----------------------------------------------
 block append page
 	.demoBlock
-		h1 This page builds with ilkome gulp boilerplate
+		h1 This page builds with ilkome gulp boilerplate.
+		h2= pagetitle
 		a(href="inside.html") Inside page
 		p: a(href="https://github.com/ilkome/gulp-boilerplate/") Project on GitHub
 
