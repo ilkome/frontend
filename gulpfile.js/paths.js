@@ -41,5 +41,8 @@ module.exports = {
 		input: pathApp + '/stylus/**/*.styl',
 		entry: pathApp + '/stylus/styles.styl',
 		output: pathBuild + '/css'
-	}
+	},
+	wordpress: {
+		input: pathApp + '/wordpress/**/*.php'
+	},
 };

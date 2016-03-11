@@ -38,7 +38,8 @@ gulp.task('default', function(callback) {
 			'images',
 			'jade',
 			'js',
-			'stylus'
+			'stylus',
+			'wordpress'
 		],
 		'watch',
 		'browserSync',
@@ -84,5 +85,10 @@ gulp.task('watch', function() {
 	// Stylus
 	watch([paths.stylus.input, paths.components.stylus], function() {
 		gulp.start('stylus');
+	});
+
+	// WordPess
+	watch(paths.wordpress.input, function() {
+		gulp.start('wordpress');
 	});
 });
