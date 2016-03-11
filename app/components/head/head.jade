@@ -1,5 +1,14 @@
+//- Variables
+//-----------------------------------------------
+block vars
+
+
 head
-	title ilkome gulp boilerplate
+	title
+		if pagetitle
+			| #{pagetitle} - ilkome gulp boilerplate
+		else
+			| pagetitle
 
 	//- meta
 	meta(charset="utf-8")
