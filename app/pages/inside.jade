@@ -19,5 +19,7 @@ extends ../components/layout/layout
 block append page
 	.demoBlock
 		h1 #{pagetitle} page
-		a(href="index.html") Index page
-		p Example text.		p#js-app
+		ul
+			li: a(href="index.html" title="Index page") Index page
+			li: a(href="https://github.com/ilkome/gulp-boilerplate/" title="Project on GitHub") Project on GitHub
+		p#js-app

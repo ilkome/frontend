@@ -1,20 +1,19 @@
-//- Variables
+//- Include mixins from components
 //-----------------------------------------------
-block vars
+include ../head/head
+include ../scripts/scripts
+include ../logo/logo
 
 
+//- Layout
+//-----------------------------------------------
 doctype html
-
-// Front-end developer
-// Ilya Komichev
-// http://ilko.me
-
-html(lang="ru")
-	include ../head/head
++head-copyright
+html
+	+head
 
 	body.l-body
-		include ../logo/logo
+		+logo
 		block page
 
-	//- Include scripts
-	include ../scripts/scripts
+	+scripts
