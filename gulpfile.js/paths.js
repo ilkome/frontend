@@ -13,7 +13,7 @@ module.exports = {
 	components: {
 		input: pathApp + '/components',
 		stylus: pathApp + '/components/**/*.styl',
-		images: pathApp + '/components/**/img/*.+(jpg|png|gif|svg)'
+		images: pathApp + '/components/**/img/**/*.+(jpg|png|gif|svg)'
 	},
 	css: {
 		input: pathApp + '/css/*.css',

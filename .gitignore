@@ -1,4 +1,5 @@
 node_modules/
+archive/
 *.sublime-project
 *.sublime-workspace
 *.diff

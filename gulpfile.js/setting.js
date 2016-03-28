@@ -8,7 +8,7 @@ module.exports = {
 		open: false, //local
 		logFileChanges: false,
 		notify: false,
-		online: false
+		// online: false
 	},
 	prettyHTML: {
 		html: {

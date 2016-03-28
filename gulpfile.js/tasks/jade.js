@@ -6,11 +6,7 @@ var gulp  = require('gulp'),
 	paths = require('../paths'),
 	settings = require('../setting'),
 	jade = require('gulp-jade'),
-	jadeInheritance = require('gulp-jade-inheritance'),
 	browserSync = require('browser-sync'),
-	changed = require('gulp-changed'),
-	cached = require('gulp-cached'),
-	gulpFilter = require('gulp-filter'),
 	flatten = require('gulp-flatten'),
 	plumber = require('gulp-plumber'),
 	debug = require('gulp-debug'),
@@ -38,7 +34,7 @@ gulp.task('jade', function() {
 
 	// Prettify
 	.pipe(jade(gutil.env.minify ? settings.jade.minify : settings.jade.pretty))
-	
+
 	// TO DO: check
 	.pipe(prettify(settings.prettyHTML))
 

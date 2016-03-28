@@ -1,15 +1,14 @@
-'use strict';
-
-
 /*
 	ilkome gulp boilerplate
-	Version 3.4.2
+	Version 3.4.3
 
 	Ilya Komichev
 	https://ilko.me
 	https://github.com/ilkome/gulp-boilerplate
 */
 
+
+'use strict';
 
 // Modules
 // ===============================================
@@ -30,14 +29,13 @@ requireDir('./tasks');
 // ===============================================
 gulp.task('default', function(callback) {
 	runSequence(
-		'clean',
-		[
+		'clean', [
 			'css',
 			'favicon',
 			'fonts',
 			'images',
 			'jade',
-			'js',
+			'javascript',
 			'stylus',
 			'wordpress'
 		],
@@ -79,7 +77,7 @@ gulp.task('watch', function() {
 
 	// JS
 	watch(paths.js.input, function() {
-		gulp.start('js');
+		gulp.start('javascript');
 	});
 
 	// Stylus

@@ -12,13 +12,17 @@ var gulp = require('gulp'),
 
 // Сopy javascript to build folder
 // ===============================================
-gulp.task('js', function() {
+gulp.task('javascript', function() {
 	return gulp.src(paths.js.input)
 
 	// Pass only unchanged files
-	.pipe(changed(paths.js.output, {extension: '.js'}))
+	.pipe(changed(paths.js.output, {
+		extension: '.js'
+	}))
 
-	.pipe(debug({title: 'js:'}))
+	.pipe(debug({
+		title: 'js:'
+	}))
 
 	// Save files
 	.pipe(gulp.dest(paths.js.output))
