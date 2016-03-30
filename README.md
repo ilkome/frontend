@@ -19,6 +19,7 @@ Gulp is a task runner. It automates tasks that you have to do repeatedly when de
 
 # Installation Gulp
 Gulp is very easy to get.
+
 1. Install nodejs
 2. Open project directory
 3. Run `npm install` to install required files
@@ -26,7 +27,7 @@ Gulp is very easy to get.
 
 
 # Usage
-Open project directory and run: 
+Open project directory and run:
 - `gulp`
 - `gulp --pretty`
 
