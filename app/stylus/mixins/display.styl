@@ -1,25 +1,26 @@
 // Display
 // ===============================================
 borderbox-all()
-	*, *:before, *:after
+	*
 		box-sizing border-box
 
-hide()
-	display none
-
-dt(tablelayout = false)
+table(table-layout-fixed = false)
 	display table
 	width 100%
 
-	if tablelayout
+	if table-layout-fixed
 		table-layout auto
 	else
 		table-layout fixed
 
-dtc(aligncenter = false)
+table-cell(vertical-align-middle = false)
 	display table-cell
 
-	if aligncenter
+	if vertical-align-middle
 		vertical-align middle
 	else
 		vertical-align top
+
+flex-ie-height-fix()
+	display flex
+	flex-direction column
