@@ -1,2 +1,100 @@
+@import "normalize.css";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400");
-*{margin:0;padding:0;border:0;outline:0}*,*:before,*:after{box-sizing:border-box}.l-body{font-size:16px;font-family:'Roboto',sans-serif}p{margin-bottom:20px}h1,h2,h3,h4,h5,h6{font-family:'Roboto',sans-serif;font-weight:700;margin-bottom:30px}h1{font-size:30px}h2{font-size:26px}h3{font-size:24px}a{display:inline-block;color:#ffa500;text-decoration:none;border-bottom:1px solid transparent;}a:hover{border-bottom:1px solid #ffa500}ul{margin:0 0 30px 5px;}ul li{margin:0 0 10px 15px;list-style:disc outside;}ul li ul,ul li ol{margin:15px 0 10px 0}ol{margin:0 0 30px 0;}ol li{margin:0 0 10px 20px;list-style:decimal outside;}ol li ul,ol li ol{margin:15px 0 10px 0}code{display:block;margin:10px 0;margin-bottom:15px;padding:10px;color:#fff;background:#222}html{height:100%}.l-body{min-width:320px;background:#000;padding:30px}.l-logo{display:block;width:102px;height:36px;margin-bottom:30px;background:url("../img/logo@2x.png") no-repeat;background-size:100% 100%;border:none;}.l-logo:hover{border:none}.demoBlock{padding:30px;max-width:700px;color:#fff;background-color:rgba(255,255,255,0.1);border-radius:5px}
+.l-body {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+p {
+  margin: 0;
+  margin-bottom: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 26px;
+}
+h3 {
+  font-size: 24px;
+}
+a {
+  display: inline-block;
+  color: #ffa500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+a:hover {
+  border-bottom: 1px solid #ffa500;
+}
+ul {
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+ul li {
+  margin: 0 0 10px 15px;
+  padding: 0;
+  list-style: disc outside;
+}
+ul li ul,
+ul li ol {
+  margin: 15px 0 10px 0;
+}
+ol {
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+ol li {
+  margin: 0 0 10px 20px;
+  padding: 0;
+  list-style: decimal outside;
+}
+ol li ul,
+ol li ol {
+  margin: 15px 0 10px 0;
+}
+code {
+  display: block;
+  margin: 10px 0;
+  margin-bottom: 15px;
+  padding: 10px;
+  color: #fff;
+  background: #222;
+}
+html {
+  height: 100%;
+}
+.l-body {
+  min-width: 320px;
+  background: #000;
+  padding: 30px;
+}
+.l-logo {
+  display: block;
+  width: 102px;
+  height: 36px;
+  margin-bottom: 30px;
+  background: url("../img/logo@2x.png") no-repeat;
+  background-size: 100% 100%;
+  border: none;
+}
+.l-logo:hover {
+  border: none;
+}
+.demoBlock {
+  padding: 30px;
+  max-width: 700px;
+  color: #fff;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 5px;
+}
