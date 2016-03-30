@@ -20,6 +20,7 @@ gulp.task('javascript', function() {
 		extension: '.js'
 	}))
 
+	// Show name of file in pipe
 	.pipe(debug({
 		title: 'js:'
 	}))
