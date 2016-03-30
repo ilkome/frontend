@@ -4,25 +4,13 @@
 // ===============================================
 var gulp = require('gulp'),
 	paths = require('../paths'),
+	settings = require('../setting'),
 	browserSync = require('browser-sync'),
 	stylus = require('gulp-stylus'),
 	prefix = require('gulp-autoprefixer'),
 	plumber = require('gulp-plumber'),
 	debug = require('gulp-debug'),
 	gutil = require('gulp-util');
-
-
-// Settings
-// ===============================================
-var config = {
-	pretty: {
-		'compress': false,
-		'include css': false
-	},
-	minify: {
-		'compress': true
-	}
-}
 
 
 // Compile stylus
@@ -44,7 +32,7 @@ gulp.task('stylus', function() {
 	.pipe(debug({title: 'stylus:'}))
 
 	// Stylus
-	.pipe(stylus(gutil.env.pretty ? config.pretty : config.minify))
+	.pipe(stylus(gutil.env.pretty ? settings.stylus.pretty : settings.stylus.minify))
 
 	// Error in css files
 	.pipe(plumber(function(error) {
