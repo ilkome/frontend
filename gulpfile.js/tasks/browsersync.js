@@ -1,15 +1,12 @@
-'use strict';
+'use strict'
 
 // Modules
-// ===============================================
-var gulp = require('gulp'),
-	paths = require('../paths'),
-	settings = require('../setting'),
-	browserSync = require('browser-sync');
+// =================================================================================================
+const gulp = require('gulp')
+const setting = require('../setting')
+const browserSync = require('browser-sync')
 
 
 // BrowserSync
-// ===============================================
-gulp.task('browserSync', function() {
-	return browserSync.init(settings.browserSync);
-});
+// =================================================================================================
+gulp.task('browserSync', () => browserSync.init(setting.browserSync))

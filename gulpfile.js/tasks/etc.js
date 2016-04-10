@@ -8,14 +8,14 @@ const browserSync = require('browser-sync')
 const debug = require('gulp-debug')
 
 
-// Copy fonts to build folder
+// Сopy everything to build folder
 // =================================================================================================
-gulp.task('fonts', () => {
-  return gulp.src(paths.fonts.input)
+gulp.task('etc', () => {
+  return gulp.src(paths.etc.input)
 
     // Show name of file in pipe
-    .pipe(debug({ title: 'fonts:' }))
+    .pipe(debug({ title: 'etc:' }))
 
-    .pipe(gulp.dest(paths.fonts.output))
+    .pipe(gulp.dest(paths.build))
     .pipe(browserSync.stream())
 })

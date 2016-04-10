@@ -1,92 +1,79 @@
 /*
-	ilkome gulp boilerplate
-	Version 3.4.5
+	ilkome gulp
+	Version 3.5.0
 
 	Ilya Komichev
 	https://ilko.me
-	https://github.com/ilkome/gulp-boilerplate
+	https://github.com/ilkome/gulp
 */
 
-
-'use strict';
+'use strict'
 
 // Modules
-// ===============================================
-var gulp = require('gulp'),
-	paths = require('./paths'),
-	watch = require('gulp-watch'),
-	requireDir = require('require-dir'),
-	gutil = require('gulp-util'),
-	runSequence = require('run-sequence');
+// =================================================================================================
+const gulp = require('gulp')
+const paths = require('./paths')
+const watch = require('gulp-watch')
+const requireDir = require('require-dir')
+const runSequence = require('run-sequence')
 
 
 // Require all tasks from gulpfile.js/tasks
-// ===============================================
-requireDir('./tasks');
+// =================================================================================================
+requireDir('./tasks')
 
 
-// Default task
-// ===============================================
-gulp.task('default', function(callback) {
-	runSequence(
-		'clean', [
-			'css',
-			'favicon',
-			'fonts',
-			'images',
-			'jade',
-			'javascript',
-			'stylus',
-			'wordpress'
-		],
-		'watch',
-		'browserSync',
-		callback
-	);
-});
+// Tasks
+// =================================================================================================
+gulp.task('default', (done) => {
+  runSequence(
+    [
+      'clean',
+      'replace-jade-minify-var'
+    ],
+    [
+      'css',
+      'etc',
+      'fonts',
+      'images',
+      'jade',
+      'javascript-babel',
+      'javascript-copy',
+      'stylus'
+    ],
+    [
+      'minify-css',
+      'javascript-uglify'
+    ],
+    'watch',
+    'browserSync',
+    done
+  )
+})
 
 
 // Watch
-// ===============================================
-gulp.task('watch', function() {
+// =================================================================================================
+gulp.task('watch', () => {
+  // CSS
+  gulp.watch(paths.css.input, () => runSequence('css', ''))
 
-	// CSS
-	watch(paths.css.input, function() {
-		gulp.start('css');
-	});
+  // Etc
+  gulp.watch(paths.etc.input, ['etc'])
 
-	// Favicon
-	watch(paths.favicons.input, function() {
-		gulp.start('favicon');
-	});
+  // Fonts
+  gulp.watch(paths.fonts.input, ['fonts'])
 
-	// Fonts
-	watch(paths.fonts.input, function() {
-		gulp.start('fonts');
-	});
+  // Images
+  gulp.watch([paths.components.images, paths.images.input], ['images'])
 
-	// Images
-	watch([paths.components.images, paths.images.input], function() {
-		gulp.start('images');
-	});
+  // Jade
+  gulp.watch(paths.jade.input, ['jade'])
 
-	// Jade
-	watch(paths.jade.input, function() {
-		gulp.start('jade');
-	});
+  // JavaScript
+  gulp.watch(paths.js.input, ['javascript-babel'])
+  gulp.watch(paths.jslibs.input, ['javascript-copy'])
 
-	// JS
-	watch(paths.js.input, function() {
-		gulp.start('javascript');
-	});
-
-	// Stylus
-	watch([paths.stylus.input, paths.components.stylus], function() {
-		gulp.start('stylus');
-	});
-
-	// WordPess
-	watch(paths.wordpress.input, function() {
-		gulp.start('wordpress');
-	});
-});
+  // Stylus
+  gulp.watch([paths.stylus.input, paths.components.stylus], ['stylus'])
+})

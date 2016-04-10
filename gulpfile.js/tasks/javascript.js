@@ -1,36 +1,83 @@
-'use strict';
+'use strict'
 
 // Modules
-// ===============================================
-var gulp = require('gulp'),
-	paths = require('../paths'),
-	gutil = require('gulp-util'),
-	browserSync = require("browser-sync"),
-	debug = require('gulp-debug'),
-	changed = require('gulp-changed');
+// =================================================================================================
+const gulp = require('gulp')
+const paths = require('../paths')
+const browserSync = require('browser-sync')
+const debug = require('gulp-debug')
+const gutil = require('gulp-util')
+const plumber = require('gulp-plumber')
+const changed = require('gulp-changed')
+const babel = require('gulp-babel')
+const uglify = require('gulp-uglify')
+const concat = require('gulp-concat')
+const sourcemaps = require('gulp-sourcemaps')
 
 
-// Сopy javascript to build folder
-// ===============================================
-gulp.task('javascript', function() {
-	return gulp.src(paths.js.input)
+// Compile JavaScript with Babel
+// =================================================================================================
+gulp.task('javascript-babel', () => {
+  return gulp.src(paths.js.input)
 
-	// Pass only unchanged files
-	.pipe(changed(paths.js.output, {
-		extension: '.js'
-	}))
+    // Pass only unchanged files
+    .pipe(changed(paths.js.output, { extension: '.js' }))
 
-	// Show name of file in pipe
-	.pipe(debug({
-		title: 'js:'
-	}))
+    // Show name of file in pipe
+    .pipe(debug({ title: 'js babel:' }))
 
-	// Save files
-	.pipe(gulp.dest(paths.js.output))
+    // Error
+    .pipe(plumber((error) => {
+      gutil.log(
+        gutil.colors.magenta('JavaScript-babel'),
+        gutil.colors.red('error:'),
+        error.message
+      )
+      gutil.beep()
+    }))
 
-	.on('end', function() {
-		gutil.log(gutil.colors.magenta('js'), ':', gutil.colors.green('finished'));
-		gutil.log(gutil.colors.magenta('browserSync'), ':', gutil.colors.green('reload'));
-		browserSync.reload();
-	})
-});
+    // Babel
+    .pipe(sourcemaps.init())
+      .pipe(babel())
+    .pipe(sourcemaps.write('.'))
+
+    .pipe(gulp.dest(paths.js.output))
+    .pipe(browserSync.stream())
+})
+
+
+// Сopy JavaScript to build folder
+// =================================================================================================
+gulp.task('javascript-copy', () => {
+  return gulp.src(paths.jslibs.input)
+
+    // Pass only unchanged files
+    .pipe(changed(paths.js.output, { extension: '.js' }))
+
+    // Show name of file in pipe
+    .pipe(debug({ title: 'js copy:' }))
+
+    .pipe(gulp.dest(paths.jslibs.output))
+    .pipe(browserSync.stream())
+})
+
+// JavaScript minify
+// =================================================================================================
+gulp.task('javascript-uglify', () => {
+  return gulp.src([
+    paths.jslibs.input,
+    paths.js.output + '/app.js'
+  ])
+
+    // Show name of file in pipe
+    .pipe(debug({ title: 'js uglify:' }))
+
+    // Uglify
+    .pipe(sourcemaps.init())
+      .pipe(uglify())
+      .pipe(concat('bundle.min.js'))
+    .pipe(sourcemaps.write('.'))
+
+    .pipe(gulp.dest(paths.js.output))
+    .pipe(browserSync.stream())
+})

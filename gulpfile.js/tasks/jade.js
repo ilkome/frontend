@@ -1,59 +1,52 @@
-'use strict';
+'use strict'
 
 // Modules
-// ===============================================
-var gulp  = require('gulp'),
-	paths = require('../paths'),
-	settings = require('../setting'),
-	jade = require('gulp-jade'),
-	browserSync = require('browser-sync'),
-	flatten = require('gulp-flatten'),
-	plumber = require('gulp-plumber'),
-	debug = require('gulp-debug'),
-	gutil = require('gulp-util'),
-	prettify = require('gulp-jsbeautifier');
+// =================================================================================================
+const gulp = require('gulp')
+const paths = require('../paths')
+const setting = require('../setting')
+const browserSync = require('browser-sync')
+const gutil = require('gulp-util')
+const debug = require('gulp-debug')
+const plumber = require('gulp-plumber')
+const gulpif = require('gulp-if')
+const jade = require('gulp-jade')
+const prettify = require('gulp-jsbeautifier')
+const rename = require('gulp-rename')
 
 
 // Compile jade
-// ===============================================
-gulp.task('jade', function() {
-	return gulp.src(paths.pages.input)
+// =================================================================================================
+gulp.task('jade', () => {
+  return gulp.src(paths.pages.input)
 
-	// Error
-	.pipe(plumber(function(error) {
-		gutil.log(
-			gutil.colors.magenta('jade'),
-			gutil.colors.red('error:'),
-			error.message
-		)
-		this.emit('end');
-	}))
+    // Error
+    .pipe(plumber((error) => {
+      gutil.log(
+        gutil.colors.magenta('jade'),
+        gutil.colors.red('error:'),
+        error.message
+      )
+    }))
 
-	// Show jade title in console
-	.pipe(debug({title: 'Jade:'}))
+    // Show jade title in console
+    .pipe(debug({ title: 'Jade:' }))
 
-	// Prettify
-	.pipe(jade(gutil.env.minify ? settings.jade.minify : settings.jade.pretty))
+    // Jade
+    .pipe(jade())
 
-	// TO DO: check
-	.pipe(prettify(settings.prettyHTML))
+    // Prettify
+    .pipe(gulpif(gutil.env.pretty, prettify(setting.prettyHTML)))
 
-	// Remove structure of folders
-	.pipe(flatten())
+    // Save files
+    .pipe(gulp.dest(paths.build))
+    .pipe(browserSync.stream())
 
-	// Save files
-	.pipe(gulp.dest(paths.build))
-
-	.on('end', function() {
-		if(gutil.env.pretty) {
-			gutil.log(gutil.colors.magenta('Jade'), ':', gutil.colors.green('pretty'));
-		} else {
-			gutil.log(gutil.colors.magenta('Jade'), ':', gutil.colors.green('minify'));
-		}
-
-		gutil.log(gutil.colors.magenta('Jade'), ':', gutil.colors.green('finished'));
-		gutil.log(gutil.colors.magenta('browserSync'), ':', gutil.colors.green('reload'));
-		gutil.log('----------------------------');
-		browserSync.reload();
-	})
-});
+    .on('end', () => {
+      if (gutil.env.pretty) {
+        gutil.log(gutil.colors.magenta('Jade'), ':', gutil.colors.green('pretty'))
+      } else {
+        gutil.log(gutil.colors.magenta('Jade'), ':', gutil.colors.green('normal'))
+      }
+    })
+})
