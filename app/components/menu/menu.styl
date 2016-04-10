@@ -1,0 +1,54 @@
+.menuBottom
+	position fixed
+	right 30px
+	bottom 30px
+	background orange
+	border-radius 3px
+
+	&-trigger
+		z-index 10
+		position relative
+		display block
+		width 40px
+		height 40px
+		border-bottom none
+		overflow hidden
+		text-indent 100%
+		white-space nowrap
+
+		span
+			top 50%
+			margin-top -1px
+
+		span,
+		span:before,
+		span:after
+			content ""
+			position absolute
+			display block
+			width 20px
+			height 2px
+			background orange
+			left 50%
+			margin-left -10px
+			transition background 0.3s
+
+		span:before
+			top -6px
+
+		span:after
+			bottom -6px
+
+	&-nav
+		z-index 5
+		list-unstyled()
+		position absolute
+		right 0px
+		bottom 0px
+		padding padding-small
+		background white
+		border-radius 5px
+		box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.2)
+
+	&-el
+		padding-bottom 10px

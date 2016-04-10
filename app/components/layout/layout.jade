@@ -1,19 +1,33 @@
+//- Include minify CSS / JS files
+//--------------------------------------------------------------------------------------------------
+- var minify = 1
+
+
 //- Include mixins from components
-//-----------------------------------------------
+//--------------------------------------------------------------------------------------------------
 include ../head/head
 include ../scripts/scripts
-include ../logo/logo
+include ../styles/styles
+include ../preloader/preloader
+include ../header/header
+include ../footer/footer
+include ../box/box
+include ../menu/menu
+include ../hireme/hireme
 
 
 //- Layout
-//-----------------------------------------------
+//--------------------------------------------------------------------------------------------------
 doctype html
-+head-copyright
 html
 	+head
 
-	body.l-body
-		+logo
-		block page
+	body.l-body(class="preloader-overflow js-preloader-overflow")
+		+preloader
+		+header
+
+		main.l-content
+			block page
+			//- +menu-bottom
 
 	+scripts

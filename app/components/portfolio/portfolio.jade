@@ -1,0 +1,59 @@
+mixin portfolio()
+	.box.box_nopadding#portfolio
+		.box-in
+			+box-name('Portfolio', 'My latest works in the <a href="https://github.com/ilkome" title="ilkome portfolio in the GitHub">GitHub</a>', 'box-name_nopadding')
+
+			.portfolio
+				+portfolio-item(
+					"Gulp Start Boilerplate",
+					"I use my front-end boilerplate to create projects with Jade, Stylus, ES6, Autoprefixer, Browsersync.",
+					'Please visit <a href="https://github.com/ilkome/gulp" title="ilkome gulp">GitHub</a> to learn more.',
+					"ilkome",
+					"none"
+				)
+				+portfolio-item(
+					"Lychee",
+					"Responsive landing page.",
+					"Jade & Stylus, HTML & CSS, Responsive, WordPress",
+					"getlychee",
+					"getlychee.com"
+				)
+				+portfolio-item(
+					"GYEC",
+					"Landing page with smart left menu and custom scrollbar.",
+					"Jade & Stylus, HTML & CSS, JavaScript, jQuery, WordPress",
+					"gyec",
+					""
+				)
+				+portfolio-item(
+					"Trusted Academics",
+					"Web-site on WordPress.",
+					"Jade & Stylus, HTML & CSS, WordPress",
+					"trusted-academics",
+					"trustedacademics.co.uk"
+				)
+				+portfolio-item(
+					"Big Data Project",
+					"Responsive landing page with video on the background.",
+					"Jade & Stylus, HTML & CSS, Responsive, WordPress",
+					"big-data-project",
+					""
+				)
+
+mixin portfolio-item(name, desc, tags, link, liveLink)
+	.portfolioItem
+		.portfolioItem-in.js-portfolioAnim
+			.portfolioItem-content
+				h3.portfolioItem-name= name
+				p.portfolioItem-desc!= desc
+				.portfolioItem-tags!= tags
+				.portfolioItem-links
+
+					if liveLink
+						if (liveLink != 'none')
+							a(href="http://#{liveLink}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Live demo
+					else
+						a(href="http://ilko.me/works/#{link}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Demo
+
+					a(href="https://github.com/ilkome/#{link}/" target="_blank" title="Source #{name}").portfolioItem-link.portfolioItem-source Source
+			.portfolioItem-pic: img(src="img/portfolio-loading.gif" data-src="img/portfolio-#{link}.jpg", alt="#{name}").portfolioItem-img.js-belazy

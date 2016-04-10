@@ -1,0 +1,50 @@
+.skills
+	display flex
+	flex-direction row
+	justify-content space-around
+	flex-wrap wrap
+
+.skill
+	position relative
+	min-width 160px
+	text-align center
+	padding-bottom padding-main
+	anim-color()
+
+	@media tablet
+		padding-bottom padding-main * padding-tablet
+
+	@media laptop
+		padding-bottom padding-main * padding-laptop
+
+	&-pic
+		display inline-block
+		width 80px
+		height 80px
+		padding-bottom padding-small
+		font-size 80px
+		opacity 0.9
+
+		@media tablet
+			width 100px
+			height 100px
+
+	&-name
+		padding-top padding-small
+		opacity 0.9
+
+	&-wordpress
+		background url("../img/wordpress.svg") center 0 no-repeat
+		bg-contain()
+
+	&-html5
+		background url("../img/html5.svg") center 0 no-repeat
+		bg-contain()
+
+	&-css3
+		background url("../img/css3.svg") center 0 no-repeat
+		bg-contain()
+
+	&-code
+		background url("../img/code.svg") center 0 no-repeat
+		bg-contain()

@@ -1,0 +1,133 @@
+.header
+	text-align center
+	flex-ie-height-fix()
+
+	&-in
+		display flex
+		flex-direction column
+		align-items center
+		justify-content center
+		padding padding-main 0
+		min-height 100vh
+
+		@media tablet
+			padding (padding-main * padding-tablet) 0
+
+		@media laptop
+			padding (padding-main * padding-tablet) 0
+
+	&-pic
+		display block
+		width 150px
+		height 150px
+		margin 0 auto
+		background #737373 url("../img/avatar.png") center center no-repeat
+		background-size 110% 110%
+		border-radius 50%
+		border 3px solid alpha(#000, .3)
+		anim()
+
+		&:hover
+			border-color alpha(white, .5)
+
+		@media tablet
+			width @width * padding-tablet
+			height @height * padding-tablet
+
+		@media laptop
+			width @width * padding-laptop
+			height @height * padding-laptop
+
+	&-info
+		display flex
+		flex-grow 1
+		flex-direction column
+		align-items center
+		justify-content center
+		margin-top - 10px
+		padding padding-main 0
+
+	&-name
+		position relative
+		padding-bottom 30px
+		color color-white
+		font-size 40px
+		font-family font-secondary
+		font-weight 900
+		line-height 1em
+		letter-spacing 3px
+		text-align center
+		anim()
+
+		&:after
+			display block
+			position absolute
+			left 50%
+			bottom 13px
+			content " "
+			width 50px
+			height 2px
+			margin-left -(@width / 2)
+			background #fa6513
+
+		@media tablet
+			font-size @font-size * padding-tablet
+
+		@media laptop
+			font-size @font-size * padding-laptop
+
+	&-job
+		color color-white
+		font-size 20px
+		font-family font-primary
+		letter-spacing 1px
+		anim()
+
+		@media tablet
+			font-size @font-size * padding-tablet
+
+		@media laptop
+			font-size @font-size * padding-laptop
+
+	&-socials
+		min-height 30px
+
+		ul
+			list-inline()
+
+		li
+			padding 0 20px
+
+		a
+			display block
+			width 30px
+			height 30px
+			color white
+			font-size 30px
+			line-height 0
+			border none
+			opacity 0.8
+			anim()
+
+			&:hover
+				opacity 1
+
+			@media tablet
+				width @width * padding-tablet
+				height @height * padding-tablet
+
+			@media laptop
+				width @width * padding-laptop
+				height @height * padding-laptop
+
+	&-github
+		background url("../img/github.svg") center 0 no-repeat
+		background-size auto 100%
+
+	&-facebook
+		background url("../img/facebook.svg") center 0 no-repeat
+		bg-contain()
+
+	&-vk
+		background url("../img/vk.svg") center 2px no-repeat
+		background-size auto 100%

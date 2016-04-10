@@ -1,0 +1,119 @@
+.box
+	background white
+
+	&_grey
+		color white
+		background none
+
+		& ^[-1]-in
+			background alpha(black, 0.5)
+
+	&_darkgrey
+		color white
+		background url("../img/bg-code.jpg") 0 0 no-repeat
+		bg-cover()
+
+		& ^[-1]-in
+			background alpha(black, 0.7)
+
+	&_nopadding
+		& ^[-1]-in
+			padding-bottom 0
+
+	&-in
+		padding padding-main 0
+
+		@media tablet
+			padding (padding-main * padding-tablet) 0
+
+		@media laptop
+			padding (padding-main * padding-laptop) 0
+
+	&_nopadding
+		.box-in
+			padding-bottom 0
+
+	&-name
+		display block
+		position relative
+		max-width max-width
+		margin 0 auto
+		padding 0 padding-small
+		padding-bottom padding-main
+		text-align center
+
+		@media tablet
+			padding-bottom padding-main * padding-tablet
+
+		@media laptop
+			padding-bottom padding-main * padding-laptop
+
+		&_nopadding
+			padding-bottom 0
+
+		&_small
+			padding-bottom padding-main
+
+		&_alignleft
+			@media tablet
+				text-align left
+
+		h2
+			margin 0
+			font-size 36px
+			line-height 30px
+
+			@media tablet
+				line-height @line-height * padding-tablet
+				font-size @font-size * padding-tablet
+
+			@media laptop
+				font-size @font-size * padding-laptop
+				line-height @line-height * padding-laptop
+
+		p
+			padding-top 10px
+			margin-bottom 0
+			font-size 14px
+
+			@media tablet
+				padding-top @padding-top * padding-tablet
+				font-size @font-size * padding-tablet
+
+			@media laptop
+				padding-top @padding-top * padding-laptop
+				font-size @font-size * padding-tablet
+
+	&-content
+		padding 0 padding-small
+		max-width max-width
+		margin 0 auto
+
+		p:last-child
+			margin-bottom 0
+
+		&_welcome
+			max-width 960px
+			display flex
+			flex-direction column
+			flex-wrap nowrap
+			justify-content space-between
+			flex-wrap wrap
+
+			> div:first-child
+				padding-bottom 20px
+
+			p
+				line-height 26px
+
+			@media tablet
+				flex-direction row
+
+				> div:first-child
+					padding-bottom 0
+
+				> div
+					width 45%
+
+				p
+					margin-bottom 30px

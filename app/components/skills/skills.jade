@@ -1,0 +1,15 @@
+mixin skills
+	.box_darkgrey.box_nopadding
+		.box-in
+			+box-name("Skills", "Bootstrap, Foundation, Sass, LESS, Gulp")
+			.box-content
+				.skills
+					+skill("WordPress & PHP", "wordpress")
+					+skill("Jade & HTML", "html5")
+					+skill("Stylus & CSS", "css3")
+					+skill("JavaScript & jQuery", "code")
+
+mixin skill(name, pic)
+	.skill.js-skillAnim
+		.skill-pic(class="skill-#{pic}")
+		h3.skill-name= name

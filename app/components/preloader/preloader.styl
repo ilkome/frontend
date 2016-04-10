@@ -1,0 +1,31 @@
+.preloader
+	display flex
+	flex-direction column
+	align-items center
+	justify-content center
+	position fixed
+	width 100%
+	top 0
+	bottom 0
+	color white
+	font-family Arial, sans-serif
+	text-align center
+	background black
+	z-index 10
+	opacity .95
+	anim(1s)
+
+	&-title
+		padding-bottom 20px
+		font-size 38px
+		font-weight 700
+		letter-spacing 4px
+		font-family Arial, sans-serif
+
+	&-text
+		letter-spacing .5px
+
+.js-preloader-hidden
+	opacity 0
+	visibility hidden
+	margin 0 0 20px 0

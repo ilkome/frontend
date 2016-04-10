@@ -1,22 +1,28 @@
 // Inputs
-// ===============================================
+// =================================================================================================
 label, input, button, select, textarea
 	font-family font-primary
+	border none
+	outline none
 
 
 // Select
-// ===============================================
+// =================================================================================================
 select
 	width auto
 	margin-bottom 10px
 	padding 4px 10px
+	background #fff
+	border 1px solid #c8d9eb
+	color #819397
+	font-size 16px
 
 	option
 		padding 5px 10px
 
 
 // Field
-// ===============================================
+// =================================================================================================
 input[type="text"]
 input[type="password"]
 input[type="email"]
@@ -24,44 +30,61 @@ input[type="phone"]
 	width 300px
 	margin-bottom 10px
 	padding 15px 15px
+	background #fff
+	border 1px solid #c8d9eb
+	anim()
 
 	&:hover
 		//
 	&:focus
-		//
+		background #f4f9ff
+
+	&.error
+		border-color #e44343
+		color #e44343
+
+	&.valid
+		border-color #3ac020
 
 
 // Submit
-// ===============================================
+// =================================================================================================
 input[type="submit"]
 	width auto
 	padding 15px 30px
 	border none
+	anim()
 
 	&:hover
 		//
 
 	&:active
-		//
+		opacity 0.8
 
 
 // Textarea
-// ===============================================
+// =================================================================================================
 textarea
 	width 238px
 	max-width 100%
+	height 200px
 	margin-bottom 10px
 	padding 10px 10px
+	background #fff
+	border 1px solid #c8d9eb
+	anim()
 
 	&:hover
 		//
-
 	&:focus
 		//
 
+textarea.full
+	width 100%
+
 
 // Radio
-// ===============================================
+// =================================================================================================
 input[type="radio"]
 	display:none
 
@@ -97,7 +120,7 @@ input[type="radio"]
 
 
 // Checkbox
-// ===============================================
+// =================================================================================================
 input[type="checkbox"]
 	width 21px
 	height 21px

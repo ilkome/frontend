@@ -1,21 +1,13 @@
-// Mixins
-// ===============================================
-@import "mixins/*"
-
-
-// Variables
-// ===============================================
-@import "common/variables"
+// Utils
+// =================================================================================================
+@import "../utils/*"
 
 
 // Common elemets
-// ===============================================
-@import "normalize.css"
-@import "common/fonts"
-
-@import "common/media"
+// =================================================================================================
+@import "variables"
 @import "common/typography"
-@import "common/headers"
+@import "common/headings"
 @import "common/links"
 @import "common/lists"
 @import "common/etc"
@@ -24,11 +16,18 @@
 
 
 // Template elemets
-// ===============================================
+// =================================================================================================
 @import "../components/layout/layout"
-@import "../components/logo/logo"
+@import "../components/header/header"
+@import "../components/footer/footer"
+@import "../components/preloader/preloader"
 
 
 // Pages elemets
-// ===============================================
-@import "../components/demo"
+// =================================================================================================
+@import "../components/box/box"
+@import "../components/contacts/contacts"
+@import "../components/portfolio/portfolio"
+@import "../components/hireme/hireme"
+// @import "../components/menu/menu"
+@import "../components/skills/skills"

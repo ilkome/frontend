@@ -1,0 +1,9 @@
+mixin styles
+	link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,900|Lilita+One|Open+Sans:400,700|Droid+Serif")
+
+	if minify
+		link(href="css/styles.min.css", rel="stylesheet")
+	
+	else
+		link(href="css/normalize.css", rel="stylesheet")
+		link(href="css/styles.css", rel="stylesheet")
