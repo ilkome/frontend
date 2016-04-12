@@ -90,7 +90,7 @@ $(function () {
 
   new Blazy({
     selector: '.js-belazy',
-    offset: 300,
+    offset: 500,
     successClass: 'js-belazy-loaded'
   });
 });
