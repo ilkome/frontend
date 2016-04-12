@@ -12,7 +12,6 @@ const plumber = require('gulp-plumber')
 const gulpif = require('gulp-if')
 const jade = require('gulp-jade')
 const prettify = require('gulp-jsbeautifier')
-const rename = require('gulp-rename')
 
 
 // Compile jade
@@ -36,7 +35,7 @@ gulp.task('jade', () => {
     .pipe(jade())
 
     // Prettify
-    .pipe(gulpif(gutil.env.pretty, prettify(setting.prettyHTML)))
+    .pipe(gulpif(gutil.env.pretty, prettify(setting.pretty)))
 
     // Save files
     .pipe(gulp.dest(paths.build))

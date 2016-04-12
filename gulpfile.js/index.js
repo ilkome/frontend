@@ -1,6 +1,6 @@
 /*
 	ilkome gulp
-	Version 3.5.0
+	Version 3.5.1
 
 	Ilya Komichev
 	https://ilko.me
@@ -42,7 +42,7 @@ gulp.task('default', (done) => {
       'stylus'
     ],
     [
-      'minify-css',
+      'css-minify',
       'javascript-uglify'
     ],
     'watch',

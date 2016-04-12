@@ -16,6 +16,7 @@ const cleanCSS = require('gulp-clean-css')
 const combineMq = require('gulp-combine-mq')
 const unCSS = require('gulp-uncss')
 const concatCSS = require('gulp-concat-css')
+const prettify = require('gulp-jsbeautifier')
 
 
 // Compile stylus
@@ -60,7 +61,7 @@ gulp.task('css', () => {
 
 // Minify CSS in build folder
 // =================================================================================================
-gulp.task('minify-css', () => {
+gulp.task('css-minify', () => {
   return gulp.src([`${paths.css.output}/*.css`, `!${paths.css.output}/styles.min.css`])
 
     // Show name of file in pipe
@@ -83,12 +84,39 @@ gulp.task('minify-css', () => {
 
     .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
+})
 
-    .on('end', () => {
-      if (gutil.env.mini) {
-        gutil.log(gutil.colors.magenta('minifycss'), ':', gutil.colors.green('mini'))
-      } else {
-        gutil.log(gutil.colors.magenta('minifycss'), ':', gutil.colors.green('normal'))
-      }
-    })
+
+// Minify CSS in build folder
+// =================================================================================================
+gulp.task('css-clean', () => {
+  return gulp.src([
+    `${paths.css.output}/*.css`,
+    `!${paths.css.output}/styles.min.css`,
+    `!${paths.css.output}/styles.clean.css`
+  ])
+
+    // Show name of file in pipe
+    .pipe(debug({ title: 'clean-css:' }))
+
+    // Contat all CSS
+    .pipe(concatCSS('styles.clean.css'))
+
+    // Remove unused styles
+    .pipe(unCSS(setting.unCSS))
+
+    // Combine Media queries
+    .pipe(combineMq(setting.combineMq))
+
+    // Minify
+    .pipe(cleanCSS(setting.cleanCSS))
+
+    // Prettify
+    .pipe(gulpif(gutil.env.pretty, prettify(setting.pretty)))
+
+    // Autoprefixer
+    .pipe(prefix('last 2 version', 'ie 10'))
+
+    .pipe(gulp.dest(paths.css.output))
+    .pipe(browserSync.stream({ match: '**/*.css' }))
 })

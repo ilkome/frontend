@@ -12,12 +12,17 @@ module.exports = {
     notify: false
     // online: true
   },
-  prettyHTML: {
+  pretty: {
     html: {
-      debug: true,
+      debug: false,
       indent_char: '\t',
       indent_size: 1,
       unformatted: ['p', 'title', 'sub', 'sup', 'b', 'i', 'u']
+    },
+    css: {
+      debug: false,
+      indent_char: '\t',
+      indent_size: 1
     }
   },
   cleanCSS: {
