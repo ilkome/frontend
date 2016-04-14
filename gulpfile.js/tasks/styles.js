@@ -56,33 +56,6 @@ gulp.task('css', () => {
     .pipe(debug({ title: 'css:' }))
 
     .pipe(gulp.dest(paths.css.output))
-})
-
-
-// Minify CSS in build folder
-// =================================================================================================
-gulp.task('css-minify', () => {
-  return gulp.src([`${paths.css.output}/*.css`, `!${paths.css.output}/styles.min.css`])
-
-    // Show name of file in pipe
-    .pipe(debug({ title: 'minify css:' }))
-
-    // Contat all CSS
-    .pipe(concatCSS('styles.min.css'))
-
-    // Remove unused styles
-    .pipe(unCSS(setting.unCSS))
-
-    // Combine Media queries
-    .pipe(combineMq(setting.combineMq))
-
-    // Minify
-    .pipe(cleanCSS(setting.cleanCSS))
-
-    // Autoprefixer
-    .pipe(prefix('last 2 version', 'ie 10'))
-
-    .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
 })
 
@@ -92,15 +65,18 @@ gulp.task('css-minify', () => {
 gulp.task('css-clean', () => {
   return gulp.src([
     `${paths.css.output}/*.css`,
+    `!${paths.css.output}/styles.dev.css`,
     `!${paths.css.output}/styles.min.css`,
-    `!${paths.css.output}/styles.clean.css`
+    `!${paths.css.output}/styles.pretty.css`
   ])
 
     // Show name of file in pipe
-    .pipe(debug({ title: 'clean-css:' }))
+    .pipe(debug({ title: 'css clean:' }))
 
     // Contat all CSS
-    .pipe(concatCSS('styles.clean.css'))
+    .pipe(concatCSS('styles.dev.css'))
+    .pipe(gulpif(gutil.env.minify, concatCSS('styles.min.css')))
+    .pipe(gulpif(gutil.env.pretty, concatCSS('styles.pretty.css')))
 
     // Remove unused styles
     .pipe(unCSS(setting.unCSS))
@@ -110,8 +86,6 @@ gulp.task('css-clean', () => {
 
     // Minify
     .pipe(cleanCSS(setting.cleanCSS))
-
-    // Prettify
     .pipe(gulpif(gutil.env.pretty, prettify(setting.pretty)))
 
     // Autoprefixer

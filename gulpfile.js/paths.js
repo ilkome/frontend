@@ -40,7 +40,7 @@ module.exports = {
   },
   jslibs: {
     input: pathApp + '/js/libs/*.js',
-    output: pathBuild + '/js/libs'
+    output: pathBuild + '/js/libs/'
   },
   stylus: {
     input: [

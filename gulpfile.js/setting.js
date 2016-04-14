@@ -13,16 +13,11 @@ module.exports = {
     // online: true
   },
   pretty: {
+    debug: false,
+    indent_char: ' ',
+    indent_size: 1,
     html: {
-      debug: false,
-      indent_char: '\t',
-      indent_size: 1,
-      unformatted: ['p', 'title', 'sub', 'sup', 'b', 'i', 'u']
-    },
-    css: {
-      debug: false,
-      indent_char: '\t',
-      indent_size: 1
+      unformatted: ['sub', 'sup', 'b', 'i', 'u']
     }
   },
   cleanCSS: {
@@ -35,8 +30,10 @@ module.exports = {
     html: [paths.build + '/*.html'],
     ignore: [/.js/]
   },
-  replaceMinify: {
-    minify: '- var minify = 0',
-    normal: '- var minify = 1'
+  replace: {
+    line: /- var inculdeWay = "(.*)"/g,
+    dev: '- var inculdeWay = "dev"',
+    minify: '- var inculdeWay = "minify"',
+    pretty: '- var inculdeWay = "pretty"'
   }
 }

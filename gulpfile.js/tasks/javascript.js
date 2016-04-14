@@ -33,7 +33,6 @@ gulp.task('javascript-babel', () => {
         gutil.colors.red('error:'),
         error.message
       )
-      gutil.beep()
     }))
 
     // Babel
@@ -65,7 +64,7 @@ gulp.task('javascript-copy', () => {
 // =================================================================================================
 gulp.task('javascript-uglify', () => {
   return gulp.src([
-    paths.jslibs.input,
+    paths.jslibs.output + '/*.js',
     paths.js.output + '/app.js'
   ])
 
@@ -79,5 +78,5 @@ gulp.task('javascript-uglify', () => {
     .pipe(sourcemaps.write('.'))
 
     .pipe(gulp.dest(paths.js.output))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream({ match: '**/*.js' }))
 })

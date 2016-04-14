@@ -38,7 +38,9 @@ Gulp is very easy to get.
 # Usage
 Open project directory and run:
 
+`gulp`
 `gulp --minify`
+`gulp --pretty`
 
 Minify and combine all JS, CSS files.
 
