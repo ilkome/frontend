@@ -1,6 +1,6 @@
-//- Include minify CSS / JS files
+//- Include CSS / JS files
 //--------------------------------------------------------------------------------------------------
-- var minify = 1
+- var inculdeWay = "pretty"
 
 
 //- Include mixins from components
@@ -22,8 +22,9 @@ doctype html
 html
 	+head
 
-	body.l-body(class="preloader-overflow js-preloader-overflow")
-		+preloader
+	body.l-body
+		//- (class="preloader-overflow js-preloader-overflow")
+		//- +preloader
 		+header
 
 		main.l-content

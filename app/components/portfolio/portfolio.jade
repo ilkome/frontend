@@ -5,13 +5,6 @@ mixin portfolio()
 
 			.portfolio
 				+portfolio-item(
-					"Gulp Start Boilerplate",
-					"I use my front-end boilerplate to create projects with Jade, Stylus, ES6, Autoprefixer, Browsersync.",
-					'Please visit <a href="https://github.com/ilkome/gulp" title="ilkome gulp">GitHub</a> to learn more.',
-					"ilkome",
-					"none"
-				)
-				+portfolio-item(
 					"Lychee",
 					"Responsive landing page.",
 					"Jade & Stylus, HTML & CSS, Responsive, WordPress",
@@ -50,8 +43,7 @@ mixin portfolio-item(name, desc, tags, link, liveLink)
 				.portfolioItem-links
 
 					if liveLink
-						if (liveLink != 'none')
-							a(href="http://#{liveLink}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Live demo
+						a(href="http://#{liveLink}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Live demo
 					else
 						a(href="http://ilko.me/works/#{link}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Demo
 

@@ -93,18 +93,17 @@
 			margin-bottom 0
 
 		&_welcome
-			max-width 960px
 			display flex
 			flex-direction column
 			flex-wrap nowrap
 			justify-content space-between
 			flex-wrap wrap
 
-			> div:first-child
-				padding-bottom 20px
+			@media tablet
+				align-items center
 
-			p
-				line-height 26px
+			> div:first-child
+				padding-bottom 40px
 
 			@media tablet
 				flex-direction row
@@ -116,4 +115,5 @@
 					width 45%
 
 				p
-					margin-bottom 30px
+					margin-bottom 20px
+					line-height 26px
