@@ -6,7 +6,6 @@ const gulp = require('gulp')
 const paths = require('../paths')
 const browserSync = require('browser-sync')
 const debug = require('gulp-debug')
-const changed = require('gulp-changed')
 const flatten = require('gulp-flatten')
 const imagemin = require('gulp-imagemin')
 const pngquant = require('imagemin-pngquant')
@@ -15,8 +14,8 @@ const pngquant = require('imagemin-pngquant')
 // Copy images to build folder
 // =================================================================================================
 gulp.task('images', () => {
-  return gulp.src([paths.images.input, paths.components.images])
-  
+  return gulp.src(paths.img.input)
+
     // Show name of file in pipe
     .pipe(debug({ title: 'images:' }))
 
@@ -33,6 +32,6 @@ gulp.task('images', () => {
       use: [pngquant()]
     }))
 
-    .pipe(gulp.dest(paths.images.output))
+    .pipe(gulp.dest(paths.img.output))
     .pipe(browserSync.stream())
 })

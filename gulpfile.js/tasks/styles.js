@@ -40,7 +40,7 @@ gulp.task('stylus', () => {
     .pipe(stylus())
 
     // Autoprefixer
-    .pipe(prefix('last 4 version', 'ie 10'))
+    // .pipe(prefix('last 4 version', 'ie 10'))
 
     .pipe(gulp.dest(paths.stylus.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
@@ -63,12 +63,7 @@ gulp.task('css', () => {
 // Minify CSS in build folder
 // =================================================================================================
 gulp.task('css-clean', () => {
-  return gulp.src([
-    `${paths.css.output}/*.css`,
-    `!${paths.css.output}/styles.dev.css`,
-    `!${paths.css.output}/styles.min.css`,
-    `!${paths.css.output}/styles.pretty.css`
-  ])
+  return gulp.src(paths.css.clean)
 
     // Show name of file in pipe
     .pipe(debug({ title: 'css clean:' }))
@@ -89,7 +84,7 @@ gulp.task('css-clean', () => {
     .pipe(gulpif(gutil.env.pretty, prettify(setting.pretty)))
 
     // Autoprefixer
-    .pipe(prefix('last 2 version', 'ie 10'))
+    .pipe(prefix('last 4 version', 'ie 10'))
 
     .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))

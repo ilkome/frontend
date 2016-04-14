@@ -1,6 +1,6 @@
 /*
 	ilkome gulp
-	Version 3.5.2
+	Version 3.5.3
 
 	Ilya Komichev
 	https://ilko.me
@@ -26,25 +26,13 @@ const currentState = gutil.env
 requireDir('./tasks')
 
 
-// Tasks
+// Default task
 // =================================================================================================
 gulp.task('default', (done) => {
   runSequence(
-    [
-      'clean',
-      'replace-include'
-    ],
-    [
-      'css',
-      'etc',
-      'fonts',
-      'images',
-      'jade',
-      'javascript-babel',
-      'javascript-copy',
-      'stylus'
-    ],
-    ['javascript-uglify', 'css-clean'],
+    ['clean', 'replace-include'],
+    ['css', 'etc', 'fonts', 'images', 'jade', 'javascript-babel', 'javascript-copy', 'stylus'],
+    ['css-clean', 'javascript-uglify'],
     'browserSync',
     'watch',
     done
@@ -62,7 +50,7 @@ gulp.task('watch', () => {
   gulp.watch(paths.fonts.input, ['fonts'])
 
   // Images
-  gulp.watch([paths.components.images, paths.images.input], ['images'])
+  gulp.watch(paths.img.input, ['images'])
 
   // Jade
   gulp.watch(paths.jade.input, ['jade'])
@@ -70,28 +58,15 @@ gulp.task('watch', () => {
   // JavaScript
   gulp.watch(paths.js.input, ['javascript-babel'])
   gulp.watch(paths.jslibs.input, ['javascript-copy'])
-
-
-  // Check current env
-  if (currentState.minify || currentState.pretty) {
-    gutil.log(gutil.colors.magenta('gulp'), ':', gutil.colors.green('minify or pretty'))
-
-    // CSS
-    gulp.watch(paths.css.input, () => runSequence('css', 'css-clean'))
-
-    // Stylus
-    gulp.watch(
-      [paths.stylus.input, paths.components.stylus], () =>
-        runSequence('stylus', 'css-clean'))
-
+  if (currentState.minify) {
     gulp.watch([paths.jslibs.output, paths.js.output + '/app.js'], ['javascript-uglify'])
+  }
+
+  // CSS
+  if (currentState.minify || currentState.pretty) {
+    gulp.watch(paths.css.input, () => runSequence('css', 'css-clean'))
+    gulp.watch(paths.stylus.input, () => runSequence('stylus', 'css-clean'))
   } else {
-    gutil.log(gutil.colors.magenta('gulp'), ':', gutil.colors.green('dev'))
-
-    // CSS
     gulp.watch(paths.css.input, ['css'])
-
-    // Stylus
-    gulp.watch([paths.stylus.input, paths.components.stylus], ['stylus'])
   }
 })

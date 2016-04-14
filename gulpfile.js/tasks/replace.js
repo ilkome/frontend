@@ -15,7 +15,7 @@ const replace = require('gulp-replace')
 // Replace minify var in layaot
 // =================================================================================================
 gulp.task('replace-include', () => {
-  return gulp.src(paths.components.layout + '/layout.jade')
+  return gulp.src(paths.components.layout.input)
 
     // Error
     .pipe(plumber((error) => {
@@ -45,5 +45,5 @@ gulp.task('replace-include', () => {
         gutil.env.pretty,
         replace(setting.replace.line, '- var inculdeWay = "pretty"')))
 
-    .pipe(gulp.dest(paths.components.layout))
+    .pipe(gulp.dest(paths.components.layout.output))
 })

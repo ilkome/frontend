@@ -1,5 +1,6 @@
 {
   "name": "gulp-boilerplate",
+  "version": "3.5.3",
   "description": "A front-end boilerplate to create projects with Jade, Stylus, ES6, Autoprefixer, Browsersync",
   "main": "./build",
   "author": {
