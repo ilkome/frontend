@@ -1,7 +1,6 @@
 {
   "name": "gulp-boilerplate",
-  "version": "3.5.2",
-  "description": "A front-end boilerplate to create projects with Jade, Stylus, Autoprefixer, Browsersync",
+  "description": "A front-end boilerplate to create projects with Jade, Stylus, ES6, Autoprefixer, Browsersync",
   "main": "./build",
   "author": {
     "name": "Ilya Komichev",
@@ -43,6 +42,7 @@
     "gulp-watch": "^4.3.4",
     "imagemin-pngquant": "^4.2.2",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.1.2"
+    "run-sequence": "^1.1.2",
+    "vinyl-ftp": "^0.4.5"
   }
 }
