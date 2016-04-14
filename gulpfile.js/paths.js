@@ -9,7 +9,7 @@ module.exports = {
 
   components: {
     layout: {
-      input: pathApp + '/components/layout',
+      input: pathApp + '/components/layout/layout.jade',
       output: pathApp + '/components/layout'
     }
   },

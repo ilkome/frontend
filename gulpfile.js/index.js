@@ -53,7 +53,12 @@ gulp.task('watch', () => {
   gulp.watch(paths.img.input, ['images'])
 
   // Jade
-  gulp.watch(paths.jade.input, ['jade'])
+  if (currentState.minify || currentState.pretty) {
+    gulp.watch(paths.jade.input, () => runSequence('jade', 'css-clean'))
+  } else {
+    gulp.watch(paths.jade.input, ['jade'])
+  }
+
 
   // JavaScript
   gulp.watch(paths.js.input, ['javascript-babel'])
