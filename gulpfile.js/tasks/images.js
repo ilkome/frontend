@@ -1,22 +1,27 @@
-'use strict'
-
-// Modules
-// =================================================================================================
 const gulp = require('gulp')
 const paths = require('../paths')
 const browserSync = require('browser-sync')
+const gutil = require('gulp-util')
 const debug = require('gulp-debug')
+const plumber = require('gulp-plumber')
+const changed = require('gulp-changed')
 const flatten = require('gulp-flatten')
 const imagemin = require('gulp-imagemin')
 const pngquant = require('imagemin-pngquant')
 
 
-// Copy images to build folder
+// Minify images
 // =================================================================================================
 gulp.task('images', () => {
-  return gulp.src(paths.img.input)
+  return gulp.src(paths.images.input)
 
-    // Show name of file in pipe
+    .pipe(plumber(error => {
+      gutil.log(gutil.colors.red('images error:'), error.message)
+    }))
+
+    // Pass only unchanged files
+    .pipe(changed(paths.images.output))
+
     .pipe(debug({ title: 'images:' }))
 
     // Remove structure of folders
@@ -32,6 +37,6 @@ gulp.task('images', () => {
       use: [pngquant()]
     }))
 
-    .pipe(gulp.dest(paths.img.output))
+    .pipe(gulp.dest(paths.images.output))
     .pipe(browserSync.stream())
 })

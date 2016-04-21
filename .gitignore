@@ -1,5 +1,4 @@
 node_modules/
-*.sublime-project
-*.sublime-workspace
+gulpfile.js/settings-ftp.js
 *.diff
 *.ini

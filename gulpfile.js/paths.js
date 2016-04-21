@@ -1,72 +1,70 @@
-'use strict'
-
-const pathApp = 'app'
-const pathBuild = 'build'
+const app = './app'
+const build = './build'
 
 module.exports = {
-  app: pathApp,
-  build: pathBuild,
-
-  components: {
-    layout: {
-      input: pathApp + '/components/layout/layout.jade',
-      output: pathApp + '/components/layout'
-    }
-  },
+  app,
+  build,
 
   css: {
-    input: pathApp + '/css/*.css',
-    output: pathBuild + '/css',
-    clean: [
-      pathBuild + '/css/*.css',
-      '!' + pathBuild + '/css/styles.pretty.css',
-      '!' + pathBuild + '/css/styles.min.css'
+    input: `${app}/etc/css/*.css`,
+    output: `${build}/css`,
+    inputClean: [
+      `${build}/css/*.css`,
+      `!${build}/css/styles.dev.css`,
+      `!${build}/css/styles.min.css`,
+      `!${build}/css/styles.pretty.css`
     ]
   },
 
-  etc: {
-    input: pathApp + '/etc/**/*'
-  },
-
-  fonts: {
-    input: pathApp + '/fonts/*.+(eot|svg|ttf|woff|woff2)',
-    output: pathBuild + '/fonts'
-  },
-
-  img: {
+  static: {
     input: [
-      pathApp + '/img/**/*.+(jpg|png|gif|svg)',
-      pathApp + '/components/**/img/**/*.+(jpg|png|gif|svg)'
+      `${app}/static/**/*`,
+      `${app}/static/img/**/*`
+    ]
+  },
+
+  images: {
+    input: [
+      `${app}/img/**/*.+(jpg|png|gif|svg)`,
+      `${app}/components/**/img/**/*.+(jpg|png|gif|svg)`
     ],
-    output: pathBuild + '/img'
+    output: `${build}/img`
   },
 
   jade: {
-    input: pathApp + '/**/*.jade'
+    input: `${app}/**/*.jade`
   },
 
   js: {
-    input: pathApp + '/js/*.js',
-    output: pathBuild + '/js'
+    input: `${app}/js/*.js`,
+    output: `${build}/js`
   },
 
-  jslibs: {
-    input: pathApp + '/js/libs/*.js',
-    output: pathBuild + '/js/libs/'
+  jsLibs: {
+    input: `${app}/js/libs/*.js`,
+    output: `${build}/js/libs`
+  },
+
+  layout: `${app}/layout`,
+
+  pages: {
+    folder: `${app}/pages`,
+    input: `${app}/pages/*.jade`
+  },
+
+  react: {
+    input: `${app}/react/**/*.js`,
+    entry: `${app}/react/app.js`,
+    output: `${build}/js/`
   },
 
   stylus: {
     input: [
-      pathApp + '/stylus/**/*.styl',
-      pathApp + '/utils/stylus/*.styl',
-      pathApp + '/components/**/*.styl'
+      `${app}/stylus/**/*.styl`,
+      `${app}/utils/stylus/*.styl`,
+      `${app}/components/**/*.styl`
     ],
-    entry: pathApp + '/stylus/styles.styl',
-    output: pathBuild + '/css'
-  },
-
-  pages: {
-    folder: pathApp + '/pages',
-    input: pathApp + '/pages/*.jade'
+    entry: `${app}/stylus/index.styl`,
+    output: `${build}/css`
   }
 }

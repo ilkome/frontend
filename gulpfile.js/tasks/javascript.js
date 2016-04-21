@@ -1,7 +1,3 @@
-'use strict'
-
-// Modules
-// =================================================================================================
 const gulp = require('gulp')
 const paths = require('../paths')
 const browserSync = require('browser-sync')
@@ -20,22 +16,16 @@ const sourcemaps = require('gulp-sourcemaps')
 gulp.task('javascript-babel', () => {
   return gulp.src(paths.js.input)
 
+    .pipe(plumber(error => {
+      gutil.log(gutil.colors.red('javascript-babel error:'), error.message)
+    }))
+
     // Pass only unchanged files
     .pipe(changed(paths.js.output, { extension: '.js' }))
 
-    // Show name of file in pipe
-    .pipe(debug({ title: 'js babel:' }))
+    .pipe(debug({ title: 'javascript-babel:' }))
 
-    // Error
-    .pipe(plumber((error) => {
-      gutil.log(
-        gutil.colors.magenta('JavaScript-babel'),
-        gutil.colors.red('error:'),
-        error.message
-      )
-    }))
-
-    // Babel
+    // Babel with sourcemap
     .pipe(sourcemaps.init())
       .pipe(babel())
     .pipe(sourcemaps.write('.'))
@@ -48,15 +38,18 @@ gulp.task('javascript-babel', () => {
 // Сopy JavaScript to build folder
 // =================================================================================================
 gulp.task('javascript-copy', () => {
-  return gulp.src(paths.jslibs.input)
+  return gulp.src(paths.jsLibs.input)
+
+    .pipe(plumber(error => {
+      gutil.log(gutil.colors.red('javascript-copy error:'), error.message)
+    }))
 
     // Pass only unchanged files
     .pipe(changed(paths.js.output, { extension: '.js' }))
 
-    // Show name of file in pipe
-    .pipe(debug({ title: 'js copy:' }))
+    .pipe(debug({ title: 'javascript-copy:' }))
 
-    .pipe(gulp.dest(paths.jslibs.output))
+    .pipe(gulp.dest(paths.jsLibs.output))
     .pipe(browserSync.stream())
 })
 
@@ -64,19 +57,23 @@ gulp.task('javascript-copy', () => {
 // =================================================================================================
 gulp.task('javascript-uglify', () => {
   return gulp.src([
-    paths.jslibs.output + '/*.js',
-    paths.js.output + '/app.js'
+    `${paths.jsLibs.output}/*.js`,
+    `${paths.js.output}/app.js`
   ])
 
-    // Show name of file in pipe
-    .pipe(debug({ title: 'js uglify:' }))
+    .pipe(plumber(error => {
+      gutil.log(gutil.colors.red('javascript-uglify error:'), error.message)
+    }))
 
-    // Uglify
+    // Show name of file in pipe
+    .pipe(debug({ title: 'javascript-uglify:' }))
+
+    // Uglify with sourcemap
     .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(concat('bundle.min.js'))
     .pipe(sourcemaps.write('.'))
 
     .pipe(gulp.dest(paths.js.output))
-    .pipe(browserSync.stream({ match: '**/*.js' }))
+    .pipe(browserSync.stream())
 })
