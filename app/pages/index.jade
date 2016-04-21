@@ -1,19 +1,12 @@
-//- Include mixins from components
+//- Include all components mixins and extend layout
 //--------------------------------------------------------------------------------------------------
-include ../components/contacts/contacts
-include ../components/portfolio/portfolio
-include ../components/welcome/welcome
-include ../components/skills/skills
+include ../components/**/*.jade
+extends ../layout/layout
 
 
-//- Extend layout
+//- Append this to 'layout-content'
 //--------------------------------------------------------------------------------------------------
-extends ../components/layout/layout
-
-
-//- Append this to page block in layout
-//--------------------------------------------------------------------------------------------------
-block append page
+block append layout-content
 	+welcome
 	+skills
 	+portfolio

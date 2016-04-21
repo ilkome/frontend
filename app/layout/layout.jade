@@ -1,0 +1,33 @@
+//- Variables
+//--------------------------------------------------------------------------------------------------
+//- Ghanged by gulp
+- var inculdeWay = "pretty"
+
+//- Layout
+- var pageTitle = "Front-end Developer Ilya Komichev"
+- var themeColor = "#161616"
+
+
+//- Includes
+//--------------------------------------------------------------------------------------------------
+include head
+include styles
+include scripts
+
+
+//- Layout
+//--------------------------------------------------------------------------------------------------
+doctype html
+html
+  +head
+
+  body.body
+    //-(class="preloader-overflow js-preloader-overflow")
+    //-+preloader
+    +header
+
+    main.main
+      block layout-content
+      //- +menu-bottom
+
+  +scripts
