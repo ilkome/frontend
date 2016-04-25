@@ -1,15 +1,22 @@
 const gulp = require('gulp')
 const paths = require('../paths')
-const settingsFTP = require('../settings-ftp')
+const configFTP = require('../config-ftp')
 const gutil = require('gulp-util')
 const ftp = require('vinyl-ftp')
 const plumber = require('gulp-plumber')
 
+// Example
+// configFTP = {
+//   host: 'ilko.me',
+//   user: 'ilkome',
+//   password: 'superpasword',
+//   dest: '/any_folder_from_root'
+// }
 
 const conn = ftp.create({
-  host: settingsFTP.host,
-  user: settingsFTP.user,
-  password: settingsFTP.password,
+  host: configFTP.host,
+  user: configFTP.user,
+  password: configFTP.password,
   parallel: 10,
   log: gutil.log
 })
@@ -25,5 +32,5 @@ gulp.task('upload', () => {
     }))
 
     .pipe(conn.newer('/'))
-    .pipe(conn.dest('/'))
+    .pipe(conn.dest(configFTP.dest))
 })

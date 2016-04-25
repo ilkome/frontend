@@ -7,25 +7,25 @@ module.exports = {
 
   css: {
     input: `${app}/etc/css/*.css`,
-    output: `${build}/css`,
     inputClean: [
       `${build}/css/*.css`,
       `!${build}/css/styles.dev.css`,
       `!${build}/css/styles.min.css`,
       `!${build}/css/styles.pretty.css`
-    ]
+    ],
+    output: `${build}/css`
   },
 
   static: {
     input: [
       `${app}/static/**/*`,
-      `${app}/static/img/**/*`
+      `!${app}/static/img`
     ]
   },
 
   images: {
     input: [
-      `${app}/img/**/*.+(jpg|png|gif|svg)`,
+      `${app}/static/img/**/*.+(jpg|png|gif|svg)`,
       `${app}/components/**/img/**/*.+(jpg|png|gif|svg)`
     ],
     output: `${build}/img`
@@ -37,31 +37,33 @@ module.exports = {
 
   js: {
     input: `${app}/js/*.js`,
-    output: `${build}/js`
+    output: `${build}/js`,
+    outputApp: `${build}/js/app.js`
   },
 
   jsLibs: {
     input: `${app}/js/libs/*.js`,
-    output: `${build}/js/libs`
+    output: `${build}/js/libs`,
+    outputFiles: `${build}/js/libs/*.js`
   },
 
   layout: `${app}/layout`,
 
   pages: {
-    folder: `${app}/pages`,
-    input: `${app}/pages/*.jade`
+    input: `${app}/pages/*.jade`,
+    folder: `${app}/pages`
   },
 
   react: {
-    input: `${app}/react/**/*.js`,
     entry: `${app}/react/app.js`,
-    output: `${build}/js/`
+    folder: `${app}/react`,
+    output: `${build}/js/`,
+    filename: 'app.js'
   },
 
   stylus: {
     input: [
       `${app}/stylus/**/*.styl`,
-      `${app}/utils/stylus/*.styl`,
       `${app}/components/**/*.styl`
     ],
     entry: `${app}/stylus/index.styl`,

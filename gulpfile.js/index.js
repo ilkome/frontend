@@ -1,10 +1,10 @@
 /*
-	ilkome gulp
-	Version 3.5.4
+  ilkome gulp
+  Version 3.6.0
 
-	Ilya Komichev
-	https://ilko.me
-	https://github.com/ilkome/gulp
+  Ilya Komichev
+  https://ilko.me
+  https://github.com/ilkome/gulp
 */
 
 
@@ -16,7 +16,7 @@ const watch = require('gulp-watch')
 const requireDir = require('require-dir')
 const runSequence = require('run-sequence')
 const gutil = require('gulp-util')
-const includeWay = gutil.env
+const env = gutil.env
 
 
 // Require all tasks from gulpfile.js/tasks
@@ -28,67 +28,70 @@ requireDir('./tasks')
 // =================================================================================================
 gulp.task('default', (done) => {
   runSequence(
-    'build',
-    'watch',
-    'browserSync',
-    done
-  )
-})
-
-gulp.task('build', (done) => {
-  runSequence(
-    ['clean', 'replace-include'],
+    ['clean', 'replaceInculdeWay'],
     [
       'images',
       'jade',
-      'javascript-babel',
-      'javascript-copy',
+      'jsBabel',
+      'jsCopyLibs',
       'static',
       'stylus'
     ],
-    ['css-clean', 'javascript-uglify'],
-    // 'react',
+    [
+      'cssClean',
+      'jsUglify'
+    ],
+    [
+      'browserSync'
+      // 'browserSyncReact'
+    ],
+    [
+      'watcher',
+      'watcherJS'
+    ],
     done
   )
 })
 
 
-// Watch
+// Common watcher
 // =================================================================================================
-gulp.task('watch', () => {
+gulp.task('watcher', () => {
   // Static
   // ============================================
-  gulp.watch(paths.static.input, ['static'])
+  watch(paths.static.input, () => gulp.start('static'))
 
   // Images
   // ============================================
-  gulp.watch(paths.images.input, ['images'])
+  watch(paths.images.input, () => gulp.start('images'))
 
   // Jade
   // ============================================
-  if (includeWay.minify || includeWay.pretty) {
-    gulp.watch(paths.jade.input, () => runSequence('jade', 'css-clean'))
+  if (env.minify || env.pretty) {
+    watch(paths.jade.input, () => runSequence('jade', 'cssClean'))
   } else {
-    gulp.watch(paths.jade.input, ['jade'])
-  }
-
-  // JavaScript
-  // ============================================
-  gulp.watch(paths.js.input, ['javascript-babel'])
-  gulp.watch(paths.jsLibs.input, ['javascript-copy'])
-  gulp.watch(paths.react.input, ['react'])
-
-  if (includeWay.minify) {
-    gulp.watch([paths.jsLibs.output + '/*.js', paths.js.output + '/app.js'], ['javascript-uglify'])
+    watch(paths.jade.input, () => gulp.start('jade'))
   }
 
   // Styles
   // ============================================
-  if (includeWay.minify || includeWay.pretty) {
-    gulp.watch(paths.css.input, () => runSequence('css', 'css-clean'))
-    gulp.watch(paths.stylus.input, () => runSequence('stylus', 'css-clean'))
+  if (env.minify || env.pretty) {
+    watch(paths.css.input, () => runSequence('css', 'cssClean'))
+    watch(paths.stylus.input, () => runSequence('stylus', 'cssClean'))
   } else {
-    gulp.watch(paths.css.input, ['css'])
-    gulp.watch(paths.stylus.input, ['stylus'])
+    watch(paths.css.input, () => gulp.start('css'))
+    watch(paths.stylus.input, () => gulp.start('stylus'))
+  }
+})
+
+
+// JavaScript watcher
+// =================================================================================================
+gulp.task('watcherJS', () => {
+  watch(paths.js.input, () => gulp.start('jsBabel'))
+  watch(paths.jsLibs.input, () => gulp.start('jsCopyLibs'))
+
+  if (env.minify) {
+    watch([paths.jsLibs.outputFiles, paths.js.outputApp], () => gulp.start('jsUglify'))
   }
 })

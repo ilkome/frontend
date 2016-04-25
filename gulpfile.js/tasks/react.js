@@ -1,33 +1,29 @@
 const gulp = require('gulp')
 const paths = require('../paths')
-const browserSync = require('browser-sync')
 const debug = require('gulp-debug')
 const gutil = require('gulp-util')
 const plumber = require('gulp-plumber')
-const changed = require('gulp-changed')
-const webpack = require('webpack-stream')
+const webpack = require('webpack')
+const webpackStream = require('webpack-stream')
 
 
-// Compile Reactjs using Webpack
-// =================================================================================================
-gulp.task('react', () => {
-  return gulp.src(paths.react.entry)
+// React minify
+// ===============================================================================================
+gulp.task('reactMinify', () => {
+  return gulp.src(paths.react.input)
 
     .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('react error:'), error.message)
+      gutil.log(gutil.colors.red('reactMinify error:'), error.message)
     }))
 
-    // Pass only unchanged files
-    .pipe(changed(paths.js.output, { extension: '.js' }))
-
-    .pipe(debug({ title: 'react:' }))
+    .pipe(debug({ title: 'reactMinify:' }))
 
     // webpack
-    .pipe(webpack({
-      watch: false,
+    .pipe(webpackStream({
+      watch: true,
       devtool: 'cheap-module-source-map',
       entry: [
-        paths.react.entry
+        paths.react.input
       ],
       output: {
         filename: 'app.js'
@@ -38,11 +34,16 @@ gulp.task('react', () => {
           loader: 'babel'
         }]
       },
+      plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+          include: /\.js?$/,
+          minimize: true
+        })
+      ],
       resolve: {
         extensions: ['', '.js', '.jsx']
       }
     }))
 
     .pipe(gulp.dest(paths.react.output))
-    .pipe(browserSync.stream())
 })

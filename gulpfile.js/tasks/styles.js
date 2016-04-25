@@ -1,6 +1,6 @@
 const gulp = require('gulp')
 const paths = require('../paths')
-const settings = require('../settings')
+const config = require('../config')
 const browserSync = require('browser-sync')
 const gutil = require('gulp-util')
 const debug = require('gulp-debug')
@@ -46,11 +46,11 @@ gulp.task('stylus', () => {
 
 // Minify CSS in build folder
 // =================================================================================================
-gulp.task('css-clean', () => {
+gulp.task('cssClean', () => {
   return gulp.src(paths.css.inputClean)
 
     .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('css-clean error:'), error.message)
+      gutil.log(gutil.colors.red('cssClean error:'), error.message)
     }))
 
     // Show name of file in pipe
@@ -61,19 +61,19 @@ gulp.task('css-clean', () => {
     .pipe(gulpif(gutil.env.pretty, concatCSS('styles.pretty.css')))
 
     // Remove unused styles
-    .pipe(unCSS(settings.unCSS))
+    .pipe(unCSS(config.unCSS))
 
     // Combine Media queries
-    .pipe(combineMq(settings.combineMq))
+    .pipe(combineMq(config.combineMq))
 
     // Minify
-    .pipe(cleanCSS(settings.cleanCSS))
+    .pipe(cleanCSS(config.cleanCSS))
 
     // Autoprefixer
     .pipe(prefix('last 4 version', 'ie 10'))
 
     // Prettify
-    .pipe(gulpif(gutil.env.pretty, prettify(settings.pretty)))
+    .pipe(gulpif(gutil.env.pretty, prettify(config.pretty)))
 
     .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))

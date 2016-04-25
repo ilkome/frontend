@@ -1,4 +1,6 @@
 node_modules/
-gulpfile.js/settings-ftp.js
+npm-debug.log
 *.diff
 *.ini
+.DS_Store
+gulpfile.js/config-ftp.js
