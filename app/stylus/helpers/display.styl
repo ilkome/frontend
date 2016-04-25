@@ -4,14 +4,13 @@ borderbox-all()
 	*
 		box-sizing border-box
 
-table(table-layout-fixed = false)
+table(table-layout-auto = false)
 	display table
+	table-layout fixed
 	width 100%
 
-	if table-layout-fixed
+	if table-layout-auto
 		table-layout auto
-	else
-		table-layout fixed
 
 table-cell(vertical-align-middle = false)
 	display table-cell
