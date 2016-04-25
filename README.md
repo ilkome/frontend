@@ -1,5 +1,5 @@
 # ilkome gulp starter kit
-A powerful front-end gulp boilerplate to create projects with HTML5 & CSS3, Jade, Stylus, ES6, React, Autoprefixer, Browsersync
+A powerful front-end boilerplate. HTML5 & CSS3, Jade, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync
 
 
 # Features
