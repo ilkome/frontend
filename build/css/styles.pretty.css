@@ -71,17 +71,15 @@ input:-moz-focusring {
  box-sizing: border-box
 }
 
-.body {
- min-width: 320px;
- color: #111;
- background: rgba(0, 0, 0, .8);
- background-size: auto
-}
-
 h2,
 h3 {
  font-family: 'Source Sans Pro', sans-serif;
  font-weight: 700
+}
+
+.body,
+a {
+ font-family: 'Open Sans', sans-serif
 }
 
 h2 {
@@ -92,10 +90,17 @@ h3 {
  font-size: 24px
 }
 
+.body {
+ min-width: 320px;
+ color: #111;
+ background: rgba(0, 0, 0, .8);
+ background-size: auto;
+ font-size: 16px
+}
+
 a {
  display: inline-block;
  color: #ec6f2f;
- font-family: 'Open Sans', sans-serif;
  border-bottom: 1px solid #ec6f2f
 }
 
