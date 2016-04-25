@@ -14,7 +14,6 @@ a {
 .header-pic,
 .header-socials a,
 a {
- -webkit-transition: .3s ease-out;
  transition: .3s ease-out
 }
 
@@ -198,16 +197,12 @@ ul li {
 }
 
 .box-content_welcome {
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-orient: vertical;
- -webkit-box-direction: normal;
  -webkit-flex-direction: column;
  -ms-flex-direction: column;
  flex-direction: column;
- -webkit-box-pack: justify;
  -webkit-justify-content: space-between;
  -ms-flex-pack: justify;
  justify-content: space-between;
@@ -269,32 +264,24 @@ ul li {
 
 .header {
  text-align: center;
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-orient: vertical;
- -webkit-box-direction: normal;
  -webkit-flex-direction: column;
  -ms-flex-direction: column;
  flex-direction: column
 }
 
 .header-in {
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-orient: vertical;
- -webkit-box-direction: normal;
  -webkit-flex-direction: column;
  -ms-flex-direction: column;
  flex-direction: column;
- -webkit-box-align: center;
  -webkit-align-items: center;
  -ms-flex-align: center;
  align-items: center;
- -webkit-box-pack: center;
  -webkit-justify-content: center;
  -ms-flex-pack: center;
  justify-content: center;
@@ -318,24 +305,18 @@ ul li {
 }
 
 .header-info {
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-flex: 1;
  -webkit-flex-grow: 1;
  -ms-flex-positive: 1;
  flex-grow: 1;
- -webkit-box-orient: vertical;
- -webkit-box-direction: normal;
  -webkit-flex-direction: column;
  -ms-flex-direction: column;
  flex-direction: column;
- -webkit-box-align: center;
  -webkit-align-items: center;
  -ms-flex-align: center;
  align-items: center;
- -webkit-box-pack: center;
  -webkit-justify-content: center;
  -ms-flex-pack: center;
  justify-content: center;
@@ -439,19 +420,15 @@ ul li {
 }
 
 .portfolioItem-in {
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-orient: vertical;
- -webkit-box-direction: normal;
  -webkit-flex-direction: column;
  -ms-flex-direction: column;
  flex-direction: column;
  -webkit-flex-wrap: nowrap;
  -ms-flex-wrap: nowrap;
  flex-wrap: nowrap;
- -webkit-box-align: center;
  -webkit-align-items: center;
  -ms-flex-align: center;
  align-items: center;
@@ -462,7 +439,6 @@ ul li {
 }
 
 .portfolioItem-pic {
- -webkit-box-ordinal-group: 2;
  -webkit-order: 1;
  -ms-flex-order: 1;
  order: 1;
@@ -477,21 +453,16 @@ ul li {
  padding: 3px;
  background: #fff;
  border-radius: 2px;
- -webkit-transition: opacity .3s ease-out;
  transition: opacity .3s ease-out
 }
 
 .portfolioItem-content {
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-orient: vertical;
- -webkit-box-direction: normal;
  -webkit-flex-direction: column;
  -ms-flex-direction: column;
  flex-direction: column;
- -webkit-box-ordinal-group: 3;
  -webkit-order: 2;
  -ms-flex-order: 2;
  order: 2
@@ -554,12 +525,9 @@ ul li {
 }
 
 .skills {
- display: -webkit-box;
  display: -webkit-flex;
  display: -ms-flexbox;
  display: flex;
- -webkit-box-orient: horizontal;
- -webkit-box-direction: normal;
  -webkit-flex-direction: row;
  -ms-flex-direction: row;
  flex-direction: row;
@@ -576,7 +544,6 @@ ul li {
  min-width: 160px;
  text-align: center;
  padding-bottom: 50px;
- -webkit-transition: color .3s ease-out;
  transition: color .3s ease-out
 }
 
@@ -643,12 +610,10 @@ ul li {
   font-size: 18.2px
  }
  .box-content_welcome {
-  -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
+  -ms-grid-row-align: center;
   align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row
@@ -684,8 +649,6 @@ ul li {
   height: 39px
  }
  .portfolioItem-in {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
@@ -698,7 +661,6 @@ ul li {
   padding-bottom: 0
  }
  .portfolioItem:nth-child(even) .portfolioItem-pic {
-  -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
   -ms-flex-order: 2;
   order: 2;
@@ -713,7 +675,6 @@ ul li {
   padding-left: 30px
  }
  .portfolioItem:nth-child(even) .portfolioItem-content {
-  -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
