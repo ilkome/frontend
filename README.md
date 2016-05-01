@@ -27,6 +27,11 @@ Template engine using Jade. Jade it's preprocessor HTML.
 Demo: http://ilko.me/
 
 
+For React example please visit https://github.com/ilkome/finance
+
+Demo http://ilko.me/finance
+
+
 
 # Installation
 
@@ -79,10 +84,10 @@ app/static => build
 ### images
 Minify images. Hot reload.
 
-app/images || app/components/components-name/img/ => build/img
+app/images || app/atoms/atoms-name/img/ => build/img
 
 ### jade
-Compiles jade then any of pages changes or changes in jade components files.
+Compiles jade then any of pages changes or changes in jade atoms files.
 
 app/pages => build
 
@@ -136,11 +141,11 @@ gulpfiles.js/config-ftp.js
 
     .
     ├── app                                 # Application folder
-    │   ├── components                      # Component. Jade + styl
-    │   │   └── component-name              # Component example
-    │   │       ├── img                     # Component images
-    │   │       ├── component-name.jade     # Component HTML. Jade file with mixin(s)
-    │   │       └── component-name.styl     # Component Styles. Stylus file
+    │   ├── atoms                           # Atoms.
+    │   │   └── atom-name                   # Atom's example. It's just component Jade + Styl + img
+    │   │       ├── img                     # Atom's images
+    │   │       ├── atom-name.jade          # Atom's HTML. Jade file with mixin(s)
+    │   │       └── atom-name.styl          # Atom's styles. Stylus file
     │   ├── js                              # Store JavaScript
     │   |   └── libs                        # Store JavaScript libraries
     │   ├── layout                          # Layout of application
@@ -155,7 +160,7 @@ gulpfiles.js/config-ftp.js
     │   │   |── components                  # React component example
     │   │   |   ├── component-app.jsx       # Main file of react component
     │   │   |   └── component-list.jsx      # Child component
-    │   │   └── app.js                      # Entry files for React application
+    │   │   └── index.js                    # Entry files for React application
     │   ├── static                          # Store static files
     │   |   |── css                         # Store css files
     │   |   |── fonst                       # Store font files
