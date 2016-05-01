@@ -9,8 +9,8 @@ const changed = require('gulp-changed')
 
 // Сopy everything to build folder
 // =================================================================================================
-gulp.task('static', () => {
-  return gulp.src(paths.static.input)
+gulp.task('static', () =>
+  gulp.src(paths.static.input)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('static error:'), error.message)
@@ -23,4 +23,4 @@ gulp.task('static', () => {
 
     .pipe(gulp.dest(paths.build))
     .pipe(browserSync.stream())
-})
+)

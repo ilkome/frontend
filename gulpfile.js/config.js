@@ -30,7 +30,8 @@ module.exports = {
       ]
     },
     files: [
-      paths.react.entry
+      paths.react.entry,
+      paths.react.routes
     ]
   },
 

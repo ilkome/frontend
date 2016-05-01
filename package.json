@@ -1,6 +1,6 @@
 {
   "name": "gulp-starter-kit",
-  "version": "3.6.0",
+  "version": "3.6.1",
   "description": "A front-end boilerplate to create projects with Jade, Stylus, ES6, React, Autoprefixer, Browsersync",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
@@ -13,7 +13,8 @@
     "jquery": "^2.2.3",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "youtube-api-search": "0.0.5"
+    "react-easy-transition": "0.0.3",
+    "react-router": "^2.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.7",

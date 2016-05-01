@@ -10,8 +10,8 @@ const replace = require('gulp-replace')
 
 // Replace minify var in layout
 // =================================================================================================
-gulp.task('replaceInculdeWay', () => {
-  return gulp.src(paths.layout + '/layout.jade')
+gulp.task('replaceInculdeWay', () =>
+  gulp.src(paths.layout + '/layout.jade')
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('replaceInculdeWay error:'), error.message)
@@ -44,4 +44,4 @@ gulp.task('replaceInculdeWay', () => {
         gutil.log('replaceInculdeWay:', gutil.colors.green('dev'))
       }
     })
-})
+)

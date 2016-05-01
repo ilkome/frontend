@@ -18,8 +18,8 @@ const rename = require('gulp-rename')
 
 // Compile stylus
 // =================================================================================================
-gulp.task('stylus', () => {
-  return gulp.src(paths.stylus.entry)
+gulp.task('stylus', () =>
+  gulp.src(paths.stylus.entry)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('stylus error:'), error.message)
@@ -41,13 +41,13 @@ gulp.task('stylus', () => {
 
     .pipe(gulp.dest(paths.stylus.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
-})
+)
 
 
 // Minify CSS in build folder
 // =================================================================================================
-gulp.task('cssClean', () => {
-  return gulp.src(paths.css.inputClean)
+gulp.task('cssClean', () =>
+  gulp.src(paths.css.inputClean)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('cssClean error:'), error.message)
@@ -85,4 +85,4 @@ gulp.task('cssClean', () => {
         gutil.log('CSS clean:', gutil.colors.green('minify'))
       }
     })
-})
+)

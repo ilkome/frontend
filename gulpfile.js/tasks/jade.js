@@ -13,8 +13,8 @@ const prettify = require('gulp-jsbeautifier')
 
 // Compile jade
 // =================================================================================================
-gulp.task('jade', () => {
-  return gulp.src(paths.pages.input)
+gulp.task('jade', () =>
+  gulp.src(paths.pages.input)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('jade error:'), error.message)
@@ -38,4 +38,4 @@ gulp.task('jade', () => {
         gutil.log('jade:', gutil.colors.green('minify'))
       }
     })
-})
+)

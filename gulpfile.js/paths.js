@@ -26,13 +26,17 @@ module.exports = {
   images: {
     input: [
       `${app}/static/img/**/*.+(jpg|png|gif|svg)`,
-      `${app}/components/**/img/**/*.+(jpg|png|gif|svg)`
+      `${app}/atoms/**/img/**/*.+(jpg|png|gif|svg)`
     ],
     output: `${build}/img`
   },
 
   jade: {
-    input: `${app}/**/*.jade`
+    input: [
+      `${app}/atoms/**/*.jade`,
+      `${app}/pages/**/*.jade`,
+      `${app}/layout/**/*.jade`
+    ]
   },
 
   js: {
@@ -55,7 +59,8 @@ module.exports = {
   },
 
   react: {
-    entry: `${app}/react/app.js`,
+    entry: `${app}/react/index.jsx`,
+    routes: `${app}/react/routes.jsx`,
     folder: `${app}/react`,
     output: `${build}/js/`,
     filename: 'app.js'
@@ -64,7 +69,7 @@ module.exports = {
   stylus: {
     input: [
       `${app}/stylus/**/*.styl`,
-      `${app}/components/**/*.styl`
+      `${app}/atoms/**/*.styl`
     ],
     entry: `${app}/stylus/index.styl`,
     output: `${build}/css`

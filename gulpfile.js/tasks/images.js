@@ -12,8 +12,8 @@ const pngquant = require('imagemin-pngquant')
 
 // Minify images
 // =================================================================================================
-gulp.task('images', () => {
-  return gulp.src(paths.images.input)
+gulp.task('images', () =>
+  gulp.src(paths.images.input)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('images error:'), error.message)
@@ -39,4 +39,4 @@ gulp.task('images', () => {
 
     .pipe(gulp.dest(paths.images.output))
     .pipe(browserSync.stream())
-})
+)

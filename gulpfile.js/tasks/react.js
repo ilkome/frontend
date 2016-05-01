@@ -9,8 +9,8 @@ const webpackStream = require('webpack-stream')
 
 // React minify
 // ===============================================================================================
-gulp.task('reactMinify', () => {
-  return gulp.src(paths.react.input)
+gulp.task('reactMinify', () =>
+  gulp.src(paths.react.entry)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('reactMinify error:'), error.message)
@@ -23,7 +23,7 @@ gulp.task('reactMinify', () => {
       watch: true,
       devtool: 'cheap-module-source-map',
       entry: [
-        paths.react.input
+        paths.react.entry
       ],
       output: {
         filename: 'app.js'
@@ -46,4 +46,4 @@ gulp.task('reactMinify', () => {
     }))
 
     .pipe(gulp.dest(paths.react.output))
-})
+)

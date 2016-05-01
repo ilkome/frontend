@@ -13,8 +13,8 @@ const sourcemaps = require('gulp-sourcemaps')
 
 // Compile JavaScript with Babel
 // ===============================================================================================
-gulp.task('jsBabel', () => {
-  return gulp.src(paths.js.input)
+gulp.task('jsBabel', () =>
+  gulp.src(paths.js.input)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('jsBabel error:'), error.message)
@@ -32,13 +32,13 @@ gulp.task('jsBabel', () => {
 
     .pipe(gulp.dest(paths.js.output))
     .pipe(browserSync.stream())
-})
+)
 
 
 // Сopy JavaScript to build folder
 // ===============================================================================================
-gulp.task('jsCopyLibs', () => {
-  return gulp.src(paths.jsLibs.input)
+gulp.task('jsCopyLibs', () =>
+  gulp.src(paths.jsLibs.input)
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('jsCopyLibs error:'), error.message)
@@ -51,12 +51,12 @@ gulp.task('jsCopyLibs', () => {
 
     .pipe(gulp.dest(paths.jsLibs.output))
     .pipe(browserSync.stream())
-})
+)
 
 // JavaScript minify
 // ===============================================================================================
-gulp.task('jsUglify', () => {
-  return gulp.src([
+gulp.task('jsUglify', () =>
+  gulp.src([
     `${paths.jsLibs.output}/*.js`,
     `${paths.js.output}/app.js`
   ])
@@ -76,4 +76,4 @@ gulp.task('jsUglify', () => {
 
     .pipe(gulp.dest(paths.js.output))
     .pipe(browserSync.stream())
-})
+)

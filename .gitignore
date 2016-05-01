@@ -1,4 +1,5 @@
 node_modules/
+files/
 npm-debug.log
 *.diff
 *.ini
