@@ -10,6 +10,14 @@ html {
   background: rgba(0,0,0,0.8);
   background-size: auto;
 }
+code {
+  display: block;
+  margin: 10px 0;
+  margin-bottom: 15px;
+  padding: 10px;
+  color: #fff;
+  background: #222;
+}
 h1,
 h2,
 h3,
@@ -169,14 +177,6 @@ input[type="checkbox"]:checked + label:after {
 input[type="checkbox"]:checked + label:before {
   position: relative;
 }
-.body {
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-}
-p {
-  margin: 0;
-  margin-bottom: 20px;
-}
 a {
   display: inline-block;
   color: #ec6f2f;
@@ -239,6 +239,20 @@ ol li {
 ol li ul,
 ol li ol {
   margin: 15px 0 10px 0;
+}
+table {
+  width: 100%;
+}
+td {
+  vertical-align: top;
+}
+.body {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+p {
+  margin: 0;
+  margin-bottom: 20px;
 }
 .box {
   background: #fff;
