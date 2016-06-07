@@ -1,5 +1,5 @@
-# ilkome gulp starter kit
-A powerful front-end boilerplate. HTML5 & CSS3, Jade, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync
+# front-end starter kit
+A powerful front-end boilerplate. Gulp, Webpack, HTML5 & CSS3, Jade, Stylus, ES6, React, Autoprefixer, Browsersync
 
 
 # Features
