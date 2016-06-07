@@ -2,7 +2,6 @@
 
 // Preloader
 // =================================================================================================
-
 function preloader() {
   $('.js-preloader').addClass('js-preloader-hidden');
   $('.js-preloader-overflow').removeClass('js-preloader-overflow');
@@ -82,7 +81,7 @@ $(function () {
   setTimeout(preloader, 5000);
 
   // Fix header height on mobile devices
-  fixHeaderHeight('.js-header-in');
+  fixHeaderHeight('.js-header');
 
   new Blazy({
     selector: '.js-belazy',
