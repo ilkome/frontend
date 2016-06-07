@@ -1,0 +1,8 @@
+mixin social-el(profile, title, site)
+  case site
+    when "github": - var url = 'https://github.com/'
+    when "facebook": - var url = 'http://facebook.com/'
+    when "vk": - var url = "http://vk.com/"
+
+  li.social__el
+    a(class="social__link social__#{site}" href="#{url}#{profile}" target="_blank" title="#{title}")

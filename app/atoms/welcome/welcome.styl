@@ -1,8 +1,34 @@
-.welcome-video
-  padding 3px
-  background white
-  border-radius 2px
-  box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.2)
+.welcome
+  display flex
+  flex-direction column
+  flex-wrap nowrap
+  justify-content space-between
+  flex-wrap wrap
 
-  iframe
-    margin-bottom -5px
+  @media tablet
+    align-items center
+
+  > div:first-child
+    padding-bottom 40px
+
+  @media tablet
+    flex-direction row
+
+    > div:first-child
+      padding-bottom 0
+
+    > div
+      width 45%
+
+    p
+      margin-bottom 20px
+      line-height 26px
+
+  &__video
+    padding 3px
+    background white
+    border-radius 2px
+    box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.2)
+
+    iframe
+      margin-bottom -5px

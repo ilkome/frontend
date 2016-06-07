@@ -1,15 +1,15 @@
 mixin header
-	header.header#top(data-parallax="scroll" data-image-src="img/header-bg.jpg")
-		.header-in.js-header-in
-			.header-ava.js-headerAvaAnim
-				a(href="http://ilko.me" title="Front-end Developer Ilya Komichev").header-pic
-			
-			.header-info.js-headerTextAnim
-				.header-name Ilya Komichev
-				.header-job Front-end Developer
-			
-			.header-socials.js-headerSocialAnim
-				ul
-					li: a(href="https://github.com/ilkome" target="_blank" title="GitHub").header-github
-					li: a(href="http://facebook.com/ilkome" target="_blank" title="Facebook").header-facebook
-					li: a(href="http://vk.com/ilkome" target="_blank" title="VK").header-vk
+  header.header
+    .header__in.js-header
+      .header__ava.js-headerAvaAnim
+        a(href="http://ilko.me" title="Front-end Developer Ilya Komichev").header__pic
+      
+      .header__info.js-headerTextAnim
+        .header__name Ilya Komichev
+        .header__job Front-end Developer
+      
+      .header__social.js-headerSocialAnim
+        ul.social
+          +social-el('ilkome', 'Open GitHub in new window', 'github')
+          +social-el('ilkome', 'Open Facebook in new window', 'facebook')
+          +social-el('ilkome', 'Open VK in new window', 'vk')

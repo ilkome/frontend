@@ -1,17 +1,20 @@
 mixin welcome
-	.box
-		.box-in
-			+box-name("Hi, there :)")
-			.box-content.box-content_welcome
-				div
-					p My name is Ilya Komichev. I'm Front-end Developer and Divemaster.
-					p I have developed web-projects with HTML, CSS, JavaScrpt, jQuery.
-					p I like to be productive and I made 
-						a(href="https://github.com/ilkome/gulp", target="_blank" title="ilkome gulp starter kit") gulp starter kit
-						|. In every projects I use Jade, Stylus, ES6, Autoprefixer, Browsersync, minify images / CSS / JavaScrpts.
-				div.welcome-video
-					iframe(
-						width="100%" height="330px" 
-						src="https://www.youtube.com/embed/gndoypWcDg0?rel=0"
-						frameborder="0" allowfullscreen)
-					
+  .box
+    .box__in
+      +box-name("Hi, there :)")
+      .box__content.box__content_welcome
+        .welcome
+          div
+            p My name is Ilya Komichev. I'm Front-end Developer and Divemaster.
+            p I have developed web-projects with HTML, CSS, JavaScrpt, jQuery.
+            p I like to be productive and I made 
+              a(href="https://github.com/ilkome/gulp", target="_blank" title="ilkome gulp starter kit") gulp starter kit
+              |. In every projects I use Jade, Stylus, ES6, Autoprefixer, Browsersync, minify images / CSS / JavaScrpts.
+
+          div.welcome__video
+            iframe(
+              width="100%" height="330px" 
+              src="https://www.youtube.com/embed/gndoypWcDg0?rel=0"
+              frameborder="0" allowfullscreen)
+
+      +hireme

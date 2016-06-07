@@ -1,26 +1,31 @@
 mixin contacts()
-	.contacts#contacts(data-parallax="scroll" data-image-src="img/header-bg.jpg")
-		.box-in
-			+box-name("Contacts", "", "box-name_small")
-
-			.box-content.js-contactsAnim
-				.contacts-list
-					a(href="mailto:hi@ilko.me" title="Email") hello@ilko.me
-					a(href="http://www.upwork.com/fl/ilyakomichev" target="_blank" title="Upwork") Upwork
-					a(href="https://github.com/ilkome" target="_blank" title="GitHub") GitHub
-					a(href="http://facebook.com/ilkome" target="_blank" title="Facebook") Facebook
-					a(href="http://vk.com/ilkome" target="_blank" title="VK") VK
-					a(href="https://www.fl.ru/users/style-nes/" target="_blank" title="Free-lance.ru") FL.ru
-				.contacts-list
-					a(href="https://www.couchsurfing.com/people/ilkome" title="couchsurfing") couchsurfing
-					a(href="https://www.instagram.com/ilkome/" title="Instagram @ilkome") Instagram @ilkome
-				.contacts-text
-					| Telegram, WhatsApp, Viber: 
-					strong +7&nbsp;915&nbsp;976&nbsp;0715
-				.contacts-text.contacts-skype
-					| Skype: 
-					strong style-nes 
-				
-				+hireme
-
-		+footer
+  .contacts(id="contacts")
+    .contacts__in
+      .box__in
+        +box-name("Contacts", "", "box__name_small")
+        
+        .box__content.js-contactsAnim
+          
+          .contacts__row
+            a(href="mailto:hi@ilko.me" title="Email").contacts__email hi@ilko.me
+          
+          .contacts__row
+            h3 Working with me
+            a(href="http://www.upwork.com/fl/ilkome" target="_blank" title="Upwork") Upwork
+            a(href="https://github.com/ilkome" target="_blank" title="GitHub") GitHub
+            a(href="https://www.fl.ru/users/style-nes/" target="_blank" title="Free-lance.ru") FL.ru
+            | Skype: style-nes
+          
+          .contacts__row
+            h3 Chating with me
+            a(href="http://vk.com/ilkome" target="_blank" title="VK") VK
+            a(href="https://www.instagram.com/ilkome/" title="Instagram @ilkome") Instagram @ilkome
+            a(href="http://facebook.com/ilkome" target="_blank" title="Facebook") Facebook
+            a(href="https://www.couchsurfing.com/people/ilkome" title="couchsurfing") couchsurfing
+          
+          .contacts__row
+            h3 Messegers
+            | Phone, Telegram, WhatsApp, Viber: 
+            strong +7&nbsp;915&nbsp;976&nbsp;0715
+    
+    +footer

@@ -1,25 +1,33 @@
 .contacts
-	color white
-	text-align center
-	background alpha(black, 0.5)
+  color white
+  text-align center
+  background url("../img/header-bg.jpg") center center no-repeat
+  bg-cover()
 
-	&-list
-		a
-			display inline-block
-			margin 0 15px
-			margin-bottom 20px
+  &__in
+    background alpha(black, 0.5)
 
-			@media tablet
-				border-color transparent
+  &__row
+    padding-bottom 30px
 
-			&:hover
-				border-color white
-				color white
+    a
+      display inline-block
+      padding 3px
+      padding-top 0
+      margin 0 15px
+      margin-bottom 20px
 
-	&-text
-		display block
-		margin 0
-		opacity .9
+      &:hover
+        border-color white
+        color white
 
-	&-skype
-		padding-top 20px
+  &__text
+    display block
+    opacity .9
+
+  &__email
+    font-size 22px
+    letter-spacing 1px
+
+  &__skype
+    padding-top 20px

@@ -1,5 +1,3 @@
-'use strict'
-
 // Preloader
 // =================================================================================================
 function preloader() {
@@ -85,7 +83,7 @@ $(() => {
   setTimeout(preloader, 5000)
 
   // Fix header height on mobile devices
-  fixHeaderHeight('.js-header-in')
+  fixHeaderHeight('.js-header')
 
   new Blazy({
     selector: '.js-belazy',

@@ -1,7 +1,7 @@
 mixin menu-bottom
-	.menuBottom
-		a(href="#").menuBottom-trigger: span &nbsp;
-		ul.menuBottom-nav
-			li.menuBottom-el: a(href="#top").menuBottom-link Home
-			li.menuBottom-el: a(href="#contacts").menuBottom-link Contacts
-			li.menuBottom-el: a(href="#portfolio").menuBottom-link Portfolio
+	nav.nav
+		a(href="#").menuBottom__trigger: span &nbsp;
+		ul.nav__list
+			li.nav__el: a(href="#top").nav__link Home
+			li.nav__el.nav__el_active: a(href="#contacts").nav__link Contacts
+			li.nav__el: a(href="#portfolio").nav__link Portfolio

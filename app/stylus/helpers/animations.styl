@@ -1,32 +1,32 @@
 // Animations
 // =================================================================================================
 anim(time = false)
-	if time
-		transition time ease-out
-	else
-		transition 0.3s ease-out
+  if time
+    transition time ease-out
+  else
+    transition 0.3s ease-out
 
 anim-all()
-	transition all 0.3s ease-out
+  transition all 0.3s ease-out
 
 anim-bg()
-	transition background-image 0.3s ease-out
+  transition background-image 0.3s ease-out
 
 anim-color()
-	transition color 0.3s ease-out
+  transition color 0.3s ease-out
 
 anim-op()
-	transition opacity 0.3s ease-out
+  transition opacity 0.3s ease-out
 
 anim-border()
-	transition border 0.3s ease-out
+  transition border 0.3s ease-out
 
 anim-none()
-	transition none
+  transition none
 
 anim-hover-op(num = .8)
-	transition opacity 0.3s ease-out
-	opacity 1
+  transition opacity 0.3s ease-out
+  opacity 1
 
-	&:hover
-		opacity num
+  &:hover
+    opacity num

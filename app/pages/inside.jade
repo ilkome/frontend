@@ -1,0 +1,16 @@
+//- Include all atoms mixins and extend layout
+//--------------------------------------------------------------------------------------------------
+include ../atoms/**/*.jade
+extends ../layout/layout
+
+
+//- Append this to 'layout-content'
+//--------------------------------------------------------------------------------------------------
+block append layout-content
+  h1 Header 1
+  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas nihil optio officia rerum accusamus ad aliquid neque at in dignissimos aspernatur soluta et, id asperiores ipsa, laborum inventore aperiam sit accusantium culpa! Cum et laudantium nesciunt magnam adipisci, architecto quibusdam minus quasi. Facere nemo dicta mollitia vel quo possimus, hic?
+  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, mollitia!
+  
+  form(action="#")
+    input(type="text" value="")
+    button

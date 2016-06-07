@@ -1,152 +1,152 @@
-.portfolioItem
-	text-align center
+.portfolio-item
+  text-align center
 
-	&:first-child
-		padding-top padding-small
+  &:first-child
+    padding-top padding-small
 
-	&:nth-child(even)
-		background alpha(black, 0.05)
+  &:nth-child(even)
+    background alpha(black, 0.05)
 
-	&-in
-		display flex
-		flex-direction column
-		flex-wrap nowrap
-		align-items center
-		height auto
-		max-width max-width
-		margin 0 auto
-		padding padding-main padding-small
+  &__in
+    display flex
+    flex-direction column
+    flex-wrap nowrap
+    align-items center
+    height auto
+    max-width max-width
+    margin 0 auto
+    padding padding-main padding-small
 
-		@media tablet
-			flex-direction row
-			padding (padding-main * padding-tablet) padding-small
-			text-align left
+    @media tablet
+      flex-direction row
+      padding (padding-main * padding-tablet) padding-small
+      text-align left
 
-		@media laptop
-			padding (padding-main * padding-laptop) padding-small
+    @media laptop
+      padding (padding-main * padding-laptop) padding-small
 
-	&-name
-		font-size 32px
+  &__name
+    font-size 32px
 
-	&-pic
-		order 1
-		padding-bottom padding-small
+  &__pic
+    order 1
+    padding-bottom padding-small
 
-		@media tablet
-			width 50%
-			padding-right padding-small
-			padding-bottom 0
+    @media tablet
+      width 50%
+      padding-right padding-small
+      padding-bottom 0
 
-			^[-1]:nth-child(even) &
-				order 2
-				padding-right 0
-				padding-left padding-small
+      ^[-1]:nth-child(even) &
+        order 2
+        padding-right 0
+        padding-left padding-small
 
-		@media laptop
-			padding-right padding-main
+    @media laptop
+      padding-right padding-main
 
-			^[-1]:nth-child(even) &
-				padding-left padding-main
+      ^[-1]:nth-child(even) &
+        padding-left padding-main
 
-	&-img
-		opacity 0
-		display block
-		width 100%
-		max-width 600px
-		padding 3px
-		background white
-		border-radius 2px
-		box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.2)
-		anim-op()
+  &__img
+    opacity 0
+    display block
+    width 100%
+    max-width 600px
+    padding 3px
+    background white
+    border-radius 2px
+    box-shadow 0 0 5px 0 rgba(0, 0, 0, 0.2)
+    anim-op()
 
-		@media tablet
-			max-width 100%
+    @media tablet
+      max-width 100%
 
-	&-content
-		display flex
-		flex-direction column
-		order 2
+  &__content
+    display flex
+    flex-direction column
+    order 2
 
-		@media tablet
-			width 50%
-			padding-left padding-small
+    @media tablet
+      width 50%
+      padding-left padding-small
 
-			^[-1]:nth-child(even) &
-				order 1
-				padding-right padding-small
-				padding-left 0
+      ^[-1]:nth-child(even) &
+        order 1
+        padding-right padding-small
+        padding-left 0
 
-		@media laptop
-			padding-left padding-main
+    @media laptop
+      padding-left padding-main
 
-			^[-1]:nth-child(even) &
-				padding-right padding-main
+      ^[-1]:nth-child(even) &
+        padding-right padding-main
 
-	&-name
-		margin-bottom 20px
-		font-size 28px
+  &__name
+    margin-bottom 20px
+    font-size 28px
 
-		@media tablet
-			font-size @font-size * padding-tablet
+    @media tablet
+      font-size @font-size * padding-tablet
 
-		@media laptop
-			margin-bottom @margin-bottom * padding-laptop
-			font-size @font-size * padding-laptop
+    @media laptop
+      margin-bottom @margin-bottom * padding-laptop
+      font-size @font-size * padding-laptop
 
-	&-desc
-		margin-bottom 10px
+  &__desc
+    margin-bottom 10px
 
-		@media tablet
-			font-size 18px
+    @media tablet
+      font-size 18px
 
-	&-tags
-		font-size 12px
+  &__tags
+    font-size 12px
 
-		@media tablet
-			font-size 14px
+    @media tablet
+      font-size 14px
 
-	&-links
-		margin 0 -15px
-		padding-top padding-small
+  &__links
+    margin 0 -15px
+    padding-top padding-small
 
-		@media laptop
-			padding-top @padding-top * padding-laptop
+    @media laptop
+      padding-top @padding-top * padding-laptop
 
-	&-link
-		width 160px
-		padding 15px 0px
-		margin 0 15px
-		margin-bottom 10px
-		color white
-		font-size 14px
-		text-transform uppercase
-		border none
-		border-radius 3px
-		text-align center
+  &__link
+    width 160px
+    padding 15px 0px
+    margin 0 15px
+    margin-bottom 10px
+    color white
+    font-size 14px
+    text-transform uppercase
+    border none
+    border-radius 3px
+    text-align center
 
-		&:last-child
-			margin-bottom 0
+    &:last-child
+      margin-bottom 0
 
-		&:hover
-			background orange
+    &:hover
+      background orange
 
-		@media tablet
-			width 160px
-			margin 0 15px
-			margin-bottom 15px
-			padding 15px 0px
+    @media tablet
+      width 160px
+      margin 0 15px
+      margin-bottom 15px
+      padding 15px 0px
 
-		@media laptop
-			width 190px
-			margin-bottom 20px
-			padding 20px 0
-			font-size 16px
+    @media laptop
+      width 190px
+      margin-bottom 20px
+      padding 20px 0
+      font-size 16px
 
-	&-demo
-		background alpha(#000, .7)
+  &__demo
+    background alpha(#000, .7)
 
-	&-source
-		background alpha(#000, .9)
+  &__source
+    background alpha(#000, .9)
 
 .js-belazy-loaded
-	opacity 1
+  opacity 1

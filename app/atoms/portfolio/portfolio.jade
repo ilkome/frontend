@@ -1,7 +1,7 @@
 mixin portfolio()
-	.box.box_nopadding#portfolio
-		.box-in
-			+box-name('Portfolio', 'My latest works in the <a href="https://github.com/ilkome" title="ilkome portfolio in the GitHub">GitHub</a>', 'box-name_nopadding')
+	.box.box_nopadding
+		.box__in
+			+box-name('Portfolio', 'My latest works in the <a href="https://github.com/ilkome" title="ilkome portfolio in the GitHub">GitHub</a>', 'box__name_nopadding')
 
 			.portfolio
 				+portfolio-item(
@@ -34,18 +34,18 @@ mixin portfolio()
 				)
 
 mixin portfolio-item(name, desc, tags, link, liveLink)
-	.portfolioItem
-		.portfolioItem-in.js-portfolioAnim
-			.portfolioItem-content
-				h3.portfolioItem-name= name
-				p.portfolioItem-desc!= desc
-				.portfolioItem-tags!= tags
-				.portfolioItem-links
+	.portfolio-item
+		.portfolio-item__in.js-portfolioAnim
+			.portfolio-item__content
+				h3.portfolio-item__name= name
+				p.portfolio-item__desc!= desc
+				.portfolio-item__tags!= tags
+				.portfolio-item__links
 
 					if liveLink
-						a(href="http://#{liveLink}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Live demo
+						a(href="http://#{liveLink}/" target="_blank" title="Demo #{name}").portfolio-item__link.portfolio-item__demo Live demo
 					else
-						a(href="http://ilko.me/works/#{link}/" target="_blank" title="Demo #{name}").portfolioItem-link.portfolioItem-demo Demo
+						a(href="http://ilko.me/works/#{link}/" target="_blank" title="Demo #{name}").portfolio-item__link.portfolio-item__demo Demo
 
-					a(href="https://github.com/ilkome/#{link}/" target="_blank" title="Source #{name}").portfolioItem-link.portfolioItem-source Source
-			.portfolioItem-pic: img(src="img/portfolio-loading.svg" data-src="img/portfolio-#{link}.jpg", alt="#{name}").portfolioItem-img.js-belazy
+					a(href="https://github.com/ilkome/#{link}/" target="_blank" title="Source #{name}").portfolio-item__link.portfolio-item__source Source
+			.portfolio-item__pic: img(src="img/portfolio-loading.svg" data-src="img/portfolio-#{link}.jpg", alt="#{name}").portfolio-item__img.js-belazy

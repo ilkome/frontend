@@ -1,119 +1,100 @@
 .box
-	background white
+  background white
 
-	&_grey
-		color white
-		background none
+  &_grey
+    color white
+    background none
 
-		& ^[-1]-in
-			background alpha(black, 0.5)
+    & ^[-1]__in
+      background alpha(black, 0.5)
 
-	&_darkgrey
-		color white
-		// background url("../img/bg-code.jpg") 0 0 no-repeat
-		bg-cover()
+  &_darkgrey
+    color white
 
-		& ^[-1]-in
-			background alpha(black, 0.7)
+    & ^[-1]__in
+      background alpha(black, 0.7)
 
-	&_nopadding
-		& ^[-1]-in
-			padding-bottom 0
+  &_skills
+    color white
+    background url("../img/bg-code.jpg") 0 0 no-repeat
+    bg-cover()
 
-	&-in
-		padding padding-main 0
+    & ^[-1]__in
+      padding-bottom 0
+      background alpha(black, .8)
 
-		@media tablet
-			padding (padding-main * padding-tablet) 0
+  &_nopadding
+    & ^[-1]__in
+      padding-bottom 0
 
-		@media laptop
-			padding (padding-main * padding-laptop) 0
+  &__in
+    padding padding-main 0
 
-	&_nopadding
-		.box-in
-			padding-bottom 0
+    @media tablet
+      padding (padding-main * padding-tablet) 0
 
-	&-name
-		display block
-		position relative
-		max-width max-width
-		margin 0 auto
-		padding 0 padding-small
-		padding-bottom padding-main
-		text-align center
+    @media laptop
+      padding (padding-main * padding-laptop) 0
 
-		@media tablet
-			padding-bottom padding-main * padding-tablet
+  &_nopadding
+    .box__in
+      padding-bottom 0
 
-		@media laptop
-			padding-bottom padding-main * padding-laptop
+  &__name
+    display block
+    position relative
+    max-width max-width
+    margin 0 auto
+    padding 0 padding-small
+    padding-bottom padding-main
+    text-align center
 
-		&_nopadding
-			padding-bottom 0
+    @media tablet
+      padding-bottom padding-main * padding-tablet
 
-		&_small
-			padding-bottom padding-main
+    @media laptop
+      padding-bottom padding-main * padding-laptop
 
-		&_alignleft
-			@media tablet
-				text-align left
+    &_nopadding
+      padding-bottom 0
 
-		h2
-			margin 0
-			font-size 36px
-			line-height 30px
+    &_small
+      padding-bottom padding-main
 
-			@media tablet
-				line-height @line-height * padding-tablet
-				font-size @font-size * padding-tablet
+    &_alignleft
+      @media tablet
+        text-align left
 
-			@media laptop
-				font-size @font-size * padding-laptop
-				line-height @line-height * padding-laptop
+    h2
+      margin 0
+      font-size 36px
+      line-height 30px
 
-		p
-			padding-top 10px
-			margin-bottom 0
-			font-size 14px
+      @media tablet
+        line-height @line-height * padding-tablet
+        font-size @font-size * padding-tablet
 
-			@media tablet
-				padding-top @padding-top * padding-tablet
-				font-size @font-size * padding-tablet
+      @media laptop
+        font-size @font-size * padding-laptop
+        line-height @line-height * padding-laptop
 
-			@media laptop
-				padding-top @padding-top * padding-laptop
-				font-size @font-size * padding-tablet
+    p
+      padding-top 10px
+      margin-bottom 0
+      font-size 14px
 
-	&-content
-		padding 0 padding-small
-		max-width max-width
-		margin 0 auto
+      @media tablet
+        padding-top @padding-top * padding-tablet
+        font-size @font-size * padding-tablet
 
-		p:last-child
-			margin-bottom 0
+      @media laptop
+        padding-top @padding-top * padding-laptop
+        font-size @font-size * padding-tablet
 
-		&_welcome
-			display flex
-			flex-direction column
-			flex-wrap nowrap
-			justify-content space-between
-			flex-wrap wrap
+  &__content
+    padding 0 padding-small
+    max-width max-width
+    margin 0 auto
 
-			@media tablet
-				align-items center
-
-			> div:first-child
-				padding-bottom 40px
-
-			@media tablet
-				flex-direction row
-
-				> div:first-child
-					padding-bottom 0
-
-				> div
-					width 45%
-
-				p
-					margin-bottom 20px
-					line-height 26px
+    p:last-child
+      margin-bottom 0

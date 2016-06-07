@@ -1,0 +1,39 @@
+.social
+  list-inline()
+
+  &__el
+    padding 0 20px
+
+  &__link
+    display block
+    width 30px
+    height 30px
+    color white
+    font-size 30px
+    line-height 0
+    border none
+    opacity 0.8
+    anim()
+
+    &:hover
+      opacity 1
+
+    @media tablet
+      width @width * padding-tablet
+      height @height * padding-tablet
+
+    @media laptop
+      width @width * padding-laptop
+      height @height * padding-laptop
+
+  &__github
+    background url("../img/github.svg") center 0 no-repeat
+    background-size auto 100%
+
+  &__facebook
+    background url("../img/facebook.svg") center 0 no-repeat
+    bg-contain()
+
+  &__vk
+    background url("../img/vk.svg") center 2px no-repeat
+    background-size auto 100%
