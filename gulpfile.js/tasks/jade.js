@@ -1,7 +1,6 @@
 const gulp = require('gulp')
 const paths = require('../paths')
 const config = require('../config')
-const browserSync = require('browser-sync')
 const gutil = require('gulp-util')
 const debug = require('gulp-debug')
 const plumber = require('gulp-plumber')
@@ -29,7 +28,6 @@ gulp.task('jade', () =>
     .pipe(gulpif(gutil.env.pretty, prettify(config.pretty)))
 
     .pipe(gulp.dest(paths.build))
-    .pipe(browserSync.stream())
 
     .on('end', () => {
       if (gutil.env.pretty) {

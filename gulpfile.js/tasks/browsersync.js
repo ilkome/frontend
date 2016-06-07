@@ -6,6 +6,7 @@ const browserSync = require('browser-sync')
 // BrowserSync
 // =================================================================================================
 gulp.task('browserSync', () => browserSync(config.browserSync))
+gulp.task('browserSyncReload', () => browserSync.reload())
 
 
 // BrowserSync and compile Reactjs using Webpack

@@ -68,9 +68,9 @@ gulp.task('watcher', () => {
   // Jade
   // ============================================
   if (env.minify || env.pretty) {
-    watch(paths.jade.input, () => runSequence('jade', 'cssClean'))
+    watch(paths.jade.input, () => runSequence('jade', 'cssClean', 'browserSyncReload'))
   } else {
-    watch(paths.jade.input, () => gulp.start('jade'))
+    watch(paths.jade.input, () => runSequence('jade', 'browserSyncReload'))
   }
 
   // Styles
