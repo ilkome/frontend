@@ -11,7 +11,6 @@ const prefix = require('gulp-autoprefixer')
 const cleanCSS = require('gulp-clean-css')
 const combineMq = require('gulp-combine-mq')
 const unCSS = require('gulp-uncss')
-const concatCSS = require('gulp-concat-css')
 const prettify = require('gulp-jsbeautifier')
 const rename = require('gulp-rename')
 
@@ -56,10 +55,6 @@ gulp.task('cssClean', () =>
     // Show name of file in pipe
     .pipe(debug({ title: 'css clean:' }))
 
-    // Contat all CSS
-    .pipe(concatCSS('styles.min.css'))
-    .pipe(gulpif(gutil.env.pretty, concatCSS('styles.pretty.css')))
-
     // Remove unused styles
     .pipe(unCSS(config.unCSS))
 
@@ -73,16 +68,9 @@ gulp.task('cssClean', () =>
     .pipe(prefix('last 4 version', 'ie 10'))
 
     // Prettify
+    // @TODO check if not
     .pipe(gulpif(gutil.env.pretty, prettify(config.pretty)))
 
     .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
-
-    .on('end', () => {
-      if (gutil.env.pretty) {
-        gutil.log('CSS clean:', gutil.colors.green('pretty'))
-      } else {
-        gutil.log('CSS clean:', gutil.colors.green('minify'))
-      }
-    })
 )

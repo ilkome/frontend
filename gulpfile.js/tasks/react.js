@@ -1,9 +1,10 @@
 const gulp = require('gulp')
 const paths = require('../paths')
 const debug = require('gulp-debug')
+const config = require('../config')
 const gutil = require('gulp-util')
 const plumber = require('gulp-plumber')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 const webpackStream = require('webpack-stream')
 
 
@@ -19,31 +20,7 @@ gulp.task('reactMinify', () =>
     .pipe(debug({ title: 'reactMinify:' }))
 
     // webpack
-    .pipe(webpackStream({
-      watch: true,
-      devtool: 'cheap-module-source-map',
-      entry: [
-        paths.react.entry
-      ],
-      output: {
-        filename: 'app.js'
-      },
-      module: {
-        loaders: [{
-          exclude: /node_modules/,
-          loader: 'babel'
-        }]
-      },
-      plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-          include: /\.js?$/,
-          minimize: true
-        })
-      ],
-      resolve: {
-        extensions: ['', '.js', '.jsx']
-      }
-    }))
+    .pipe(webpackStream(config.webpackReact))
 
     .pipe(gulp.dest(paths.react.output))
 )

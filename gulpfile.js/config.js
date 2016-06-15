@@ -35,6 +35,32 @@ module.exports = {
     ]
   },
 
+  webpackReact: {
+    watch: true,
+    devtool: 'cheap-module-source-map',
+    entry: [
+      paths.react.entry
+    ],
+    output: {
+      filename: 'app.js'
+    },
+    module: {
+      loaders: [{
+        exclude: /node_modules/,
+        loader: 'babel'
+      }]
+    },
+    plugins: [
+      // new webpack.optimize.UglifyJsPlugin({
+        // include: /\.js?$/,
+        // minimize: true
+      // })
+    ],
+    resolve: {
+      extensions: ['', '.js', '.jsx']
+    }
+  },
+
   pretty: {
     debug: false,
     indent_char: ' ',

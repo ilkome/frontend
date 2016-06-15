@@ -1,7 +1,7 @@
 {
   "name": "gulp-starter-kit",
-  "version": "3.6.1",
-  "description": "A front-end boilerplate to create projects with Jade, Stylus, ES6, React, Autoprefixer, Browsersync",
+  "version": "3.7.1",
+  "description": "A powerful front-end boilerplate. HTML5 & CSS3, Jade, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
   "repository": {
@@ -37,7 +37,6 @@
     "gulp-clean-css": "^2.0.6",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.0",
-    "gulp-concat-css": "^2.2.0",
     "gulp-debug": "^2.1.2",
     "gulp-flatten": "^0.2.0",
     "gulp-if": "^2.0.0",

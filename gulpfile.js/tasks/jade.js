@@ -4,7 +4,6 @@ const config = require('../config')
 const gutil = require('gulp-util')
 const debug = require('gulp-debug')
 const plumber = require('gulp-plumber')
-const gulpif = require('gulp-if')
 const jade = require('gulp-jade')
 const jadeGlobbing = require('gulp-jade-globbing')
 const prettify = require('gulp-jsbeautifier')
@@ -25,15 +24,7 @@ gulp.task('jade', () =>
     .pipe(jade())
 
     // Prettify
-    .pipe(gulpif(gutil.env.pretty, prettify(config.pretty)))
+    .pipe(prettify(config.pretty))
 
     .pipe(gulp.dest(paths.build))
-
-    .on('end', () => {
-      if (gutil.env.pretty) {
-        gutil.log('jade:', gutil.colors.green('pretty'))
-      } else {
-        gutil.log('jade:', gutil.colors.green('minify'))
-      }
-    })
 )
