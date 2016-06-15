@@ -58,8 +58,7 @@
     font-family font-secondary
     font-weight 900
     line-height 1em
-    letter-spacing 3px
-    text-align center
+    letter-spacing 2px
     anim()
 
     &:after
@@ -92,5 +91,29 @@
     @media laptop
       font-size @font-size * padding-laptop
 
-  &__social
+  &__menu
     min-height 30px
+
+
+// =================================================================================================
+.header-menu
+  list-inline()
+
+  li
+    padding 0 30px
+    padding-top 20px
+
+  a
+    font-size 16px
+    font-family font-primary
+    letter-spacing 1px
+    anim()
+
+    @media tablet
+      font-size @font-size * padding-tablet
+
+    @media laptop
+      font-size @font-size * padding-laptop
+
+    &:hover
+      color white

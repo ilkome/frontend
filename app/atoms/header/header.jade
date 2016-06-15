@@ -1,15 +1,16 @@
 mixin header
   header.header
     .header__in.js-header
-      .header__ava.js-headerAvaAnim
+      .header__div.invisible.js-headerAvaAnim
         a(href="http://ilko.me" title="Front-end Developer Ilya Komichev").header__pic
       
-      .header__info.js-headerTextAnim
+      .header__info.invisible.js-headerTextAnim
         .header__name Ilya Komichev
         .header__job Front-end Developer
       
-      .header__social.js-headerSocialAnim
-        ul.social
-          +social-el('ilkome', 'Open GitHub in new window', 'github')
-          +social-el('ilkome', 'Open Facebook in new window', 'facebook')
-          +social-el('ilkome', 'Open VK in new window', 'vk')
+      nav.header__menu.invisible.js-headerMenuAnim
+        ul.header-menu
+          li: a(href="#welcome") About me
+          li: a(href="#skills") Skills
+          li: a(href="#portfolio") Portfolio
+          li: a(href="#contacts") Contacts

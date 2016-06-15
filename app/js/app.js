@@ -1,11 +1,3 @@
-// Preloader
-// =================================================================================================
-function preloader() {
-  $('.js-preloader').addClass('js-preloader-hidden')
-  $('.js-preloader-overflow').removeClass('js-preloader-overflow')
-}
-
-
 // Fix header jumping on mobile browsers
 // =================================================================================================
 function fixHeaderHeight(className) {
@@ -44,12 +36,12 @@ function initAnimation() {
     delay: 1000
   })
 
-  // Header text
-  sr.reveal('.js-headerSocialAnim', {
+  // Header menu
+  sr.reveal('.js-headerMenuAnim', {
     origin: 'bottom',
     distance: '50px',
     duration: 1500,
-    delay: 2000
+    delay: 1800
   })
 
   // Skills
@@ -64,7 +56,7 @@ function initAnimation() {
     origin: 'bottom',
     distance: '100px',
     duration: 1000,
-    delay: 300
+    delay: 200
   })
 
   // Contacts
@@ -79,9 +71,6 @@ function initAnimation() {
 // DOM ready
 // =================================================================================================
 $(() => {
-  // Remmove preloader
-  setTimeout(preloader, 5000)
-
   // Fix header height on mobile devices
   fixHeaderHeight('.js-header')
 
@@ -97,5 +86,4 @@ $(() => {
 // =================================================================================================
 $(window).load(() => {
   initAnimation()
-  preloader()
 })
