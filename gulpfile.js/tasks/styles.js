@@ -1,17 +1,14 @@
 const gulp = require('gulp')
 const paths = require('../paths')
-const config = require('../config')
 const browserSync = require('browser-sync')
 const gutil = require('gulp-util')
 const debug = require('gulp-debug')
 const plumber = require('gulp-plumber')
-const gulpif = require('gulp-if')
 const stylus = require('gulp-stylus')
 const prefix = require('gulp-autoprefixer')
 const cleanCSS = require('gulp-clean-css')
 const combineMq = require('gulp-combine-mq')
 const unCSS = require('gulp-uncss')
-const prettify = require('gulp-jsbeautifier')
 const rename = require('gulp-rename')
 
 
@@ -30,13 +27,8 @@ gulp.task('stylus', () =>
     // Stylus
     .pipe(stylus())
 
-    // Autoprefixer
-    // .pipe(prefix('last 4 version', 'ie 10'))
-
     // Rename
-    .pipe(rename({
-      basename: 'styles'
-    }))
+    .pipe(rename({ basename: 'styles' }))
 
     .pipe(gulp.dest(paths.stylus.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
@@ -45,31 +37,30 @@ gulp.task('stylus', () =>
 
 // Minify CSS in build folder
 // =================================================================================================
-gulp.task('cssClean', () =>
+gulp.task('css-clean', () =>
   gulp.src(paths.css.inputClean)
 
     .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('cssClean error:'), error.message)
+      gutil.log(gutil.colors.red('css-clean error:'), error.message)
     }))
 
     // Show name of file in pipe
     .pipe(debug({ title: 'css clean:' }))
 
     // Remove unused styles
-    .pipe(unCSS(config.unCSS))
+    .pipe(unCSS({
+      html: `${paths.build}/*.html`,
+      ignore: /.js/
+    }))
 
     // Combine Media queries
-    .pipe(combineMq(config.combineMq))
+    .pipe(combineMq({ beautify: false }))
 
     // Minify
-    .pipe(cleanCSS(config.cleanCSS))
+    .pipe(cleanCSS({ keepSpecialComments: 0 }))
 
     // Autoprefixer
     .pipe(prefix('last 4 version', 'ie 10'))
-
-    // Prettify
-    // @TODO check if not
-    .pipe(gulpif(gutil.env.pretty, prettify(config.pretty)))
 
     .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))

@@ -12,17 +12,17 @@ const sourcemaps = require('gulp-sourcemaps')
 
 // Compile JavaScript with Babel
 // ===============================================================================================
-gulp.task('babel', () =>
+gulp.task('js', () =>
   gulp.src(paths.js.input)
 
     .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('babel error:'), error.message)
+      gutil.log(gutil.colors.red('js error:'), error.message)
     }))
 
     // Pass only unchanged files
     .pipe(changed(paths.js.output, { extension: '.js' }))
 
-    .pipe(debug({ title: 'babel:' }))
+    .pipe(debug({ title: 'js:' }))
 
     // Babel with sourcemap
     .pipe(sourcemaps.init())
@@ -36,14 +36,14 @@ gulp.task('babel', () =>
 
 // Compile JavaScript with Babel and minify
 // ===============================================================================================
-gulp.task('babelUglify', () =>
+gulp.task('js-minify', () =>
   gulp.src(paths.js.input)
 
     .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('babelUglify error:'), error.message)
+      gutil.log(gutil.colors.red('js-minify error:'), error.message)
     }))
 
-    .pipe(debug({ title: 'babelUglify:' }))
+    .pipe(debug({ title: 'js-minify:' }))
 
     // Babel
     .pipe(babel())

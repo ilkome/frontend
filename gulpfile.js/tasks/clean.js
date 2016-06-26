@@ -5,4 +5,4 @@ const del = require('del')
 
 // Clean build folder
 // =================================================================================================
-gulp.task('clean', cb => del([paths.build + '/**/*'], cb))
+gulp.task('clean', cb => del(paths.buildAllFiles, cb))

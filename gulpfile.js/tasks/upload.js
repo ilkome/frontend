@@ -9,15 +9,14 @@ const conn = ftp.create({
   host: configFTP.host,
   user: configFTP.user,
   password: configFTP.password,
-  // parallel: 10,
   log: gutil.log
 })
 
 
-// Upload files to server
+// Upload build to server
 // =================================================================================================
 gulp.task('uploading', () =>
-  gulp.src(paths.build + '/**/*', { base: paths.build, buffer: false })
+  gulp.src(paths.buildAllFiles, { base: paths.build, buffer: false })
 
     .pipe(plumber(error => {
       gutil.log(gutil.colors.red('upload error:'), error.message)

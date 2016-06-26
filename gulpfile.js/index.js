@@ -1,10 +1,10 @@
 /*
-  ilkome gulp
-  Version 3.7.1
+  ilkome front-end
+  Version 3.8.0
 
   Ilya Komichev
   https://ilko.me
-  https://github.com/ilkome/gulp
+  https://github.com/ilkome/front-end
 */
 
 
@@ -15,8 +15,6 @@ const paths = require('./paths')
 const watch = require('gulp-watch')
 const requireDir = require('require-dir')
 const runSequence = require('run-sequence')
-// const gutil = require('gulp-util')
-// const env = gutil.env
 
 
 // Require all tasks from gulpfile.js/tasks
@@ -24,13 +22,12 @@ const runSequence = require('run-sequence')
 requireDir('./tasks')
 
 
-// Default task
-// reactMinify
+// Development
 // =================================================================================================
 gulp.task('default', (done) => {
   runSequence(
-    ['clean', 'env'],
-    ['images', 'jade', 'babel', 'stylus', 'static'],
+    ['clean'],
+    ['images', 'jade', 'js', 'stylus', 'static'],
     ['browserSync'],
     ['watcher'],
     done
@@ -38,29 +35,22 @@ gulp.task('default', (done) => {
 })
 
 
-// Common watcher
+// Watchers
 // =================================================================================================
 gulp.task('watcher', () => {
-  // Static
   watch(paths.static.input, () => gulp.start('static'))
-
-  // Images
   watch(paths.images.input, () => gulp.start('images'))
-
-  // Jade
-  watch(paths.jade.input, () => runSequence('jade', 'browserSyncReload'))
-
-  // Styles
+  watch(paths.jade.input, () => runSequence('jade', 'browserSync-reload'))
   watch(paths.stylus.input, () => gulp.start('stylus'))
-
-  // JS
-  watch(paths.js.input, () => gulp.start('babel'))
+  watch(paths.js.input, () => gulp.start('js'))
 })
 
 
+// Upload
+// =================================================================================================
 gulp.task('upload', (done) => {
   runSequence(
-    ['cssClean', 'babelUglify'],
+    ['css-clean', 'js-minify'],
     ['uploading'],
     done
   )

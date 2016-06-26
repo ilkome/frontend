@@ -5,14 +5,10 @@ module.exports = {
   app,
   build,
 
+  buildAllFiles: `${build}/**/*`,
+
   css: {
     input: `${app}/etc/css/*.css`,
-    inputClean: [
-      `${build}/css/*.css`,
-      `!${build}/css/styles.dev.css`,
-      `!${build}/css/styles.min.css`,
-      `!${build}/css/styles.pretty.css`
-    ],
     output: `${build}/css`
   },
 
@@ -41,29 +37,17 @@ module.exports = {
 
   js: {
     input: `${app}/js/*.js`,
-    output: `${build}/js`,
-    outputApp: `${build}/js/app.js`
-  },
-
-  jsLibs: {
-    input: `${app}/js/libs/*.js`,
-    output: `${build}/js/libs`,
-    outputFiles: `${build}/js/libs/*.js`
+    output: `${build}/js`
   },
 
   layout: `${app}/layout`,
 
   pages: {
-    input: `${app}/pages/*.jade`,
-    folder: `${app}/pages`
+    input: `${app}/pages/*.jade`
   },
 
-  react: {
-    entry: `${app}/react/index.jsx`,
-    routes: `${app}/react/routes.jsx`,
-    folder: `${app}/react`,
-    output: `${build}/js/`,
-    filename: 'app.js'
+  html: {
+    input: `${build}/*.html`
   },
 
   stylus: {

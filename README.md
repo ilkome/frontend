@@ -1,5 +1,5 @@
-# front-end starter kit
-A powerful front-end boilerplate. Gulp, Webpack, HTML5 & CSS3, Jade, Stylus, ES6, React, Autoprefixer, Browsersync
+# front-end template
+A powerful front-end boilerplate. Gulp, HTML5 & CSS3, Jade, Stylus, ES6, Autoprefixer, Browsersync
 
 
 # Features
@@ -9,29 +9,22 @@ Template engine using Jade. Jade it's preprocessor HTML.
 ## CSS
 - Modules system with Stylus. Style it's preprocessor CSS. It's also can be SASS, LESS.
 - Helpful mixins.
-- Minify and combine CSS files.
-- Remove unused CSS code. For example from CSS libraries like bootstrap, normalize.
+- Minify styles.
+- Remove unused CSS styles. For example from CSS libraries like bootstrap, normalize.
 - Autoprefixer. Parse CSS and add vendor prefixes to rules.
 
 ## JavaScript
 - Compiles ES6 to ES5.
-- Minify and combine JavaScript files.
+- Minify.
 
 ## React Hot Reload
-- Compiles and hot reload React components in the browser.
+- Hot reload React components in the browser when develop.
 
 ## Productivity
 - Browsersync. It's runs local server and reload the browsers across all your devices when you make changes in your application folder files.
 - Hot reload for images. Minify images: svg, png, jpg, gif
 
 Demo: http://ilko.me/
-
-
-For React example please visit https://github.com/ilkome/finance
-
-Demo http://ilko.me/finance
-
-
 
 # Installation
 
@@ -43,32 +36,8 @@ Demo http://ilko.me/finance
 
 
 # Usage
-Change `gulpfile.js/index.js`
 
-### React
-Unable `browserSyncReact`. Disable `browserSync`, `watcherJS`.
-
-### JS without React
-Unable `browserSync`, `watcherJS`. Disable `browserSyncReact`.
-
-### Production
-Unable `cssClean`, `jsUglify` tasks in `gulpfile.js`.
-
-
-#### gulp
-`gulp` It's runs gulp in the dev mode and watch for changes in the files.
-
-
-#### gulp --minify
-`gulp --minify` Minify and combine all JS, CSS files.
-
-
-#### gulp --pretty
-`gulp --pretty` Pretty HTML and CSS files.
-
-
-# Behind scene
-When you runs gulp it's changes your app/layout/layout.jade file.
+`gulp` It's compile app folder and watch for changes in the files.
 
 # Tasks
 This tasks can be run separately.
@@ -91,43 +60,11 @@ Compiles jade then any of pages changes or changes in jade atoms files.
 
 app/pages => build
 
-### jsBabel
-Compiles JavaScript ES6 to ES5.
-
-app/js => build/js
-
-
-### jsCopyLibs
-Copy JavaScript libs.
-
-app/js/libs => build/js/libs
-
-
-### jsUglify
-
-Combines JavaScript files.
-
-app/js/* => build/js/bundle.min.js
-
-
-### reactMinify
-Minify React app file.
-
-app/react/app.js => build/js/app.js
-
-### replaceInculdeWay
-Replace `inculdeWay` variable in app/layout/layout.jade. This option change src for scripts and styles.
-
---pretty --minify, --dev
-
-
 ### stylus
-Compiles Stylus. Hot reload.
-
-app/stylus => build/css/{styles|styles.min|styles.pretty}.css
+Compiles Stylus. Hot reload. app/stylus => build/cssstyles.css
 
 
-### cssClean
+### css-clean
 Analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
 
 
@@ -150,17 +87,12 @@ gulpfiles.js/config-ftp.js
     │   |   └── libs                        # Store JavaScript libraries
     │   ├── layout                          # Layout of application
     │   │   ├── haed.jade                   # Head
-    │   │   ├── layout.jade                 # Layout. Check it to see how include css, js
+    │   │   ├── layout.jade                 # Layout.
     │   │   ├── scripts.jade                # Scripts mixin
     │   │   └── styles.jade                 # Styles mixin
     │   ├── pages                           # Pages of application
     │   |   |── index.jade                  # Index
     │   |   └── contacts.jade               # Contacts
-    │   ├── react                           # React components
-    │   │   |── components                  # React component example
-    │   │   |   ├── component-app.jsx       # Main file of react component
-    │   │   |   └── component-list.jsx      # Child component
-    │   │   └── index.js                    # Entry files for React application
     │   ├── static                          # Store static files
     │   |   |── css                         # Store css files
     │   |   |── fonst                       # Store font files
@@ -170,5 +102,4 @@ gulpfiles.js/config-ftp.js
     │   │   |── mixins                      # Stylus helpers mixins
     │   │   └── index.styl                  # Main stylus file
     ├── build                               # Build folder
-    ├── gulpfile.js                         # Gulp config and tasks
-    └── webpack.config.js                   # Webpack config for compiles React components
+    └── gulpfile.js                         # Gulp config and tasks
