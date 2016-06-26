@@ -3,24 +3,21 @@ A powerful front-end boilerplate. Gulp, HTML5 & CSS3, Jade, Stylus, ES6, Autopre
 
 
 # Features
-## HTML
+### HTML
 Template engine using Jade. Jade it's preprocessor HTML.
 
-## CSS
-- Modules system with Stylus. Style it's preprocessor CSS. It's also can be SASS, LESS.
+### CSS
+- Components system with Stylus. Stylus it's preprocessor CSS. It's also can be SASS, LESS.
 - Helpful mixins.
 - Minify styles.
-- Remove unused CSS styles. For example from CSS libraries like bootstrap, normalize.
+- Remove unused CSS styles. For example from CSS libraries like bootstrap.
 - Autoprefixer. Parse CSS and add vendor prefixes to rules.
 
-## JavaScript
+### JavaScript
 - Compiles ES6 to ES5.
 - Minify.
 
-## React Hot Reload
-- Hot reload React components in the browser when develop.
-
-## Productivity
+### Productivity
 - Browsersync. It's runs local server and reload the browsers across all your devices when you make changes in your application folder files.
 - Hot reload for images. Minify images: svg, png, jpg, gif
 
@@ -37,41 +34,23 @@ Demo: http://ilko.me/
 
 # Usage
 
-`gulp` It's compile app folder and watch for changes in the files.
+`gulp` compile App and watch files for changes.
+`gulp upload` compile App, minify js, remove unused CSS and upload files to server. Check gulpfile.js/config-ftp.js for settings.
 
 # Tasks
-This tasks can be run separately.
+This tasks can be run individually.
 
-### clean
-Remove everything inside `build` folder.
-
-### static
-Copy everything inside. Used for favicons, fonts, css. Except images. It's saves folder structures.
-
-app/static => build
-
-### images
-Minify images. Hot reload.
-
-app/images || app/atoms/atoms-name/img/ => build/img
-
-### jade
-Compiles jade then any of pages changes or changes in jade atoms files.
-
-app/pages => build
-
-### stylus
-Compiles Stylus. Hot reload. app/stylus => build/cssstyles.css
-
-
-### css-clean
-Analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
-
-
-### upload
-Upload build files on the server.
-
-gulpfiles.js/config-ftp.js
+- `browserSync-reload` Reload page in all your connected devices.
+- `clean` Clean build folder.
+- `jade` Compile jade.
+- `html-prettify` Prettify compiled html.
+- `images` Minify images.
+- `js` Compile js.
+- `js-minify` Minify js.
+- `static` Copy everything from static folder. Used for favicons, fonts, css.
+- `stylus` Compiles Stylus. Hot reload.
+- `css-clean` Analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
+- `uploading` Upload build folder on the server.
 
 
 # Structure of main folders and files
@@ -103,3 +82,7 @@ gulpfiles.js/config-ftp.js
     │   │   └── index.styl                  # Main stylus file
     ├── build                               # Build folder
     └── gulpfile.js                         # Gulp config and tasks
+        ├── tasks                           # Gulp tasks
+        ├── config-ftp.js                   # Config for FTP connection
+        ├── index.js                        # Index gulpfile
+        └── paths.js                        # Paths config
