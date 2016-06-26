@@ -40,25 +40,25 @@ Demo: http://ilko.me/
 # Tasks
 This tasks can be run individually.
 
-- `browserSync-reload` Reload page in all your connected devices.
-- `clean` Clean build folder.
-- `jade` Compile jade.
-- `html-prettify` Prettify compiled html.
-- `images` Minify images.
-- `js` Compile js.
-- `js-minify` Minify js.
-- `static` Copy everything from static folder. Used for favicons, fonts, css.
-- `stylus` Compiles Stylus. Hot reload.
-- `css-clean` Analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
-- `uploading` Upload build folder on the server.
+- `browserSync-reload` reload page in all your connected devices.
+- `clean` clean build folder.
+- `jade` compile jade.
+- `html-prettify` prettify compiled html.
+- `images` minify images.
+- `js` compile js.
+- `js-minify` minify js.
+- `static` copy everything from static folder. Used for favicons, fonts, css.
+- `stylus` compiles Stylus. Hot reload.
+- `css-clean` analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
+- `uploading` upload build folder on the server.
 
 
 # Structure of main folders and files
 
     .
     ├── app                                 # Application folder
-    │   ├── atoms                           # Atoms.
-    │   │   └── atom-name                   # Atom's example. It's just component Jade + Styl + img
+    │   ├── atoms                           # Atoms
+    │   │   └── atom-name                   # Atom's example. It's just component Jade + Stylus + img
     │   │       ├── img                     # Atom's images
     │   │       ├── atom-name.jade          # Atom's HTML. Jade file with mixin(s)
     │   │       └── atom-name.styl          # Atom's styles. Stylus file
