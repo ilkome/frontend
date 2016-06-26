@@ -66,7 +66,7 @@ This tasks can be run individually.
     │   |   └── libs                        # Store JavaScript libraries
     │   ├── layout                          # Layout of application
     │   │   ├── haed.jade                   # Head
-    │   │   ├── layout.jade                 # Layout.
+    │   │   ├── layout.jade                 # Layout
     │   │   ├── scripts.jade                # Scripts mixin
     │   │   └── styles.jade                 # Styles mixin
     │   ├── pages                           # Pages of application
