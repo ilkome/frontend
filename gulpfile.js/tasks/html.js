@@ -26,7 +26,7 @@ gulp.task('jade', () =>
 // Prettify HTML
 // =================================================================================================
 gulp.task('html-prettify', () =>
-  gulp.src(paths.html.input)
+  gulp.src(paths.html.output)
 
     .pipe(plumber(error => gutil.log(gutil.colors.red('html-prettify error:'), error.message)))
     .pipe(debug({ title: 'html-prettify:' }))

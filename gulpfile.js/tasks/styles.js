@@ -31,15 +31,15 @@ gulp.task('stylus', () =>
 // Minify CSS in build folder
 // =================================================================================================
 gulp.task('css-clean', () =>
-  gulp.src(paths.css.inputClean)
+  gulp.src(paths.css.outputAll)
 
     .pipe(plumber(error => gutil.log(gutil.colors.red('css-clean error:'), error.message)))
     .pipe(debug({ title: 'css clean:' }))
 
     // Remove unused styles
     .pipe(unCSS({
-      html: `${paths.build}/*.html`,
-      ignore: /.js/
+      html: [paths.html.output],
+      ignore: '/.js/'
     }))
 
     .pipe(combineMediaQueries({ beautify: false }))

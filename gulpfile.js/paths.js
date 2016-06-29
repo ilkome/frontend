@@ -9,12 +9,12 @@ module.exports = {
 
   css: {
     input: `${app}/etc/css/*.css`,
-    inputClean: `${build}/css/*.css`,
-    output: `${build}/css`
+    output: `${build}/css`,
+    outputAll: `${build}/css/*.css`
   },
 
   html: {
-    input: `${build}/*.html`
+    output: `${build}/*.html`
   },
 
   images: {
