@@ -13,16 +13,12 @@ const prettify = require('gulp-jsbeautifier')
 gulp.task('jade', () =>
   gulp.src(paths.pages.input)
 
-    .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('jade error:'), error.message)
-    }))
-
+    .pipe(plumber(error => gutil.log(gutil.colors.red('jade error:'), error.message)))
     .pipe(debug({ title: 'jade:' }))
 
-    // Include all atoms to app/pages/*.jade
-    .pipe(jadeGlobbing())
-
+    .pipe(jadeGlobbing()) // Include all atoms to app/pages/*.jade
     .pipe(jade())
+
     .pipe(gulp.dest(paths.build))
 )
 
@@ -32,10 +28,7 @@ gulp.task('jade', () =>
 gulp.task('html-prettify', () =>
   gulp.src(paths.html.input)
 
-    .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('html-prettify error:'), error.message)
-    }))
-
+    .pipe(plumber(error => gutil.log(gutil.colors.red('html-prettify error:'), error.message)))
     .pipe(debug({ title: 'html-prettify:' }))
 
     .pipe(prettify({

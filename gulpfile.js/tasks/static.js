@@ -12,13 +12,8 @@ const changed = require('gulp-changed')
 gulp.task('static', () =>
   gulp.src(paths.static.input)
 
-    .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('static error:'), error.message)
-    }))
-
-    // Pass only unchanged files
+    .pipe(plumber(error => gutil.log(gutil.colors.red('static error:'), error.message)))
     .pipe(changed(paths.build))
-
     .pipe(debug({ title: 'static:' }))
 
     .pipe(gulp.dest(paths.build))

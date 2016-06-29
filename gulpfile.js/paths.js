@@ -9,14 +9,12 @@ module.exports = {
 
   css: {
     input: `${app}/etc/css/*.css`,
+    inputClean: `${build}/css/*.css`,
     output: `${build}/css`
   },
 
-  static: {
-    input: [
-      `${app}/static/**/*`,
-      `!${app}/static/img`
-    ]
+  html: {
+    input: `${build}/*.html`
   },
 
   images: {
@@ -46,8 +44,11 @@ module.exports = {
     input: `${app}/pages/*.jade`
   },
 
-  html: {
-    input: `${build}/*.html`
+  static: {
+    input: [
+      `${app}/static/**/*`,
+      `!${app}/static/img`
+    ]
   },
 
   stylus: {

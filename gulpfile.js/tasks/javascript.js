@@ -15,13 +15,8 @@ const sourcemaps = require('gulp-sourcemaps')
 gulp.task('js', () =>
   gulp.src(paths.js.input)
 
-    .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('js error:'), error.message)
-    }))
-
-    // Pass only unchanged files
+    .pipe(plumber(error => gutil.log(gutil.colors.red('js error:'), error.message)))
     .pipe(changed(paths.js.output, { extension: '.js' }))
-
     .pipe(debug({ title: 'js:' }))
 
     // Babel with sourcemap
@@ -39,16 +34,10 @@ gulp.task('js', () =>
 gulp.task('js-minify', () =>
   gulp.src(paths.js.input)
 
-    .pipe(plumber(error => {
-      gutil.log(gutil.colors.red('js-minify error:'), error.message)
-    }))
-
+    .pipe(plumber(error => gutil.log(gutil.colors.red('js-minify error:'), error.message)))
     .pipe(debug({ title: 'js-minify:' }))
 
-    // Babel
     .pipe(babel())
-
-    // Uglify
     .pipe(uglify())
 
     .pipe(gulp.dest(paths.js.output))
