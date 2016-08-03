@@ -4,3 +4,4 @@ npm-debug.log
 *.diff
 *.ini
 .DS_Store
+gulpfile.js/config-ftp.js
