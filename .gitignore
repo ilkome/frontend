@@ -1,7 +1,10 @@
 node_modules/
-files/
-npm-debug.log
+biuld/
+
+.DS_Store
+
 *.diff
 *.ini
-.DS_Store
+
+npm-debug.log
 gulpfile.js/config-ftp.js

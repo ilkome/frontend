@@ -1,119 +1,84 @@
+// header
+// ===============================================
 .header
   text-align center
-  background url("../img/header-bg.jpg") center center no-repeat
+  background #161616 url(../img/header-bg.jpg) center center no-repeat
   bg-cover()
-  flex-ie-height-fix()
+  @media tablet
+    font-size 1.3rem
+  @media laptop
+    font-size 1.5rem
 
   &__in
-    display flex
-    flex-direction column
-    align-items center
-    justify-content center
-    padding padding-main 0
-    min-height 100vh
-    background alpha(#000, 0.5)
+    padding pxtoem(50) pxtoem(20)
+    background rgba(0,0,0,.5)
 
-    @media tablet
-      padding (padding-main * padding-tablet) 0
+  &__logo
+    margin-bottom pxtoem(50)
 
-    @media laptop
-      padding (padding-main * padding-tablet) 0
+// logo
+// ===============================================
+.header-logo
+  color white
 
   &__pic
     display block
-    width 150px
-    height 150px
+    square(pxtoem(150))
     margin 0 auto
+    margin-bottom pxtoem(30)
     background #737373 url("../img/avatar.png") center center no-repeat
     background-size 110% 110%
+    border 2px solid rgba(0, 0, 0, 1)
     border-radius 50%
-    border 3px solid alpha(#000, .3)
-    anim()
-
-    &:hover
-      border-color alpha(white, .5)
-
-    @media tablet
-      width @width * padding-tablet
-      height @height * padding-tablet
-
-    @media laptop
-      width @width * padding-laptop
-      height @height * padding-laptop
-
-  &__info
-    display flex
-    flex-grow 1
-    flex-direction column
-    align-items center
-    justify-content center
-    margin-top -10px
-    padding padding-main 0
 
   &__name
     position relative
-    padding-bottom 30px
-    color white
-    font-size 40px
+    padding-bottom pxtoem(13)
+    font-size pxtoem(28)
     font-family font-secondary
     font-weight 900
     line-height 1em
-    letter-spacing 2px
-    anim()
+    letter-spacing pxtoem(1.5)
 
     &:after
-      display block
+      content " "
       position absolute
       left 50%
-      bottom 13px
-      content " "
-      width 50px
-      height 2px
+      bottom pxtoem(5)
+      width pxtoem(40)
+      height pxtoem(1)
       margin-left -(@width / 2)
       background #fa6513
 
-    @media tablet
-      font-size @font-size * padding-tablet
-
-    @media laptop
-      font-size @font-size * padding-laptop
-
   &__job
-    color white
-    font-size 20px
+    font-size pxtoem(16)
+    letter-spacing pxtoem(0.5)
     font-family font-primary
-    letter-spacing 1px
-    anim()
 
-    @media tablet
-      font-size @font-size * padding-tablet
-
-    @media laptop
-      font-size @font-size * padding-laptop
-
-  &__menu
-    min-height 30px
-
-
-// =================================================================================================
+// menu
+// ===============================================
 .header-menu
   list-inline()
 
   li
-    padding 0 30px
-    padding-top 20px
+    display block
+    &:first-child a
+      padding-top 0
+    &:last-child a
+      padding-bottom 0
+    @media tablet
+      display inline-block
 
   a
-    font-size 16px
+    font-size pxtoem(16)
+    display block
+    padding pxtoem(10) pxtoem(15)
     font-family font-primary
     letter-spacing 1px
+    border-bottom none
     anim()
-
-    @media tablet
-      font-size @font-size * padding-tablet
-
-    @media laptop
-      font-size @font-size * padding-laptop
-
     &:hover
       color white
+    @media tablet
+      padding-top 0
+      padding-bottom 0

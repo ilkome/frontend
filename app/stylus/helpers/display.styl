@@ -1,5 +1,3 @@
-// Display
-// =================================================================================================
 borderbox-all()
   *
     box-sizing border-box
@@ -8,17 +6,30 @@ table(table-layout-auto = false)
   display table
   table-layout fixed
   width 100%
-
   if table-layout-auto
     table-layout auto
 
 table-cell(vertical-align-middle = false)
   display table-cell
-
+  vertical-align top
   if vertical-align-middle
     vertical-align middle
-  else
-    vertical-align top
+
+pxtoem(pixels)
+  pixels / 16 em
+
+pxtorem(pixels)
+  pixels / 16 rem
+
+square(pixels)
+  width pixels
+  height pixels
+
+clearfix()
+  &:after
+    display table
+    clear both
+    content ""
 
 flex-ie-height-fix()
   display flex

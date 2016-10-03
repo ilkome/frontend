@@ -1,55 +1,8 @@
-// Fix header jumping on mobile browsers
-// =================================================================================================
-function fixHeaderHeight(className) {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera
-
-  if (userAgent.match(/Android/i) || userAgent.match(/iPad/i)
-    || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
-    const block = $(className)
-    const blockHeight = block.outerHeight()
-
-    block.css('height', blockHeight)
-    block.css('min-height', 'auto')
-  }
-}
-
-
 // Run animation with reveal plugin
-// =================================================================================================
 function initAnimation() {
   const sr = ScrollReveal({
     viewFactor: 0.3
   })
-
-  // Header avatar
-  sr.reveal('.js-headerAvaAnim', {
-    origin: 'top',
-    distance: '50px',
-    duration: 1500
-  })
-
-  // Header text
-  sr.reveal('.js-headerTextAnim', {
-    origin: 'center',
-    distance: '0',
-    duration: 1500,
-    delay: 1000
-  })
-
-  // Header menu
-  sr.reveal('.js-headerMenuAnim', {
-    origin: 'bottom',
-    distance: '50px',
-    duration: 1500,
-    delay: 1800
-  })
-
-  // Skills
-  sr.reveal('.js-skillAnim', {
-    origin: 'top',
-    distance: '50px',
-    duration: 1000
-  }, 300)
 
   // Portfolio
   sr.reveal('.js-portfolioAnim', {
@@ -67,13 +20,8 @@ function initAnimation() {
   })
 }
 
-
 // DOM ready
-// =================================================================================================
 $(() => {
-  // Fix header height on mobile devices
-  fixHeaderHeight('.js-header')
-
   new Blazy({
     selector: '.js-belazy',
     offset: 500,
@@ -83,7 +31,6 @@ $(() => {
 
 
 // Everything ready
-// =================================================================================================
 $(window).load(() => {
   initAnimation()
 })
