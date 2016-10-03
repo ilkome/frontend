@@ -3,6 +3,7 @@ const paths = require('../paths')
 const gutil = require('gulp-util')
 const debug = require('gulp-debug')
 const plumber = require('gulp-plumber')
+const changed = require('gulp-changed')
 const jade = require('gulp-jade')
 const jadeGlobbing = require('gulp-jade-globbing')
 const prettify = require('gulp-jsbeautifier')
@@ -17,6 +18,7 @@ gulp.task('jade', () =>
     .pipe(debug({ title: 'jade:' }))
 
     .pipe(jadeGlobbing()) // Include all atoms to app/pages/*.jade
+
     .pipe(jade())
 
     .pipe(gulp.dest(paths.build))
