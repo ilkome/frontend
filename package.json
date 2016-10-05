@@ -1,7 +1,7 @@
 {
-  "name": "gulp-starter-kit",
-  "version": "3.8.0",
-  "description": "A powerful front-end boilerplate. HTML5 & CSS3, Jade, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
+  "name": "front-end",
+  "version": "4.0.0",
+  "description": "A powerful front-end boilerplate. HTML5 & CSS3, Jade, Pug, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
   "repository": {
@@ -10,20 +10,22 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.14.0",
-    "babel-eslint": "^6.1.2",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "browser-sync": "^2.15.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^2.0.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "browser-sync": "^2.17.0",
     "del": "^2.2.2",
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb-base": "^7.1.0",
-    "eslint-plugin-import": "^1.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
     "gulp-changed": "^1.3.2",
-    "gulp-clean-css": "^2.0.12",
+    "gulp-clean-css": "^2.0.13",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.0",
     "gulp-debug": "^2.1.2",
@@ -39,11 +41,11 @@
     "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
-    "gulp-watch": "^4.3.9",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
     "imagemin-pngquant": "^5.0.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
-    "vinyl-ftp": "^0.5.0",
-    "webpack": "^2.1.0-beta.22"
+    "vinyl-ftp": "^0.5.0"
   }
 }
