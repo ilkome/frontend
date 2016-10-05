@@ -7,4 +7,4 @@ biuld/
 *.ini
 
 npm-debug.log
-gulpfile.js/config-ftp.js
+gulp/config.js
