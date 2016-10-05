@@ -1,10 +1,7 @@
-const paths = require('../paths')
 const gulp = require('gulp')
 const browserSync = require('browser-sync')
+const paths = require('../paths')
 
-
-// Browsersync
-// =================================================================================================
 gulp.task('browserSync', () =>
   browserSync({
     server: {
@@ -17,7 +14,5 @@ gulp.task('browserSync', () =>
   })
 )
 
-
-// Browsersync reload for Jade
-// =================================================================================================
+// Manual reload
 gulp.task('browserSync-reload', () => browserSync.reload())

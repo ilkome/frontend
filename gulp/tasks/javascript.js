@@ -1,5 +1,4 @@
 const gulp = require('gulp')
-const paths = require('../paths')
 const browserSync = require('browser-sync')
 const debug = require('gulp-debug')
 const gutil = require('gulp-util')
@@ -8,13 +7,12 @@ const changed = require('gulp-changed')
 const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 const sourcemaps = require('gulp-sourcemaps')
-
+const paths = require('../paths')
 
 // Compile JavaScript with Babel
-// ===============================================================================================
+// ==============================================
 gulp.task('js', () =>
   gulp.src(paths.js.input)
-
     .pipe(plumber(error => gutil.log(gutil.colors.red('js error:'), error.message)))
     .pipe(changed(paths.js.output, { extension: '.js' }))
     .pipe(debug({ title: 'js:' }))
@@ -28,14 +26,12 @@ gulp.task('js', () =>
     .pipe(browserSync.stream())
 )
 
-
-// Compile JavaScript with Babel and minify
-// ===============================================================================================
-gulp.task('js-minify', () =>
+// Compile JavaScript with Babel and uglify
+// ==============================================
+gulp.task('js-min', () =>
   gulp.src(paths.js.input)
-
-    .pipe(plumber(error => gutil.log(gutil.colors.red('js-minify error:'), error.message)))
-    .pipe(debug({ title: 'js-minify:' }))
+    .pipe(plumber(error => gutil.log(gutil.colors.red('js-min error:'), error.message)))
+    .pipe(debug({ title: 'js-min:' }))
 
     .pipe(babel())
     .pipe(uglify())

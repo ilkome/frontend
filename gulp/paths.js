@@ -5,12 +5,9 @@ module.exports = {
   app,
   build,
 
-  buildAllFiles: `${build}/**/*`,
-
   css: {
     input: `${app}/etc/css/*.css`,
-    output: `${build}/css`,
-    outputAll: `${build}/css/*.css`
+    output: `${build}/css`
   },
 
   html: {
@@ -56,7 +53,7 @@ module.exports = {
       `${app}/stylus/**/*.styl`,
       `${app}/atoms/**/*.styl`
     ],
-    entry: `${app}/stylus/index.styl`,
+    entry: `${app}/stylus/styles.styl`,
     output: `${build}/css`
   }
 }
