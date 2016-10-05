@@ -46,7 +46,7 @@ Demo: http://ilko.me/
 # Tasks
 This tasks can be run individually.
 
-- `server-reload` reload page in all your connected devices.
+- `browserSync-reload` reload page in all your connected devices.
 - `clean` clean build folder.
 - `markdown` compile markdown.
 - `html-prettify` prettify compiled html.
