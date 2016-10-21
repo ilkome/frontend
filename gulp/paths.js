@@ -5,6 +5,13 @@ module.exports = {
   app,
   build,
 
+  assets: {
+    input: [
+      `${app}/assets/**/*`,
+      `!${app}/assets/img`
+    ]
+  },
+
   css: {
     input: `${app}/etc/css/*.css`,
     output: `${build}/css`
@@ -16,7 +23,7 @@ module.exports = {
 
   images: {
     input: [
-      `${app}/static/img/**/*.+(jpg|png|gif|svg)`,
+      `${app}/assets/img/**/*.+(jpg|png|gif|svg)`,
       `${app}/atoms/**/img/**/*.+(jpg|png|gif|svg)`
     ],
     output: `${build}/img`
@@ -31,6 +38,7 @@ module.exports = {
   },
 
   js: {
+    entry: `${app}/js/app.js`,
     input: `${app}/js/*.js`,
     output: `${build}/js`
   },
@@ -41,19 +49,12 @@ module.exports = {
     input: `${app}/pages/*.jade`
   },
 
-  static: {
-    input: [
-      `${app}/static/**/*`,
-      `!${app}/static/img`
-    ]
-  },
-
   stylus: {
+    entry: `${app}/stylus/styles.styl`,
     input: [
       `${app}/stylus/**/*.styl`,
       `${app}/atoms/**/*.styl`
     ],
-    entry: `${app}/stylus/styles.styl`,
     output: `${build}/css`
   }
 }

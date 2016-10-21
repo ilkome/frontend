@@ -11,9 +11,7 @@ const unCSS = require('gulp-uncss')
 const rename = require('gulp-rename')
 const paths = require('../paths')
 
-
 // Compile stylus
-// ==============================================
 gulp.task('stylus', () =>
   gulp.src(paths.stylus.entry)
     .pipe(plumber(error => gutil.log(gutil.colors.red('stylus error:'), error.message)))
@@ -26,9 +24,7 @@ gulp.task('stylus', () =>
     .pipe(browserSync.stream({ match: '**/*.css' }))
 )
 
-
 // Minify CSS in build folder
-// ==============================================
 gulp.task('css-min', () =>
   gulp.src(`${paths.css.output}/*.css`)
     .pipe(plumber(error => gutil.log(gutil.colors.red('css-min error:'), error.message)))

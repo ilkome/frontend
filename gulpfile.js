@@ -20,7 +20,7 @@ requireDir('./gulp/tasks')
 gulp.task('default', (done) => {
   runSequence(
     ['clean'],
-    ['images', 'jade', 'js', 'stylus', 'static'],
+    ['images', 'jade', 'stylus', 'assets'],
     ['browserSync'],
     ['watcher'],
     done
@@ -31,27 +31,20 @@ gulp.task('default', (done) => {
 gulp.task('build', (done) => {
   runSequence(
     ['clean'],
-    ['images', 'jade', 'js', 'stylus', 'static'],
-    ['css-min', 'js-min'],
+    ['images', 'jade', 'stylus', 'assets'],
     done
   )
 })
 
 // Build CSS
-gulp.task('build:css', () => {
+gulp.task('build:styles', () => {
   runSequence('stylus', 'css-min')
-})
-
-// Build and upload
-gulp.task('build:upload', () => {
-  runSequence('build', 'upload')
 })
 
 // Watch
 gulp.task('watcher', () => {
-  watch(paths.static.input, () => gulp.start('static'))
+  watch(paths.assets.input, () => gulp.start('assets'))
   watch(paths.images.input, () => gulp.start('images'))
   watch(paths.jade.input, () => runSequence('jade', 'browserSync-reload'))
   watch(paths.stylus.input, () => gulp.start('stylus'))
-  watch(paths.js.input, () => gulp.start('js'))
 })
