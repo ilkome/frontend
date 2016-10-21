@@ -1,5 +1,5 @@
-# front-end template
-A powerful front-end boilerplate. HTML5 & CSS3, Pug, Stylus, ES6, Autoprefixer, Browsersync, Gulp
+# ilkome frontend template
+A powerful frontend boilerplate. HTML5 & CSS3, Pug, Stylus, ES6, Autoprefixer, Browsersync, Gulp
 
 
 # Features
