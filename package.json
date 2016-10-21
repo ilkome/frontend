@@ -1,12 +1,12 @@
 {
-  "name": "front-end",
+  "name": "frontend",
   "version": "4.0.0",
-  "description": "A powerful front-end boilerplate. HTML5 & CSS3, Jade, Pug, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
+  "description": "A powerful frontend boilerplate. HTML5 & CSS3, Jade, Pug, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ilkome/front-end"
+    "url": "https://github.com/ilkome/frontend"
   },
   "license": "MIT",
   "scripts": {
