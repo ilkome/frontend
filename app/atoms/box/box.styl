@@ -4,13 +4,11 @@
   &_grey
     color white
     background none
-
     & ^[-1]__in
       background alpha(black, 0.5)
 
   &_darkgrey
     color white
-
     & ^[-1]__in
       background alpha(black, 0.7)
 
@@ -29,10 +27,8 @@
 
   &__in
     padding padding-main 0
-
     @media tablet
       padding (padding-main * padding-tablet) 0
-
     @media laptop
       padding (padding-main * padding-laptop) 0
 
@@ -48,10 +44,8 @@
     padding 0 padding-small
     padding-bottom padding-main
     text-align center
-
     @media tablet
       padding-bottom padding-main * padding-tablet
-
     @media laptop
       padding-bottom padding-main * padding-laptop
 
@@ -69,11 +63,9 @@
       margin 0
       font-size 36px
       line-height 30px
-
       @media tablet
         line-height @line-height * padding-tablet
         font-size @font-size * padding-tablet
-
       @media laptop
         font-size @font-size * padding-laptop
         line-height @line-height * padding-laptop
@@ -82,11 +74,9 @@
       padding-top 10px
       margin-bottom 0
       font-size 14px
-
       @media tablet
         padding-top @padding-top * padding-tablet
         font-size @font-size * padding-tablet
-
       @media laptop
         padding-top @padding-top * padding-laptop
         font-size @font-size * padding-tablet
@@ -95,6 +85,5 @@
     padding 0 padding-small
     max-width max-width
     margin 0 auto
-
     p:last-child
       margin-bottom 0

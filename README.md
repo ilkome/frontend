@@ -17,6 +17,7 @@ Template engine using Pug (ex Jade). Pug it's preprocessor HTML.
 ### JavaScript
 - Compiles ES6 to ES5.
 - Minify.
+- Support ES6 import.
 
 ### Productivity
 - Browsersync. It's runs local server and reload the browsers across all your devices when you make changes in your application folder files.
@@ -37,10 +38,11 @@ Demo: http://ilko.me/
 
 # Usage
 
-`gulp` compile App and watch files for changes.
-`gulp build` compile App
-`gulp build:css` compile styles and minify
-`gulp build:upload` compile App, minify js, remove unused CSS and upload files to server. Check gulp/config.js for settings.
+`npm run start` compile App and watch files for changes.
+`npm run build` compile App
+`npm run build:styles` compile styles and minify
+`npm run build:upload` compile App, minify js, remove unused CSS and upload files to server. Check gulp/config.js for settings.
+`npm run build:js` compile and minify js.
 
 
 # Tasks
@@ -51,10 +53,8 @@ This tasks can be run individually.
 - `markdown` compile markdown.
 - `html-prettify` prettify compiled html.
 - `images` minify images.
-- `js` compile js.
-- `js-min` uglify js.
 - `static` copy everything from static folder. Used for favicons, fonts, css.
-- `styles` compiles styles.
+- `stylus` compiles styles.
 - `css-min` analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
 - `upload` upload build folder on the server.
 
