@@ -11,8 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp styles-min",
-    "build:upload": "gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp styles-min && gulp upload",
+    "build": "gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css-min",
+    "build:upload": "gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css-min && gulp upload",
     "build:js": "cross-env NODE_ENV=production webpack --progress -p"
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "browser-sync": "^2.17.0",
-	"cross-env": "^3.1.3",
+    "cross-env": "^3.1.3",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
