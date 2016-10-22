@@ -38,7 +38,7 @@ module.exports = {
   },
 
   js: {
-    entry: `${app}/js/app.js`,
+    entry: `${app}/js/index.js`,
     output: `${build}/js`
   },
 
