@@ -11,13 +11,11 @@ const paths = require('../paths')
 
 // Minify images
 gulp.task('images', () =>
-  gulp.src(paths.images.input)
+  gulp.src(paths.images.src)
     .pipe(plumber(error => gutil.log(gutil.colors.red('images error:'), error.message)))
     .pipe(changed(paths.images.output))
     .pipe(debug({ title: 'images:' }))
-    .pipe(flatten()) // Remove structure of folders
-
-    // Minify
+    .pipe(flatten())
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [
@@ -26,7 +24,6 @@ gulp.task('images', () =>
       ],
       use: [pngquant()]
     }))
-
     .pipe(gulp.dest(paths.images.output))
     .pipe(browserSync.stream())
 )

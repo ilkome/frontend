@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "A powerful frontend boilerplate. HTML5 & CSS3, Jade, Pug, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
@@ -11,8 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css-min",
-    "build:upload": "gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css-min && gulp upload",
+    "build": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css-min",
+    "build:upload": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css-min && gulp upload",
     "build:js": "cross-env NODE_ENV=production webpack --progress -p"
   },
   "devDependencies": {

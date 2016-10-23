@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-const paths = require('./gulp/paths')
+const paths = require('./gulpfile.js/paths')
 
 const isProd = process.env.NODE_ENV === 'production'
 const plugins = []
@@ -27,7 +27,7 @@ if (isProd) {
 }
 
 module.exports = {
-  devtool: isProd ? '#source-map' : '#eval-source-map',
+  devtool: isProd ? false : '#eval-source-map',
   debug: false,
   quiet: false,
   stats: {

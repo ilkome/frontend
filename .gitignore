@@ -7,4 +7,4 @@ build/
 *.ini
 
 npm-debug.log
-gulp/config.js
+gulpfile.js/config.js

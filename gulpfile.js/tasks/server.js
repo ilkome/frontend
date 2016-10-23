@@ -1,10 +1,10 @@
 const gulp = require('gulp')
 const browserSync = require('browser-sync')
 const webpack = require('webpack')
-const paths = require('../paths')
-const webpackConfig = require('../../webpack.config')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
+const paths = require('../paths')
+const webpackConfig = require('../../webpack.config')
 
 const webpackBundler = webpack(webpackConfig)
 

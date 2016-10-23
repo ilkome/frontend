@@ -9,24 +9,28 @@ const cleanCSS = require('gulp-clean-css')
 const combineMediaQueries = require('gulp-combine-mq')
 const unCSS = require('gulp-uncss')
 const rename = require('gulp-rename')
+const sourcemaps = require('gulp-sourcemaps')
+const gulpif = require('gulp-if')
 const paths = require('../paths')
+
+const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Compile stylus
 gulp.task('stylus', () =>
   gulp.src(paths.stylus.entry)
     .pipe(plumber(error => gutil.log(gutil.colors.red('stylus error:'), error.message)))
     .pipe(debug({ title: 'stylus:' }))
-
+    .pipe(gulpif(isDevelopment, sourcemaps.init()))
     .pipe(stylus())
     .pipe(rename({ basename: 'styles' }))
-
+    .pipe(gulpif(isDevelopment, sourcemaps.write('./')))
     .pipe(gulp.dest(paths.stylus.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
 )
 
 // Minify CSS in build folder
 gulp.task('css-min', () =>
-  gulp.src(`${paths.css.output}/*.css`)
+  gulp.src(paths.css.src)
     .pipe(plumber(error => gutil.log(gutil.colors.red('css-min error:'), error.message)))
     .pipe(debug({ title: 'css clean:' }))
 

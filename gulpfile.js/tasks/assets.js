@@ -8,11 +8,10 @@ const paths = require('../paths')
 
 // Сopy everything to build folder
 gulp.task('assets', () =>
-  gulp.src(paths.assets.input)
+  gulp.src(paths.assets.src)
     .pipe(plumber(error => gutil.log(gutil.colors.red('assets error:'), error.message)))
     .pipe(changed(paths.build))
     .pipe(debug({ title: 'assets:' }))
-
     .pipe(gulp.dest(paths.build))
     .pipe(browserSync.stream())
 )

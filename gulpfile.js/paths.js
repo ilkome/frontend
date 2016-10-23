@@ -4,53 +4,43 @@ const build = './build'
 module.exports = {
   app,
   build,
-
   assets: {
-    input: [
+    src: [
       `${app}/assets/**/*`,
       `!${app}/assets/img`
     ]
   },
-
   css: {
-    input: `${app}/etc/css/*.css`,
+    src: `${build}/css/*.css`,
     output: `${build}/css`
   },
-
   html: {
     output: `${build}/*.html`
   },
-
   images: {
-    input: [
+    src: [
       `${app}/assets/img/**/*.+(jpg|png|gif|svg)`,
       `${app}/atoms/**/img/**/*.+(jpg|png|gif|svg)`
     ],
     output: `${build}/img`
   },
-
   jade: {
-    input: [
+    src: [
       `${app}/atoms/**/*.jade`,
       `${app}/pages/**/*.jade`,
       `${app}/layout/**/*.jade`
     ]
   },
-
   js: {
     entry: `${app}/js/index.js`,
     output: `${build}/js`
   },
-
-  layout: `${app}/layout`,
-
   pages: {
-    input: `${app}/pages/*.jade`
+    src: `${app}/pages/*.jade`
   },
-
   stylus: {
-    entry: `${app}/stylus/styles.styl`,
-    input: [
+    entry: `${app}/stylus/index.styl`,
+    src: [
       `${app}/stylus/**/*.styl`,
       `${app}/atoms/**/*.styl`
     ],

@@ -14,9 +14,8 @@ const conn = ftp.create({
 
 // Upload build to server
 gulp.task('upload', () =>
-  gulp.src(`${paths.build}/**/*`, { base: paths.build, buffer: false })
+  gulp.src(`${paths.build}/**/*`, { buffer: false })
     .pipe(plumber(error => gutil.log(gutil.colors.red('upload error:'), error.message)))
-
     .pipe(conn.newer('/'))
     .pipe(conn.dest(configFTP.dest))
 )
