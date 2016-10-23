@@ -38,11 +38,11 @@ Demo: http://ilko.me/
 
 # Usage
 
-`npm run start` compile App and watch files for changes.
-`npm run build` compile App
-`npm run build:styles` compile styles and minify
-`npm run build:upload` compile App, minify js, remove unused CSS and upload files to server. Check gulp/config.js for settings.
-`npm run build:js` compile and minify js.
+- `npm run start` compile App and watch files for changes.
+- `npm run build` compile App
+- `npm run build:styles` compile styles and minify
+- `npm run build:upload` compile App, minify js, remove unused CSS and upload files to server. Check gulp/config.js for settings.
+- `npm run build:js` compile and minify js.
 
 
 # Tasks
