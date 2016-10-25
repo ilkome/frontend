@@ -8,11 +8,12 @@ A powerful frontend boilerplate. HTML5 & CSS3, Pug, Stylus, ES6, Autoprefixer, B
 Template engine using Pug (ex Jade). Pug it's preprocessor HTML.
 
 ### CSS
-- Components system with Stylus. Stylus it's preprocessor CSS. It's also can be SASS, LESS.
-- Helpful mixins.
-- Minify styles.
-- Remove unused CSS styles. For example from CSS libraries like bootstrap.
-- Autoprefixer. Parse CSS and add vendor prefixes to rules.
+- Stylus compilation including source maps
+- Components system with Stylus. Stylus it's preprocessor CSS. It's also can be SASS, LESS
+- Helpful mixins
+- Minify styles
+- Remove unused CSS styles. For example from CSS libraries like bootstrap
+- Autoprefixer. Parse CSS and add vendor prefixes to rules
 
 ### JavaScript
 - Compiles ES6 to ES5.
@@ -20,9 +21,9 @@ Template engine using Pug (ex Jade). Pug it's preprocessor HTML.
 - Support ES6 import.
 
 ### Productivity
-- Browsersync. It's runs local server and reload the browsers across all your devices when you make changes in your application folder files.
+- Browsersync. It's runs local server and reload the browsers across all your devices when you make changes in your application folder files
 - Hot reload for images. Minify images: svg, png, jpg, gif
-- Upolad builded files on the server.
+- Upolad builded files on the server
 Demo: http://ilko.me/
 
 
@@ -38,7 +39,8 @@ Demo: http://ilko.me/
 
 # Usage
 
-- `npm run start` compile App and watch files for changes.
+Compile App and watch files for changes.
+- `npm run start`
 - `npm run build` compile App
 - `npm run build:styles` compile styles and minify
 - `npm run build:upload` compile App, minify js, remove unused CSS and upload files to server. Check gulp/config.js for settings.
@@ -46,7 +48,10 @@ Demo: http://ilko.me/
 
 
 # Tasks
-This tasks can be run individually.
+This command will give you a list of all tasks available.
+```bash
+gulp --tasks
+```
 
 - `browserSync-reload` reload page in all your connected devices.
 - `clean` clean build folder.
@@ -68,28 +73,31 @@ This tasks can be run individually.
     │   │       ├── img                     # Atom's images
     │   │       ├── atom-name.jade          # Atom's markdown
     │   │       └── atom-name.styl          # Atom's styles.
-    │   ├── js                              # Store JavaScript
-    │   |   └── libs                        # Store JavaScript libraries
-    │   ├── layout                          # Layout of application
+    │   ├── js                              # JavaScript
+    │   │   ├── index.js                    # Entry
+    │   |   └── libs                        # Libraries
+    │   ├── layout                          # Layout files
     │   │   ├── head.jade                   # Head
     │   │   ├── layout.jade                 # Layout
-    │   │   ├── scripts.jade                # Scripts mixin
-    │   │   └── styles.jade                 # Styles mixin
+    │   │   ├── scripts.jade                # Scripts
+    │   │   └── styles.jade                 # Styles
     │   ├── pages                           # Pages of application
     │   |   |── index.jade                  # Index
     │   |   └── contacts.jade               # Contacts
-    │   ├── static                          # Store static files
-    │   |   |── css                         # Store css files
-    │   |   |── fonst                       # Store font files
-    │   |   |── icons                       # Store favicons files
-    │   |   └── img                         # Store images files. Will minify
-    │   ├── stylus                          # Store stylus files
-    │   │   |── mixins                      # Stylus helpers mixins
-    │   │   └── index.styl                  # Main stylus file
+    │   ├── assets                          # Assets
+    │   |   |── css                         # CSS
+    │   |   |── fonst                       # Fonts
+    │   |   |── icons                       # Icons
+    │   |   └── img                         # Images files. Will minify
+    │   ├── stylus                          # Stylus
+    │   │   |── base                        # Main styles
+    │   │   |── helpers                     # Helpers mixins
+    │   │   └── index.styl
+    │   │   └── layout.styl
+    │   │   └── variavles.styl
     ├── build                               # Build folder
-    ├── gulp                                # Gulp config and tasks
-    │   ├── tasks                           # Gulp tasks
+    ├── gulpfle.js                          # Gulp config and tasks
     │   ├── config.js                       # Config for FTP connection
+    │   ├── index.js                        # Gulp main tasks and watchers
     │   └── paths.js                        # Paths config
-    ├── gulpfile.js                         # Gulp main tasks and watchers
     └── README.md
