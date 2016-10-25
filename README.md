@@ -56,7 +56,7 @@ gulp --tasks
 - `browserSync-reload` reload page in all your connected devices.
 - `clean` clean build folder.
 - `markdown` compile markdown.
-- `html-prettify` prettify compiled html.
+- `html` prettify compiled html.
 - `images` minify images.
 - `static` copy everything from static folder. Used for favicons, fonts, css.
 - `stylus` compiles styles.

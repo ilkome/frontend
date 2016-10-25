@@ -133,7 +133,7 @@ gulp.task('jade', () =>
 
 // HTML
 // ===============================================
-gulp.task('html-prettify', () =>
+gulp.task('html', () =>
   gulp.src(paths.html.output)
     .pipe(showToaster('html'))
     .pipe(debug({ title: 'html:' }))
