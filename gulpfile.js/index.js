@@ -34,11 +34,6 @@ gulp.task('build', (done) => {
   )
 })
 
-// Build styles
-gulp.task('build:styles', () => {
-  runSequence('stylus', 'css-min')
-})
-
 // Watch
 gulp.task('watcher', () => {
   watch(paths.assets.src, () => runSequence('assets', 'browserSync-reload'))
