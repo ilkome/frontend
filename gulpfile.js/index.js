@@ -106,9 +106,9 @@ gulp.task('clean', cb => del(`${paths.build}/**/*`, cb))
 gulp.task('images', () =>
   gulp.src(paths.images.src)
     .pipe(showToaster('images'))
+    .pipe(flatten())
     .pipe(changed(paths.images.output))
     .pipe(debug({ title: 'images:' }))
-    .pipe(flatten())
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [
