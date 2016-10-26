@@ -94,7 +94,7 @@ gulp --tasks
     │   │   |── helpers                     # Helpers mixins
     │   │   └── index.styl
     │   │   └── layout.styl
-    │   │   └── variavles.styl
+    │   │   └── variables.styl
     ├── build                               # Build folder
     ├── gulpfle.js                          # Gulp config and tasks
     │   ├── config.js                       # Config for FTP connection
