@@ -1,6 +1,6 @@
 /*
   ilkome frontend
-  Version 4.2.0
+  Version 4.2.1
 
   Ilya Komichev
   https://ilko.me
@@ -30,6 +30,15 @@ gulp.task('build', (done) => {
   runSequence(
     ['clean'],
     ['images', 'jade', 'stylus', 'assets'],
+    ['html'],
+    done
+  )
+})
+
+// Clean CSS
+gulp.task('build-css', (done) => {
+  runSequence(
+    ['css-min', 'css-uncss'],
     done
   )
 })

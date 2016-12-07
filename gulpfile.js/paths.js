@@ -11,6 +11,7 @@ module.exports = {
     ]
   },
   css: {
+    styles: `${build}/css/styles.css`,
     src: `${build}/css/*.css`,
     output: `${build}/css`
   },

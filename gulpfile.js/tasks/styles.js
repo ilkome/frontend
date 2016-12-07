@@ -24,13 +24,22 @@ gulp.task('css-min', () =>
   gulp.src(paths.css.src)
     .pipe(showToaster('css-min'))
     .pipe($.debug({ title: 'css-min:' }))
+    .pipe($.combineMq({ beautify: false }))
+    .pipe($.cleanCss({ keepSpecialComments: 0 }))
+    .pipe($.autoprefixer('last 4 version', 'ie 10'))
+    .pipe(gulp.dest(paths.css.output))
+    .pipe(browserSync.stream({ match: '**/*.css' }))
+)
+
+// Clean styles.css
+gulp.task('css-uncss', () =>
+  gulp.src(paths.css.styles)
+    .pipe(showToaster('css-uncss'))
+    .pipe($.debug({ title: 'css-uncss:' }))
     .pipe($.uncss({
       html: [paths.html.output],
       ignore: [/.js/]
     }))
-    .pipe($.combineMq({ beautify: false }))
-    .pipe($.cleanCss({ keepSpecialComments: 0 }))
-    .pipe($.autoprefixer('last 4 version', 'ie 10'))
     .pipe(gulp.dest(paths.css.output))
     .pipe(browserSync.stream({ match: '**/*.css' }))
 )

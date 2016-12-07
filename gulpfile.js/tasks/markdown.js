@@ -21,7 +21,7 @@ gulp.task('html', () =>
     .pipe($.jsbeautifier({
       debug: false,
       indent_char: ' ',
-      indent_size: 1,
+      indent_size: 2,
       html: {
         unformatted: ['sub', 'sup', 'b', 'i', 'u']
       }
