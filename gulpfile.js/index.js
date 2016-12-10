@@ -35,13 +35,6 @@ gulp.task('build', (done) => {
   )
 })
 
-// Clean CSS
-gulp.task('build-css', (done) => {
-  runSequence(
-    ['css-min', 'css-uncss'],
-    done
-  )
-})
 
 // Watch
 gulp.task('watcher', () => {
