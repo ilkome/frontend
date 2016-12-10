@@ -1,7 +1,7 @@
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 const ftp = require('vinyl-ftp')
-const configFTP = require('../config')
+const configFTP = require('../../ftp.config')
 const paths = require('../paths')
 const showToaster = require('../showToaster')
 

@@ -34,7 +34,7 @@ Demo: http://ilko.me/
 2. Clone this repo
 3. `cd` to project directory
 4. Run `npm install` to install required files
-5. Rename `config-demo.js` in `gulp` folder to `config.js`. Optionally you can write your FTP config
+5. Rename `ftp.config-demo.js` to `ftp.config.js`. Optionally you can write your FTP config for auto upload files to the server.
 
 
 # Usage

@@ -7,4 +7,4 @@ build/
 *.ini
 
 npm-debug.log
-gulpfile.js/config.js
+ftp.config.js
