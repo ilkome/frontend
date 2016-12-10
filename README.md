@@ -60,6 +60,7 @@ gulp --tasks
 - `stylus` compiles styles.
 - `css` analyze HTML files and clean unused CSS styles. Ignore styles with prefix `.js-`. Add vendor prefixes.
 - `upload` upload build folder on the server.
+- `zip` create archive with build files build.zip
 
 
 # Structure of main folders and files

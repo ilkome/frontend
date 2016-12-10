@@ -1,6 +1,6 @@
 /*
   ilkome frontend
-  Version 4.2.1
+  Version 4.2.2
 
   Ilya Komichev
   https://ilko.me
@@ -9,6 +9,7 @@
 const gulp = require('gulp')
 const requireDir = require('require-dir')
 const runSequence = require('run-sequence')
+const $ = require('gulp-load-plugins')()
 const watch = require('gulp-watch')
 const paths = require('./paths')
 
@@ -33,6 +34,12 @@ gulp.task('build', (done) => {
     ['html'],
     done
   )
+})
+
+gulp.task('zip', () => {
+  gulp.src('build/**/*')
+    .pipe($.zip('build.zip'))
+    .pipe(gulp.dest('./'))
 })
 
 
