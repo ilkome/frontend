@@ -1,41 +1,27 @@
-// Padding for blocks
-// ================================================
-padding-small = 30px
-padding-main = 50px
-padding-tablet = 1.3
-padding-laptop = 1.6
-
-padding-base = 30px
-padding-big = 50px
-
-
 // Colors
 // ================================================
-ct-main = #111
-white = #fff
-orange = #ec6f2f
-c-dark-grey = #242424
-cb-main = alpha(black, 0.8)
+$orange = #ec6f2f
+$color-main = black
+$color-link = $orange
 
 
 // Fonts
 // ================================================
-font-primary = 'Open Sans', sans-serif
-font-secondary = 'Droid Sans', sans-serif
+$font-primary = 'Open Sans', sans-serif
+$font-secondary = 'Droid Sans', sans-serif
+
+$font-main()
+  color $color-main
+  font-family $font-primary
 
 
 // Media
 // ================================================
-tablet = "(min-width: 768px)"
-laptop = "(min-width: 1024px)"
+$tablet = "(min-width: 768px)"
+$laptop = "(min-width: 1024px)"
 
 
 // Animation
 // ================================================
-transition-time = 0.3s
-transition-style = ease-out
-
-
-// Limits
-// ================================================
-max-width = 1366px
+$transition-time = 0.3s
+$transition-style = ease-out

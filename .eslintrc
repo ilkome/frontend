@@ -11,5 +11,10 @@
         "peerDependencies": false
       }
     ]
-  }
+  },
+  "globals": {
+    "document": true,
+    "$": true,
+    "window": true
+  },
 }

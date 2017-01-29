@@ -1,7 +1,7 @@
 {
   "name": "frontend",
-  "version": "4.2.2",
-  "description": "A powerful frontend boilerplate. HTML5 & CSS3, Jade, Pug, Stylus, ES6, React, Webpack, Autoprefixer, Browsersync",
+  "version": "4.2.3",
+  "description": "Based on powerful frontend boilerplate by ilkome.",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
   "repository": {

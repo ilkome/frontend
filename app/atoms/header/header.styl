@@ -4,17 +4,19 @@
   text-align center
   background #161616 url(../img/header-bg.jpg) center center no-repeat
   bg-cover()
-  @media tablet
+
+  @media $tablet
     font-size 1.3rem
-  @media laptop
+
+  @media $laptop
     font-size 1.5rem
 
   &__in
-    padding pxtoem(50) pxtoem(20)
+    padding em(50) em(20)
     background rgba(0,0,0,.5)
 
   &__logo
-    margin-bottom pxtoem(50)
+    margin-bottom em(50)
 
 // logo
 // ===============================================
@@ -23,9 +25,9 @@
 
   &__pic
     display block
-    square(pxtoem(150))
+    square(em(150))
     margin 0 auto
-    margin-bottom pxtoem(30)
+    margin-bottom em(30)
     background #737373 url("../img/avatar.png") center center no-repeat
     background-size 110% 110%
     border 2px solid rgba(0, 0, 0, 1)
@@ -33,51 +35,24 @@
 
   &__name
     position relative
-    padding-bottom pxtoem(13)
-    font-size pxtoem(28)
-    font-family font-secondary
+    padding-bottom em(13)
+    font-size em(28)
+    font-family $font-secondary
     font-weight 900
     line-height 1em
-    letter-spacing pxtoem(1.5)
+    letter-spacing em(1.5)
+
     &:after
       content " "
       position absolute
       left 50%
-      bottom pxtoem(5)
-      width pxtoem(40)
-      height pxtoem(1)
+      bottom em(5)
+      width em(40)
+      height em(1)
       margin-left -(@width / 2)
       background #fa6513
 
   &__job
-    font-size pxtoem(16)
-    letter-spacing pxtoem(0.5)
-    font-family font-primary
-
-// menu
-// ===============================================
-.header-menu
-  list-inline()
-
-  li
-    display block
-    &:first-child a
-      padding-top 0
-    &:last-child a
-      padding-bottom 0
-    @media tablet
-      display inline-block
-
-  a
-    font-size pxtoem(16)
-    display block
-    padding pxtoem(10) pxtoem(15)
-    font-family font-primary
-    letter-spacing 1px
-    border-bottom none
-    anim()
-    &:hover
-      color white
-    @media tablet
-      padding-top 0
-      padding-bottom 0
+    font-size em(16)
+    letter-spacing em(0.5)
+    font-family $font-primary
