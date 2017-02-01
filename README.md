@@ -41,8 +41,7 @@ Template engine using Pug (ex Jade). Pug it's preprocessor HTML.
 Compile App and watch files for changes.
 - `npm run start` development
 - `npm run build` make build
-- `npm run build:upload` make build and upload files to server
-- `npm run build:js` compile and minify js.
+- `npm run upload` make build and upload files to server
 
 
 # Tasks

@@ -12,8 +12,7 @@
   "scripts": {
     "start": "gulp",
     "build": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css && gulp zip",
-    "build:upload": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css && gulp upload",
-    "build:js": "cross-env NODE_ENV=production webpack --progress -p"
+    "upload": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css && gulp upload"
   },
   "devDependencies": {
     "babel-core": "^6.18.0",
