@@ -39,7 +39,7 @@ Template engine using Pug (ex Jade). Pug it's preprocessor HTML.
 # Usage
 
 Compile App and watch files for changes.
-- `npm run start` development
+- `npm run dev` development
 - `npm run build` make build
 - `npm run upload` make build and upload files to server
 

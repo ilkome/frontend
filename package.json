@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "description": "Based on powerful frontend boilerplate by ilkome.",
   "author": "Ilya Komichev @ilkome",
   "homepage": "http://ilko.me",
@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "gulp",
+    "dev": "gulp",
     "build": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css && gulp zip",
     "upload": "cross-env NODE_ENV=production gulp build && cross-env NODE_ENV=production webpack --progress -p && gulp css && gulp upload"
   },
