@@ -1,6 +1,6 @@
 /*
   ilkome frontend
-  Version 4.2.4
+  Version 4.3.0
 
   Ilya Komichev
   https://ilko.me

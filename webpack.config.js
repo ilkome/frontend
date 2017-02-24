@@ -4,7 +4,7 @@ const paths = require('./gulpfile.js/paths')
 
 const isProd = process.env.NODE_ENV === 'production'
 const plugins = []
-const entry = [paths.js.entry]
+const entry = ['babel-polyfill', paths.js.entry] // babel-polyfill for async/await
 
 if (isProd) {
   plugins.push(
@@ -12,23 +12,16 @@ if (isProd) {
       'process.env': { NODE_ENV: JSON.stringify('production') }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+      compress: { warnings: false }
     })
   )
 } else {
-  entry.push(
-    'webpack-hot-middleware/client?reload=true'
-  )
-  plugins.push(
-    new webpack.HotModuleReplacementPlugin()
-  )
+  entry.push('webpack-hot-middleware/client?reload=true')
+  plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 module.exports = {
   devtool: isProd ? false : '#eval-source-map',
-  debug: false,
   quiet: false,
   stats: {
     assets: true,
@@ -46,14 +39,24 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins,
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
+  modules: [
+    path.join(__dirname, 'app'),
+    'node_modules'
+  ],
+
+  extensions: ['.js'],
+
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel',
-      exclude: /node_modules/
+    rules: [{
+      test: /\.js$/,
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['es2015', { modules: false }]
+          ]
+        }
+      }]
     }]
   }
 }
