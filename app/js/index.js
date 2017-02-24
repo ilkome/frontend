@@ -5,5 +5,5 @@ $(() => {
 
 // Everything ready
 $(window).load(() => {
-  console.log('load')
+  console.log('loaded')
 })
